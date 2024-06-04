@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "D:\\KEVIN\\Programming\\Projects\\FoodWars\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6DF0DEC1-4C5E-402C-B27A-9B3BED7B8372}|FoodWars\\FoodWars.csproj|d:\\kevin\\programming\\projects\\foodwars\\foodwars\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6DF0DEC1-4C5E-402C-B27A-9B3BED7B8372}|FoodWars\\FoodWars.csproj|solutionrelative:foodwars\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6DF0DEC1-4C5E-402C-B27A-9B3BED7B8372}|FoodWars\\FoodWars.csproj|d:\\kevin\\programming\\projects\\foodwars\\foodwars\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6DF0DEC1-4C5E-402C-B27A-9B3BED7B8372}|FoodWars\\FoodWars.csproj|solutionrelative:foodwars\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DF0DEC1-4C5E-402C-B27A-9B3BED7B8372}|FoodWars\\FoodWars.csproj|d:\\kevin\\programming\\projects\\foodwars\\foodwars\\entity\\time.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6DF0DEC1-4C5E-402C-B27A-9B3BED7B8372}|FoodWars\\FoodWars.csproj|solutionrelative:foodwars\\entity\\time.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DF0DEC1-4C5E-402C-B27A-9B3BED7B8372}|FoodWars\\FoodWars.csproj|d:\\kevin\\programming\\projects\\foodwars\\foodwars\\entity\\players.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6DF0DEC1-4C5E-402C-B27A-9B3BED7B8372}|FoodWars\\FoodWars.csproj|solutionrelative:foodwars\\entity\\players.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DF0DEC1-4C5E-402C-B27A-9B3BED7B8372}|FoodWars\\FoodWars.csproj|d:\\kevin\\programming\\projects\\foodwars\\foodwars\\entity\\items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6DF0DEC1-4C5E-402C-B27A-9B3BED7B8372}|FoodWars\\FoodWars.csproj|solutionrelative:foodwars\\entity\\items.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DF0DEC1-4C5E-402C-B27A-9B3BED7B8372}|FoodWars\\FoodWars.csproj|d:\\kevin\\programming\\projects\\foodwars\\foodwars\\entity\\customers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6DF0DEC1-4C5E-402C-B27A-9B3BED7B8372}|FoodWars\\FoodWars.csproj|solutionrelative:foodwars\\entity\\customers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DF0DEC1-4C5E-402C-B27A-9B3BED7B8372}|FoodWars\\FoodWars.csproj|d:\\kevin\\programming\\projects\\foodwars\\foodwars\\view\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6DF0DEC1-4C5E-402C-B27A-9B3BED7B8372}|FoodWars\\FoodWars.csproj|solutionrelative:foodwars\\view\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,11 +39,76 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\KEVIN\\Programming\\Projects\\FoodWars\\FoodWars\\Program.cs",
+              "RelativeDocumentMoniker": "FoodWars\\Program.cs",
+              "ToolTip": "D:\\KEVIN\\Programming\\Projects\\FoodWars\\FoodWars\\Program.cs",
+              "RelativeToolTip": "FoodWars\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T23:40:48.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Time.cs",
+              "DocumentMoniker": "D:\\KEVIN\\Programming\\Projects\\FoodWars\\FoodWars\\Entity\\Time.cs",
+              "RelativeDocumentMoniker": "FoodWars\\Entity\\Time.cs",
+              "ToolTip": "D:\\KEVIN\\Programming\\Projects\\FoodWars\\FoodWars\\Entity\\Time.cs",
+              "RelativeToolTip": "FoodWars\\Entity\\Time.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T23:39:07.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Players.cs",
+              "DocumentMoniker": "D:\\KEVIN\\Programming\\Projects\\FoodWars\\FoodWars\\Entity\\Players.cs",
+              "RelativeDocumentMoniker": "FoodWars\\Entity\\Players.cs",
+              "ToolTip": "D:\\KEVIN\\Programming\\Projects\\FoodWars\\FoodWars\\Entity\\Players.cs",
+              "RelativeToolTip": "FoodWars\\Entity\\Players.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T23:38:59.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Items.cs",
+              "DocumentMoniker": "D:\\KEVIN\\Programming\\Projects\\FoodWars\\FoodWars\\Entity\\Items.cs",
+              "RelativeDocumentMoniker": "FoodWars\\Entity\\Items.cs",
+              "ToolTip": "D:\\KEVIN\\Programming\\Projects\\FoodWars\\FoodWars\\Entity\\Items.cs",
+              "RelativeToolTip": "FoodWars\\Entity\\Items.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T23:37:46.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Customers.cs",
+              "DocumentMoniker": "D:\\KEVIN\\Programming\\Projects\\FoodWars\\FoodWars\\Entity\\Customers.cs",
+              "RelativeDocumentMoniker": "FoodWars\\Entity\\Customers.cs",
+              "ToolTip": "D:\\KEVIN\\Programming\\Projects\\FoodWars\\FoodWars\\Entity\\Customers.cs",
+              "RelativeToolTip": "FoodWars\\Entity\\Customers.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T23:35:53.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "D:\\KEVIN\\Programming\\Projects\\FoodWars\\FoodWars\\Form1.cs",
-              "RelativeDocumentMoniker": "FoodWars\\Form1.cs",
-              "ToolTip": "D:\\KEVIN\\Programming\\Projects\\FoodWars\\FoodWars\\Form1.cs [Design]",
-              "RelativeToolTip": "FoodWars\\Form1.cs [Design]",
+              "DocumentMoniker": "D:\\KEVIN\\Programming\\Projects\\FoodWars\\FoodWars\\View\\Form1.cs",
+              "RelativeDocumentMoniker": "FoodWars\\View\\Form1.cs",
+              "ToolTip": "D:\\KEVIN\\Programming\\Projects\\FoodWars\\FoodWars\\View\\Form1.cs [Design]",
+              "RelativeToolTip": "FoodWars\\View\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-04T14:56:09.885Z",
               "EditorCaption": " [Design]"
