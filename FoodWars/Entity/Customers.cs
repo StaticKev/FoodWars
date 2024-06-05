@@ -8,5 +8,10 @@ namespace FoodWars.Entity
 {
     public class Customers
     {
+
+        public int CountWeight()
+        {
+            return 0;
+        }
     }
 }
