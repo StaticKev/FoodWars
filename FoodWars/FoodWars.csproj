@@ -50,6 +50,7 @@
     <Compile Include="Entity\Items.cs" />
     <Compile Include="Entity\Players.cs" />
     <Compile Include="Entity\Time.cs" />
+    <Compile Include="Utilities\CustomerQueue.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
