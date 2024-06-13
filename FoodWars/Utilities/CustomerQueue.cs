@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FoodWars.Utilities
 {
-    public class WeightedQueue<T> where T : Customers
+    public class CustomerQueue<T> where T : Customers
     {
         private T[] queue;
         private int maximumWeight;
@@ -15,7 +15,7 @@ namespace FoodWars.Utilities
         private int front;
         private int rear;
 
-        public WeightedQueue(int capacity, int maximumWeight)
+        public CustomerQueue(int capacity, int maximumWeight)
         {
             this.queue = new T[capacity];
             this.maximumWeight = maximumWeight;
