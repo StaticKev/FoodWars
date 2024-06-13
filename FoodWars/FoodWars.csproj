@@ -51,6 +51,7 @@
     <Compile Include="Entity\Players.cs" />
     <Compile Include="Entity\Time.cs" />
     <Compile Include="Utilities\CustomerQueue.cs" />
+    <Compile Include="Utilities\Randomizer.cs" />
     <Compile Include="Values\Role.cs" />
     <Compile Include="Values\Gender.cs" />
     <Compile Include="View\Form1.cs">
