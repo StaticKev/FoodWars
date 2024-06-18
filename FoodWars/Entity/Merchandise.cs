@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -14,7 +15,7 @@ namespace FoodWars
         #endregion
 
         #region Constructors
-        public Merchandise(string name, int price, int stock) : base(name)
+        public Merchandise(string name, int price, int stock, Image picture) : base(name, picture)
         {
             base.Price = price;
             if (stock <= 0) throw new ArgumentException("Initial stock must be greater than 0!");

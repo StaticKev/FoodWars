@@ -1,6 +1,7 @@
 ﻿using FoodWars.Values;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -14,12 +15,14 @@ namespace FoodWars
         private CustomerType type;
         private Role role;
         private List<Items> orders;
+        private Image picture;
 
-        public Customers(CustomerType customerType, Role role)
+        public Customers(CustomerType customerType, Role role, Image picture)
         {
             this.Type = customerType;
             this.Role = role;
             this.Orders = new List<Items>();
+            this.Picture = picture;
         }
 
         public string Name { get => name; set => name = value; }
@@ -40,6 +43,15 @@ namespace FoodWars
                     else if (value == null) throw new ArgumentException("Attempted to assign an empty list of \'Items\'!");
                     else orders = value;
                 }
+            }
+        }
+        public Image Picture
+        {
+            get => picture;
+            set
+            {
+                if (value == null) throw new ArgumentException("No image specified!");
+                else this.picture = value;
             }
         }
 
