@@ -55,7 +55,7 @@
     <Compile Include="Entity\Player.cs" />
     <Compile Include="Repository\PlayerRepo.cs" />
     <Compile Include="Service\GameService.cs" />
-    <Compile Include="Entity\Timer.cs" />
+    <Compile Include="Entity\Time.cs" />
     <Compile Include="Utilities\CustomerQueue.cs" />
     <Compile Include="Utilities\IngredientsMap.cs" />
     <Compile Include="Utilities\Randomizer.cs" />

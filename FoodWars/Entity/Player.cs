@@ -12,7 +12,7 @@ namespace FoodWars
         private string name;
         private int totalIncome;
         private Image picture;
-        private Timer timer;
+        private Time timer;
         #endregion
 
         #region Constructors
@@ -21,7 +21,7 @@ namespace FoodWars
             this.Name = name;
             this.TotalIncome = 0;
             this.Picture = picture;
-            this.Timer = new Timer();
+            this.Timer = new Time();
         }
         #endregion
 
@@ -53,7 +53,7 @@ namespace FoodWars
                 else this.picture = value;
             }
         }
-        public Timer Timer
+        public Time Timer
         {
             get => timer;
             private set => timer = value;
