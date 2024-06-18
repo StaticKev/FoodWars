@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FoodWars.Values
+namespace FoodWars.Repository
 {
-    public enum Gender
+    public class PlayerRepo
     {
-        MALE, 
-        FEMALE,
-        CHILD
+
+        public PlayerRepo()
+        {
+
+        }
+
     }
 }

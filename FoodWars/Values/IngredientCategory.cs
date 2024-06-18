@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FoodWars.Entity
+namespace FoodWars.Values
 {
-    public class Customers
+    public enum IngredientCategory
     {
-
-        public int CountWeight()
-        {
-            return 0;
-        }
+        RICE,
+        PROTEIN,
+        VEGETABLES,
+        SIDE_DISHES
     }
 }

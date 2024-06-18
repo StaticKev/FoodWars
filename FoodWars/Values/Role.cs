@@ -12,7 +12,7 @@ namespace FoodWars.Values
         BUSINESS_MAN,
         SAMURAI, 
         NOBLEMAN,
-        ROYAl_FAMILY,
+        ROYAL_FAMILY,
         KING
     }
 }
