@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FoodWars.Entity
+namespace FoodWars.Values
 {
-    internal class Players
+    public enum CustomerType
     {
+        MALE, 
+        FEMALE,
+        CHILD
     }
 }

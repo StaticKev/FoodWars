@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FoodWars.Entity
+namespace FoodWars.Values
 {
-    internal class Time
+    public enum GlassSize
     {
+        SMALL,
+        MEDIUM,
+        LARGE
     }
 }
