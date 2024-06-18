@@ -1,6 +1,7 @@
 ﻿using FoodWars.Values;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -16,7 +17,7 @@ namespace FoodWars
         #endregion
 
         #region Constructors
-        public Beverages(string name, bool isCold, GlassSize size) : base(name)
+        public Beverages(string name, bool isCold, GlassSize size, Image picture) : base(name, picture)
         {
             this.IsCold = isCold;
             this.Size = size;

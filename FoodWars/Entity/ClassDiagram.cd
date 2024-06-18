@@ -1,23 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="FoodWars.Customers">
-    <Position X="14" Y="0.75" Width="1.5" />
+    <Position X="4.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAhAAAAAAAAEAAAABQAAAAFAAAAAQAAgAAAAAA=</HashCode>
+      <HashCode>AAEAgAAhAIAAAAAAEAAAABQAAAAFAAAAAQAAgAAAAAA=</HashCode>
       <FileName>Entity\Customer.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="orders" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="FoodWars.Ingredients">
     <Position X="7" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAQAAAAAAAAAAAAQAAAAEAAAAAAAIAAAACAA=</HashCode>
+      <HashCode>AAABgAAAAYAAAAAAAAAAAAQAAAAEAAAAAAAIAAAACAA=</HashCode>
       <FileName>Entity\Ingredients.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FoodWars.Items">
-    <Position X="9.25" Y="0.75" Width="1.5" />
+    <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAQAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAABgAAAAYAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\Items.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -46,18 +49,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="FoodWars.Timer">
-    <Position X="4" Y="1.25" Width="1.5" />
+    <Position X="13.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\Timer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FoodWars.Player">
-    <Position X="4" Y="2.75" Width="1.5" />
+  <Class Name="FoodWars.Players">
+    <Position X="13.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAgAAACIAAAAgAABAAAAQAAAAEAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Entity\Player.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="timer" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

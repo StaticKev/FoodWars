@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -14,7 +15,7 @@ namespace FoodWars
         #endregion
 
         #region Constructors
-        public Foods(string name) : base(name)
+        public Foods(string name, Image picture) : base(name, picture)
         {
             this.Ingredients = new List<Ingredients>();
         }

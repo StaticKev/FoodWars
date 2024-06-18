@@ -7,5 +7,16 @@ namespace FoodWars
 {
     public class Timer
     {
+
+        #region Constructors
+        public Timer()
+        {
+
+        }
+        public Timer(int interval)
+        {
+
+        }
+        #endregion
     }
 }

@@ -1,8 +1,10 @@
 ﻿using FoodWars.Values;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace FoodWars
 {
@@ -14,14 +16,16 @@ namespace FoodWars
         private string name;
         private int price;
         private IngredientCategory category;
+        private Image picture;
         #endregion
 
         #region Constructors
-        public Ingredients(string name, int price, IngredientCategory category)
+        public Ingredients(string name, int price, IngredientCategory category, Image picture)
         {
             this.Name = name;
             this.Price = price;
             this.Category = category;
+            this.Picture = picture;
         }
         #endregion
 
@@ -47,16 +51,15 @@ namespace FoodWars
         public IngredientCategory Category
         {
             get => category;
-            private set
+            private set => this.category = value;
+        }
+        public Image Picture 
+        {
+            get => picture;
+            set
             {
-                if (value == null)
-                {
-                    throw new ArgumentException("Category can't be null!");
-                }
-                else
-                {
-                    this.category = value;
-                }
+                if (value == null) throw new ArgumentException("No image specified!");
+                else this.picture = value;
             }
         }
         #endregion

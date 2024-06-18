@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 namespace FoodWars
 {
@@ -12,12 +13,14 @@ namespace FoodWars
         #region Data Members
         private string name;
         private int price;
+        private Image picture;
         #endregion
 
         #region Constructors
-        public Items(string name)
+        public Items(string name, Image picture)
         {
             this.name = name;
+            this.Picture = picture;
         }
         #endregion
 
@@ -46,6 +49,15 @@ namespace FoodWars
                     if (value <= 0) throw new ArgumentException("Price must be greater than 0!");
                     else this.price = value;
                 }
+            }
+        }
+        public Image Picture
+        {
+            get => picture;
+            set
+            {
+                if (value == null) throw new ArgumentException("No image specified!");
+                else this.picture = value;
             }
         }
         #endregion
