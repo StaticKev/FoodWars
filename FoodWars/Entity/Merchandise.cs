@@ -15,9 +15,8 @@ namespace FoodWars
         #endregion
 
         #region Constructors
-        public Merchandise(string name, int price, int stock, Image picture) : base(name, picture)
+        public Merchandise(string name, int price, int stock, Image picture) : base(name, price, picture)
         {
-            base.Price = price;
             if (stock <= 0) throw new ArgumentException("Initial stock must be greater than 0!");
             else this.Stock = stock;
         }
