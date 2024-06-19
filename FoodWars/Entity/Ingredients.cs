@@ -20,6 +20,7 @@ namespace FoodWars
         #endregion
 
         #region Constructors
+
         public Ingredients(string name, int price, IngredientCategory category, Image picture)
         {
             this.Name = name;
@@ -58,8 +59,9 @@ namespace FoodWars
             get => picture;
             set
             {
-                if (value == null) throw new ArgumentException("No image specified!");
-                else this.picture = value;
+                this.picture = value; // TEST_PURPOSE
+                /*                if (value == null) throw new ArgumentException("No image specified!");
+                                else this.picture = value;*/
             }
         }
         #endregion
