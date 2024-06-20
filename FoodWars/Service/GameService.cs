@@ -10,30 +10,38 @@ using System.Timers;
 
 namespace FoodWars.Service
 {
-    internal class GameService
+    public class GameService
     {
 
         private PlayerRepo repo;
 
-        List<Ingredients> riceIngredients;
-        List<Ingredients> proteinIngredients;
-        List<Ingredients> vegetableIngredients;
-        List<Ingredients> sideDishesIngredients;
+        private List<Ingredients> riceIngredients;
+        private List<Ingredients> proteinIngredients;
+        private List<Ingredients> vegetableIngredients;
+        private List<Ingredients> sideDishesIngredients;
 
-        IngredientsMap availableIngredients;
-        Merchandise[] merch;
-        CustomerType[] customerTypes;
+        private IngredientsMap availableIngredients;
+        private BeverageType[] availableBeverages;
+        private int allowedBeverages;
+        private Merchandise[] merch;
+        private CustomerType[] customerTypes;
 
-        CustomerQueue customerQueue;
-        Customers[] chairs;
-        Time openDuration; // ============================== BELOM DIINSTANSIASI ==============================
+        private CustomerQueue customerQueue;
+        private Customers[] chairs;
+        private int dailyRevenue; // Diinisialisasi saat saat service dibuat. Saat game berakhir, tambahkan pada totalRevenue milik player, kemudian reset menjadi 0.
+        private Time openDuration; // ============================== BELOM DIINSTANSIASI ==============================
         // Buat satu class untuk menghitung interval antar customer sesuai aturan yang berlaku
+
+        private Items chosenItem; // Item yang dipilih untuk diberikan kepada pelanggan.
+        private Foods foodBeingPrepared; // Makanan yang sedang disiapkan di meja penyajian.
+        private Beverages beveragesBeingPrepared; // Minuman yang sedang disiapkan pada dispenser minuman.
+
 
         public GameService(PlayerRepo repo)
         {
             this.repo = repo;
 
-            // JANGAN LUPA ISI PICTURE!
+            // ============================== JANGAN LUPA ISI PICTURE! ==============================
             riceIngredients = new List<Ingredients>
             {
                 new Ingredients("Regular Rice", 5_000, IngredientCategory.RICE, null),
@@ -44,13 +52,11 @@ namespace FoodWars.Service
             {
                 new Ingredients("Tonkatsu", 30_000, IngredientCategory.PROTEIN, null),
                 new Ingredients("Karage", 20_000, IngredientCategory.PROTEIN, null),
-                new Ingredients("Ebi Furai", 25_000, IngredientCategory.PROTEIN, null),
-                new Ingredients("Tofu", 15_000, IngredientCategory.PROTEIN, null)
+                new Ingredients("Ebi Furai", 25_000, IngredientCategory.PROTEIN, null)
             };
             vegetableIngredients = new List<Ingredients>
             {
                 new Ingredients("Pickled Radish", 5_000, IngredientCategory.VEGETABLES, null),
-                new Ingredients("Pickled Cucumber", 5_000, IngredientCategory.VEGETABLES, null),
                 new Ingredients("Edamame", 5_000, IngredientCategory.VEGETABLES, null),
                 new Ingredients("Hibiki Salad", 5_000, IngredientCategory.VEGETABLES, null)
             };
@@ -62,7 +68,7 @@ namespace FoodWars.Service
             };
 
             availableIngredients = new IngredientsMap();
-
+            availableBeverages = new BeverageType[] { BeverageType.WATER, BeverageType.OCHA, BeverageType.SAKE };
             merch = new Merchandise[]
             {
                 new Merchandise("Keychain", 70_000, 2, null),
@@ -76,15 +82,54 @@ namespace FoodWars.Service
 
         public void StartGame(int level)
         {
+            #region BELOM_DI_TEST
             // Parameter ketiga itu batasan jenis yang tersedia pada level tertentu dihitung sesuai level!!
             // Kalau sudah level 100 keatas buat = count.
             int allowedRice = 1;
             int allowedProtein = 1;
             int allowedVegetable = 1;
             int allowedSideDishes = 1;
+            int allowedBeverages = 1;
 
             // Pengecekan untuk batasan bahan
-            
+            if (level >= 100) {
+                allowedRice = riceIngredients.Count;
+                allowedProtein = proteinIngredients.Count;
+                allowedVegetable = vegetableIngredients.Count;
+                allowedSideDishes = sideDishesIngredients.Count;
+                allowedBeverages = availableBeverages.Count();
+            }
+            else
+            {
+                int tempLevel = 0;
+                for (int i = 0; i < 1; i++)
+                {
+                    if (tempLevel >= 10)
+                    {
+                        allowedProtein++;
+                        if (tempLevel >= 20)
+                        {
+                            allowedVegetable++;
+                            if (tempLevel >= 30)
+                            {
+                                allowedRice++;
+                                if (tempLevel >= 40)
+                                {
+                                    allowedSideDishes++;
+                                }
+                            }
+                        }
+                    }
+                    if (tempLevel > 50) tempLevel %= 50;
+                    else break;
+                }
+            }
+
+            if (level % 50 == 0)
+            {
+                allowedBeverages += level / 50;
+            }
+            #endregion
 
             availableIngredients.Add(IngredientCategory.RICE, riceIngredients, allowedRice);
             availableIngredients.Add(IngredientCategory.PROTEIN, proteinIngredients, allowedProtein);
