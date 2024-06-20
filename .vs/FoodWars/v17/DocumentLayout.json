@@ -44,7 +44,7 @@
               "RelativeDocumentMoniker": "FoodWars\\Service\\GameService.cs",
               "ToolTip": "D:\\KEVIN\\Programming\\Projects\\FoodWars\\FoodWars\\Service\\GameService.cs",
               "RelativeToolTip": "FoodWars\\Service\\GameService.cs",
-              "ViewState": "AQIAADcAAAAAAAAAAAAAwGAAAAAMAAAA",
+              "ViewState": "AQIAACwAAAAAAAAAAAAqwIMAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-19T06:13:11.321Z",
               "IsPinned": true,
@@ -60,7 +60,8 @@
               "RelativeToolTip": "FoodWars\\Utilities\\IngredientsMap.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T09:06:06.154Z"
+              "WhenOpened": "2024-06-19T09:06:06.154Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -72,7 +73,8 @@
               "RelativeToolTip": "FoodWars\\Entity\\Beverages.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T08:58:40.862Z"
+              "WhenOpened": "2024-06-19T08:58:40.862Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -84,7 +86,8 @@
               "RelativeToolTip": "FoodWars\\Entity\\Ingredients.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T08:55:27.436Z"
+              "WhenOpened": "2024-06-19T08:55:27.436Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -96,7 +99,8 @@
               "RelativeToolTip": "FoodWars\\Entity\\Foods.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAAA2wBEAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T08:44:57.026Z"
+              "WhenOpened": "2024-06-19T08:44:57.026Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -108,7 +112,8 @@
               "RelativeToolTip": "FoodWars\\Entity\\Merchandise.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAADwvw8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T07:52:21.487Z"
+              "WhenOpened": "2024-06-18T07:52:21.487Z",
+              "EditorCaption": ""
             }
           ]
         }
