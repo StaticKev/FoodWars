@@ -60,13 +60,17 @@ namespace FoodWars
         public Image Picture
         {
             get => picture;
-            set
+            private set
             {
                 this.picture = value; // TEST_PURPOSE
 /*                if (value == null) throw new ArgumentException("No image specified!");
                 else this.picture = value;*/
             }
         }
+        #endregion
+
+        #region Methods
+        public abstract bool ContentEquals(Items item);
         #endregion
     }
 }

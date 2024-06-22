@@ -13,22 +13,29 @@ namespace FoodWars
 
         #region Data Members
         private bool isCold;
+        private BeverageType type;
         private GlassSize size;
         #endregion
 
         #region Constructors
-        public Beverages(string name, bool isCold, GlassSize size, Image picture) : base(name, picture)
+        public Beverages(string name, bool isCold, BeverageType beverageType, GlassSize size, Image picture) : base(name, picture)
         {
             this.IsCold = isCold;
             this.Size = size;
+            this.BeverageType = beverageType;
             GenerateName();
 
-            int price = 5000;
+            int price = 0;
+
+            if (this.BeverageType == BeverageType.WATER) price += 5000;
+            else if (this.BeverageType == BeverageType.OCHA) price += 7000;
+            else price += 10000;
+
             if (this.IsCold) price += 1000;
 
-            if (size.Equals(GlassSize.SMALL)) price += 2000;
-            else if (size.Equals(GlassSize.MEDIUM)) price += 3000;
-            else price += 4000;
+            if (size.Equals(GlassSize.SMALL)) price += (int)(price * 0.3);
+            else if (size.Equals(GlassSize.MEDIUM)) price += (int)(price * 0.6);
+            else price += (int)(price * 0.8);
             base.Price = price;
         }
         #endregion
@@ -39,6 +46,11 @@ namespace FoodWars
             get => isCold;
             private set => isCold = value;
         }
+        public BeverageType BeverageType
+        {
+            get => BeverageType;
+            private set => BeverageType = value;
+        }
         public GlassSize Size
         {
             get => size;
@@ -47,13 +59,21 @@ namespace FoodWars
         #endregion
 
         #region Methods
+        public override bool ContentEquals(Items item)
+        {
+            if (item.Name.Equals(this.Name)) return true;
+            else return false;
+        }
+
         // POTENTIALLY_BEING_MODIFIED_LATER
         private void GenerateName()
         {
             string name = "";
 
-            if (this.IsCold) name += this.Size + " cold ocha";
-            else name += this.Size + " hot ocha";
+            if (this.IsCold) name += this.Size + " cold ";
+            else name += this.Size + " hot ";
+
+            name += this.BeverageType;
 
             base.Name = name;
         }

@@ -34,6 +34,12 @@ namespace FoodWars
         #endregion
 
         #region Methods
+        public override bool ContentEquals(Items item)
+        {
+            if (item.Name.Equals(this.Name)) return true;
+            else return false;
+        }
+
         public void AddIngredient(Ingredients ingredient)
         {
             if (ingredient == null)
