@@ -8,7 +8,7 @@ namespace FoodWars.Values
 {
     public enum BeverageType
     {
-        WATER,
+        WATER, 
         OCHA, 
         SAKE
     }

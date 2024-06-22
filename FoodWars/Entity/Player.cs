@@ -12,7 +12,6 @@ namespace FoodWars
         private string name;
         private int totalIncome;
         private Image picture;
-        private Time timer;
         #endregion
 
         #region Constructors
@@ -21,7 +20,6 @@ namespace FoodWars
             this.Name = name;
             this.TotalIncome = 0;
             this.Picture = picture;
-            this.Timer = new Time();
         }
         #endregion
 
@@ -52,11 +50,6 @@ namespace FoodWars
                 if (value == null) throw new ArgumentException("No image specified!");
                 else this.picture = value;
             }
-        }
-        public Time Timer
-        {
-            get => timer;
-            private set => timer = value;
         }
         #endregion
 

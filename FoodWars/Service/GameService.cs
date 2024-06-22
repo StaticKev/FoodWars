@@ -4,6 +4,7 @@ using FoodWars.Values;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
@@ -27,12 +28,15 @@ namespace FoodWars.Service
         private CustomerType[] customerTypes;
 
         private CustomerQueue customerQueue;
+
+        // Kelihatan User
         private Customers[] chairs;
+        private Customers nextCustomer; // Diinisialisasi setelah CustomerQueue digenerate
         private int dailyRevenue; // Diinisialisasi saat saat service dibuat. Saat game berakhir, tambahkan pada totalRevenue milik player, kemudian reset menjadi 0.
         private Time openDuration; // ============================== BELOM DIINSTANSIASI ==============================
         // Buat satu class untuk menghitung interval antar customer sesuai aturan yang berlaku
 
-        private Items chosenItem; // Item yang dipilih untuk diberikan kepada pelanggan.
+        private Items chosenItem; // Item yang dipilih untuk diberikan kepada pelanggan. 
         private Foods foodBeingPrepared; // Makanan yang sedang disiapkan di meja penyajian.
         private Beverages beveragesBeingPrepared; // Minuman yang sedang disiapkan pada dispenser minuman.
 
@@ -78,11 +82,11 @@ namespace FoodWars.Service
             customerTypes = new CustomerType[] {CustomerType.MALE, CustomerType.FEMALE, CustomerType.CHILD};
 
             chairs = new Customers[4];
+
         }
 
         public void StartGame(int level)
         {
-            #region BELOM_DI_TEST
             // Parameter ketiga itu batasan jenis yang tersedia pada level tertentu dihitung sesuai level!!
             // Kalau sudah level 100 keatas buat = count.
             int allowedRice = 1;
@@ -124,12 +128,7 @@ namespace FoodWars.Service
                     else break;
                 }
             }
-
-            if (level % 50 == 0)
-            {
-                allowedBeverages += level / 50;
-            }
-            #endregion
+            allowedBeverages = level / 50 + 1;
 
             availableIngredients.Add(IngredientCategory.RICE, riceIngredients, allowedRice);
             availableIngredients.Add(IngredientCategory.PROTEIN, proteinIngredients, allowedProtein);
@@ -137,6 +136,8 @@ namespace FoodWars.Service
             availableIngredients.Add(IngredientCategory.SIDE_DISHES, sideDishesIngredients, allowedSideDishes);
 
             customerQueue = GenerateQueue(level);
+
+            // Membuka semua bahan" yang diperlukan
 
             // Nyalakan timer
             
@@ -290,10 +291,14 @@ namespace FoodWars.Service
             return customerQueue;
 
             // Membuat customer sesuai dengan spesifikasi yang diberikan
-            Customers GenerateRandomizedCustomer(int itemCount, CustomerType type, Role role, IngredientsMap availableIngredients, Merchandise[] merch)
+            Customers GenerateRandomizedCustomer(int itemCount, CustomerType customerType, Role role, IngredientsMap availableIngredients, Merchandise[] merch)
             {
+                if (role == Role.KING)
+                {
+                    customerType = CustomerType.MALE;
+                }
                 // JANGAN LUPA ISI PICTURE! (Yang ini pake pengecekan, bergantung pada type, dan role)
-                Customers customer = new Customers(type, role, null);
+                Customers customer = new Customers(customerType, role, null);
 
                 int availableItems = 3;
 
@@ -317,16 +322,21 @@ namespace FoodWars.Service
                     }
                     else if (option == 1)
                     {
-                        bool isCold = false;
-                        if (1 == Randomizer.Generate(1)) isCold = true;
-
                         int glassOption = Randomizer.Generate(3);
                         GlassSize glassSize = GlassSize.SMALL;
                         if (glassOption == 1) glassSize = GlassSize.MEDIUM;
                         else if (glassOption == 2) glassSize = GlassSize.LARGE;
 
-                        // JANGAN LUPA ISI PICTURE! (Yang ini pake pengecekan, bergantung pada type, dan role)
-                        Beverages beverage = new Beverages("", isCold, glassSize, null);
+                        bool isCold = false;
+                        if (Randomizer.Generate(2) == 1) isCold = true;
+
+                        int beverageOption = Randomizer.Generate(allowedBeverages);
+                        BeverageType beverageType = BeverageType.WATER;
+                        if (beverageOption == 1) beverageType = BeverageType.OCHA;
+                        else if (beverageOption == 2) beverageType = BeverageType.SAKE;
+
+                        // JANGAN LUPA ISI PICTURE! (Yang ini pake pengecekan, bergantung pada isCold, beverageType, dan glassSize)
+                        Beverages beverage = new Beverages("", isCold, beverageType, glassSize, null);
 
                         try
                         {
@@ -383,8 +393,6 @@ namespace FoodWars.Service
             }
 
         }
-
-
 
     }
 }

@@ -69,6 +69,14 @@ namespace FoodWars.Utilities
             }
             return randomizedIngredient;
         }
+
+        public void ResetAllowedAmount()
+        {
+            for (int i = 0; i < allIngredients.Count; i++)
+            {
+                allowedAmount[i] = 1;
+            }
+        }
         #endregion
     }
 }
