@@ -93,7 +93,7 @@ namespace FoodWars.Service
             int allowedProtein = 1;
             int allowedVegetable = 1;
             int allowedSideDishes = 1;
-            int allowedBeverages = 1;
+            allowedBeverages = 1;
 
             // Pengecekan untuk batasan bahan
             if (level >= 100) {
@@ -210,9 +210,6 @@ namespace FoodWars.Service
             int randomizedRoleCustomer = (int)(customerAmount * 0.2);
             int fixedRoleCustomer = customerAmount - randomizedRoleCustomer;
 
-            // Queue yang akan dikembalikan
-            CustomerQueue customerQueue = new CustomerQueue(customerAmount);
-
             // Menentukan rasio dari 80% customer
             List<int> customerRoleRatio = new List<int>();
             if (level > 40)
@@ -256,6 +253,9 @@ namespace FoodWars.Service
             {
                 customerRoleRatio.Add(fixedRoleCustomer);
             }
+
+            // Queue yang akan dikembalikan
+            CustomerQueue customerQueue = new CustomerQueue(customerAmount);
 
             // Mengisi queue sesuai dengan aturan
             for (int i = fixedRoleCustomer; i > 0; i--)
@@ -308,7 +308,7 @@ namespace FoodWars.Service
                     if (option == 0)
                     {
                         // JANGAN LUPA ISI PICTURE!
-                        Foods food = new Foods("", null); 
+                        Foods food = new Foods("", null);
 
                         food.AddIngredient(availableIngredients.GetRandomIngredient(IngredientCategory.RICE));
                         food.AddIngredient(availableIngredients.GetRandomIngredient(IngredientCategory.PROTEIN));
@@ -349,15 +349,13 @@ namespace FoodWars.Service
                         try
                         {
                             int totalMerchStock = 0;
-                            bool isAvailableToSell = false;
                             // Cek apakah ada merch yang dapat dijual (semua stok merch != 0), kalau tidak ada, availableItems--, i--, kembali ke awal.
                             foreach (Merchandise m in merch)
                             {
-                                if (m.Stock > 0) isAvailableToSell = true;
                                 totalMerchStock += m.Stock;
                             }
 
-                            if (isAvailableToSell)
+                            if (totalMerchStock > 0)
                             {
                                 int chosenMerch = Randomizer.Generate(merch.Length);
                                 while (true)
@@ -374,6 +372,9 @@ namespace FoodWars.Service
                                         if (totalMerchStock > 0)
                                         {
                                             chosenMerch = Randomizer.Generate(merch.Length);
+                                        }
+                                        else
+                                        {
                                             break;
                                         }
                                     }

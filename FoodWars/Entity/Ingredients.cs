@@ -20,7 +20,6 @@ namespace FoodWars
         #endregion
 
         #region Constructors
-
         public Ingredients(string name, int price, IngredientCategory category, Image picture)
         {
             this.Name = name;

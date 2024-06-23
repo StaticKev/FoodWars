@@ -36,12 +36,8 @@ namespace FoodWars
             get => name;
             set
             {
-                if (this.Name != "") throw new ArgumentException("Name already assigned!");
-                else
-                {
-                    if (value == "") throw new ArgumentException("Name can't be empty!");
-                    else this.name = value;
-                }
+                if (this.Name != null && !this.Name.Equals("")) throw new ArgumentException("Name already assigned!");
+                else this.name = value;
             }
         }
         public int Price

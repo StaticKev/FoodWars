@@ -8,6 +8,8 @@ namespace FoodWars
 {
     public class Players
     {
+        // TAMBAHKAN ATRIBUT SESUAI YANG DI PPT!
+        // bestIncome, highestLevel, totalIncome
         #region Data Members
         private string name;
         private int totalIncome;

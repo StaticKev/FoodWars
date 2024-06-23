@@ -45,7 +45,7 @@ namespace FoodWars.Utilities
 
         public Customers DeQueue()
         {
-            if (front == queue.Length)
+            if (!HasNext())
             {
                 throw new ArgumentException("Reached end of queue!");
             }
@@ -78,7 +78,12 @@ namespace FoodWars.Utilities
 
         public bool IsEmpty()
         {
-            return front == rear + 1 || rear == -1;
+            return rear == -1;
+        }
+
+        public bool HasNext()
+        {
+            return front < rear + 1;
         }
 
         public int Size()
