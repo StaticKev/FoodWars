@@ -48,8 +48,8 @@ namespace FoodWars
         }
         public BeverageType BeverageType
         {
-            get => BeverageType;
-            private set => BeverageType = value;
+            get => type;
+            private set => type = value;
         }
         public GlassSize Size
         {
