@@ -8,11 +8,11 @@ namespace FoodWars
 {
     public class Players
     {
-        // TAMBAHKAN ATRIBUT SESUAI YANG DI PPT!
-        // bestIncome, highestLevel, totalIncome
         #region Data Members
         private string name;
-        private int totalIncome;
+        private int bestIncome;
+        private long totalIncome;
+        private int bestLevel;
         private Image picture;
         #endregion
 
@@ -35,13 +35,31 @@ namespace FoodWars
                 else this.name = value;
             }
         }
-        public int TotalIncome
+        public int BestIncome
+        {
+            get => bestIncome;
+            set
+            {
+                if (value <= 0) throw new ArgumentException("Best income must be greater than 0!");
+                else this.bestIncome = value;
+            }
+        }
+        public long TotalIncome
         {
             get => totalIncome;
             set
             {
                 if (value < 0) throw new ArgumentException("Total income can't be negative!");
                 else this.totalIncome = value;
+            }
+        }
+        public int BestLevel
+        {
+            get => bestLevel;
+            set
+            {
+                if (value <= 0) throw new ArgumentException("Best level must be greater than 0!");
+                else this.bestLevel = value;
             }
         }
         public Image Picture

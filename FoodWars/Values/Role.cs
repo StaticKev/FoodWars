@@ -11,8 +11,7 @@ namespace FoodWars.Values
         FOLK,
         BUSINESS_MAN,
         SAMURAI, 
-        NOBLEMAN,
-        ROYAL_FAMILY,
-        KING
+        NOBLE,
+        ROYAL_FAMILY
     }
 }
