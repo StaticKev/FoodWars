@@ -57,7 +57,11 @@ namespace FoodWars
         #region Methods
         public void Add(int addSec)
         {
-            int sec = this.Hour * 3600 + this.Minute * 60 + this.Second + addSec;
+            int sec = this.Hour * 3600 + this.Minute * 60 + this.Second;
+            if (!(sec + addSec < 0))
+            {
+                sec += addSec;
+            }
             this.Hour = sec / 3600;
             this.Minute = sec % 3600 / 60;
             this.Second = sec % 60;

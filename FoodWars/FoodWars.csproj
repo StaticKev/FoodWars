@@ -52,7 +52,7 @@
     <Compile Include="Entity\Ingredients.cs" />
     <Compile Include="Entity\Items.cs" />
     <Compile Include="Entity\Merchandise.cs" />
-    <Compile Include="Entity\Player.cs" />
+    <Compile Include="Entity\Players.cs" />
     <Compile Include="Repository\PlayerRepo.cs" />
     <Compile Include="Service\GameService.cs" />
     <Compile Include="Entity\Time.cs" />

@@ -13,8 +13,8 @@ namespace FoodWars.Service
 {
     public class GameService
     {
-
         private PlayerRepo repo;
+        private Players player; // Menyimpan status player yang sedang bermain saat ini. (Player cuma satu kah?)
 
         private List<Ingredients> riceIngredients;
         private List<Ingredients> proteinIngredients;
@@ -39,7 +39,6 @@ namespace FoodWars.Service
         private Items chosenItem; // Item yang dipilih untuk diberikan kepada pelanggan. 
         private Foods foodBeingPrepared; // Makanan yang sedang disiapkan di meja penyajian.
         private Beverages beveragesBeingPrepared; // Minuman yang sedang disiapkan pada dispenser minuman.
-
 
         public GameService(PlayerRepo repo)
         {
@@ -81,7 +80,7 @@ namespace FoodWars.Service
             };
             customerTypes = new CustomerType[] {CustomerType.MALE, CustomerType.FEMALE, CustomerType.CHILD};
 
-            chairs = new Customers[4];
+            chairs = new Customers[3];
 
         }
 
@@ -137,11 +136,11 @@ namespace FoodWars.Service
 
             customerQueue = GenerateQueue(level);
 
-            // Membuka semua bahan" yang diperlukan
+            // Membuka semua bahan" yang diperlukan: Ini ditaroh di view
 
-            // Nyalakan timer
+            // Nyalakan timer, update tampilan 
             
-            // Mulai tempatkan pengunjung pada kursi yang tersedia
+            // Mulai tempatkan pengunjung pada kursi yang tersedia, update tampilan 
 
         }
 
@@ -163,16 +162,11 @@ namespace FoodWars.Service
 
                         if (level >= 20)
                         {
-                            availableRole.Add(Role.NOBLEMAN);
+                            availableRole.Add(Role.NOBLE);
 
                             if (level >= 30)
                             {
                                 availableRole.Add(Role.ROYAL_FAMILY);
-
-                                if (level >= 40)
-                                {
-                                    availableRole.Add(Role.KING);
-                                }
                             }
                         }
                     }
@@ -212,24 +206,15 @@ namespace FoodWars.Service
 
             // Menentukan rasio dari 80% customer
             List<int> customerRoleRatio = new List<int>();
-            if (level > 40)
-            {
-                customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.3));
-                customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.2));
-                customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.2));
-                customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.15));
-                customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.1));
-                customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.05));
-
-                if (customerRoleRatio.Sum() < fixedRoleCustomer) customerRoleRatio[0]++;
-            }
-            else if (level > 30)
+            if (level > 30)
             {
                 customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.35));
                 customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.3));
                 customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.2));
                 customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.1));
                 customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.05));
+
+                if (customerRoleRatio.Sum() < fixedRoleCustomer) customerRoleRatio[0]++;
             }
             else if (level > 20)
             {
@@ -265,7 +250,7 @@ namespace FoodWars.Service
                     int randomIndex = Randomizer.Generate(customerRoleRatio.Count);
                     if (customerRoleRatio[randomIndex] > 0)
                     {
-                        customerQueue.EnQueue(GenerateRandomizedCustomer(
+                        customerQueue.EnQueue(GenerateRandomCustomer(
                             Randomizer.Generate(minProduct, maxProduct),
                             customerTypes[Randomizer.Generate(customerTypes.Length)],
                             availableRole[randomIndex],
@@ -279,7 +264,7 @@ namespace FoodWars.Service
             }
             for (int i = 0; i < randomizedRoleCustomer; i++)
             {
-                customerQueue.EnQueue(GenerateRandomizedCustomer(
+                customerQueue.EnQueue(GenerateRandomCustomer(
                     Randomizer.Generate(minProduct, maxProduct),
                     customerTypes[Randomizer.Generate(customerTypes.Length)],
                     availableRole[Randomizer.Generate(availableRole.Count)],
@@ -291,12 +276,8 @@ namespace FoodWars.Service
             return customerQueue;
 
             // Membuat customer sesuai dengan spesifikasi yang diberikan
-            Customers GenerateRandomizedCustomer(int itemCount, CustomerType customerType, Role role, IngredientsMap availableIngredients, Merchandise[] merch)
+            Customers GenerateRandomCustomer(int itemCount, CustomerType customerType, Role role, IngredientsMap availableIngredients, Merchandise[] merch)
             {
-                if (role == Role.KING)
-                {
-                    customerType = CustomerType.MALE;
-                }
                 // JANGAN LUPA ISI PICTURE! (Yang ini pake pengecekan, bergantung pada type, dan role)
                 Customers customer = new Customers(customerType, role, null);
 
