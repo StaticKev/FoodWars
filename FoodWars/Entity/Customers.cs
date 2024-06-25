@@ -8,31 +8,32 @@ using System.Threading;
 
 namespace FoodWars
 {
-    public class Customers
+    public abstract class Customers
     {
-
+        #region Data Members
         private string name;
         private CustomerType type;
-        private Role role;
         private List<Items> orders;
         private Image picture;
         private Time timer;
+        #endregion
 
-        public Customers(CustomerType customerType, Role role, Image picture)
+        #region Constructors
+        public Customers(CustomerType customerType, Image picture)
         {
             this.Type = customerType;
-            this.Role = role;
             this.Orders = new List<Items>();
             this.Picture = picture;
         }
+        #endregion
 
+        #region Properties
         public string Name { get => name; set => name = value; }
         public CustomerType Type { get => type; private set => type = value; }
-        public Role Role { get => role; private set => role = value; }
         public List<Items> Orders
         {
             get => orders;
-            set
+            private set
             {
                 if (value == null || (value.Count == 0 && this.orders != null))
                 {
@@ -40,7 +41,7 @@ namespace FoodWars
                 }
                 else
                 {
-                    if (value == null || value.Count == 0) throw new ArgumentException("Attempted to assign an empty list of \'Items\'!");
+                    if (value == null) throw new ArgumentException("Attempted to assign an empty list of \'Items\'!");
                     else orders = value;
                 }
             }
@@ -54,7 +55,7 @@ namespace FoodWars
                 else this.picture = value;
             }
         }
-        private Time Timer
+        protected Time Timer
         {
             get => timer;
             set
@@ -63,50 +64,21 @@ namespace FoodWars
                 else this.timer = value;
             }
         }
+        #endregion
 
+        #region Methods
+        public abstract void GenerateName();
         public void AddOrder(Items item)
         {
             if (Orders.Count < 3) Orders.Add(item);
             else throw new ArgumentException("Maximum number of orders reached!");
         }
-
-        public void SetTimer()
-        {
-            int totalSec = 0;
-
-            if (this.Role == Role.FOLK) totalSec = 60;
-            else if (this.Role == Role.BUSINESS_MAN) totalSec = 55;
-            else if (this.Role == Role.SAMURAI) totalSec = 50;
-            else if (this.Role == Role.NOBLE) totalSec = 45;
-            else totalSec = 40;
-
-            totalSec -= (3 - orders.Count) * 10;
-
-            int sec = totalSec % 60;
-            int min = totalSec / 60;
-
-            this.Timer = new Time(0, min, sec);
-        }
-
+        public abstract void SetTimer();
         public void UpdateTimer()
         {
             this.Timer.Add(-1);
         }
-
-        public int CountTotalPrice()
-        {
-            int total = 0;
-            foreach (Items item in this.Orders)
-            {
-                total += item.Price;
-            }
-            
-            if (this.Role == Role.BUSINESS_MAN) total += (int) (total * 0.1);
-            else if (this.Role == Role.SAMURAI) total += (int)(total * 0.2);
-            else if (this.Role == Role.NOBLE) total += (int)(total * 0.3);
-            else if(this.Role == Role.ROYAL_FAMILY) total += (int)(total * 0.5);
-
-            return total;
-        }
+        public abstract int CountTotalPrice();
+        #endregion
     }
 }
