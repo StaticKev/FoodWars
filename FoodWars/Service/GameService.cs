@@ -30,6 +30,7 @@ namespace FoodWars.Service
         private Merchandise[] merch;
         private CustomerType[] customerTypes;
 
+
         private CustomerQueue customerQueue;
 
         // Kelihatan User
