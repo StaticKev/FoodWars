@@ -1,4 +1,10 @@
+D:\KEVIN\Programming\Projects\FoodWars\FoodWars\bin\Debug\FoodWars.exe.config
+D:\KEVIN\Programming\Projects\FoodWars\FoodWars\bin\Debug\FoodWars.exe
+D:\KEVIN\Programming\Projects\FoodWars\FoodWars\bin\Debug\FoodWars.pdb
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.csproj.AssemblyReference.cache
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.Properties.Resources.resources
+D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.MainMenuForm.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.csproj.GenerateResource.cache
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.csproj.CoreCompileInputs.cache
+D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.exe
+D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.pdb

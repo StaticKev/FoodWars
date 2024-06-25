@@ -1,8 +1,11 @@
-﻿using FoodWars.Repository;
+﻿using FoodWars.Entity.CustomerRole;
+using FoodWars.Entity.CustomerSubtype;
+using FoodWars.Repository;
 using FoodWars.Utilities;
 using FoodWars.Values;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -147,26 +150,26 @@ namespace FoodWars.Service
         public CustomerQueue GenerateQueue(int level)
         {
             // Menentukan peran apa saja yang diizinkan muncul pada level tertentu
-            List<Role> availableRole = new List<Role>();
+            List<int> availableRole = new List<int>();
             if (level >= 1)
             {
-                availableRole.Add(Role.FOLK);
+                availableRole.Add(0);
 
                 if (level >= 5)
                 {
-                    availableRole.Add(Role.BUSINESS_MAN);
+                    availableRole.Add(1);
 
                     if (level >= 10)
                     {
-                        availableRole.Add(Role.SAMURAI);
+                        availableRole.Add(2);
 
                         if (level >= 20)
                         {
-                            availableRole.Add(Role.NOBLE);
+                            availableRole.Add(3);
 
                             if (level >= 30)
                             {
-                                availableRole.Add(Role.ROYAL_FAMILY);
+                                availableRole.Add(4);
                             }
                         }
                     }
@@ -247,7 +250,7 @@ namespace FoodWars.Service
             {
                 while (true)
                 {
-                    int randomIndex = Randomizer.Generate(customerRoleRatio.Count);
+                    int randomIndex = Randomizer.Generate(availableRole.Count);
                     if (customerRoleRatio[randomIndex] > 0)
                     {
                         customerQueue.EnQueue(GenerateRandomCustomer(
@@ -276,10 +279,36 @@ namespace FoodWars.Service
             return customerQueue;
 
             // Membuat customer sesuai dengan spesifikasi yang diberikan
-            Customers GenerateRandomCustomer(int itemCount, CustomerType customerType, Role role, IngredientsMap availableIngredients, Merchandise[] merch)
+            Customers GenerateRandomCustomer(int itemCount, CustomerType customerType, int chosenRole, IngredientsMap availableIngredients, Merchandise[] merch)
             {
+                Customers customer;
+
                 // JANGAN LUPA ISI PICTURE! (Yang ini pake pengecekan, bergantung pada type, dan role)
-                Customers customer = new Customers(customerType, role, null);
+                if (chosenRole == 0)
+                {
+                    customer = new Folk(customerType, null);
+                    // Pengecekan untuk image
+                }
+                else if (chosenRole == 1)
+                {
+                    customer = new BusinessMan(customerType, null);
+                    // Pengecekan untuk image
+                }
+                else if (chosenRole == 2)
+                {
+                    customer = new Samurai(customerType, null);
+                    // Pengecekan untuk image
+                }
+                else if (chosenRole == 3)
+                {
+                    customer = new Nobleman(customerType, null);
+                    // Pengecekan untuk image
+                }
+                else
+                {
+                    customer = new RoyalFamily(customerType, null);
+                    // Pengecekan untuk image
+                }
 
                 int availableItems = 3;
 
