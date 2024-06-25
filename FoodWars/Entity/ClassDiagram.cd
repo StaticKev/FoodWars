@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="FoodWars.Customers">
-    <Position X="12.5" Y="4.25" Width="1.5" />
+    <Position X="5.25" Y="4" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
@@ -9,26 +9,32 @@
       <HashCode>AAUQgAAhAIAAAAAAAAAAAAQAAAAFAAAABQAAgAAEBAA=</HashCode>
       <FileName>Entity\Customers.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="type" />
+    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Field Name="orders" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="FoodWars.Ingredients">
-    <Position X="14.75" Y="10.5" Width="1.5" />
+    <Position X="7.5" Y="10" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABgAAAAYAAAAAAAAAAAAQAAAAEAAAAAAAIAAAACAA=</HashCode>
       <FileName>Entity\Ingredients.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="category" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="FoodWars.Items">
-    <Position X="17" Y="4" Width="1.5" />
+    <Position X="9.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABgAAAAYAAAgAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\Items.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FoodWars.Foods">
-    <Position X="14.75" Y="7.5" Width="1.5" />
+    <Position X="7.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAQAAAAAAAAIgAAIAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\Foods.cs</FileName>
@@ -38,44 +44,56 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="FoodWars.Beverages">
-    <Position X="17" Y="7.5" Width="1.5" />
+    <Position X="9.75" Y="7.25" Width="1.5" />
+    <AssociationLine Name="size" Type="FoodWars.Values.GlassSize" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.25" Y="9.562" />
+        <Point X="11.625" Y="9.562" />
+        <Point X="11.625" Y="11.369" />
+        <Point X="12" Y="11.369" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAQgAAAAAAAggAAAIAAAAAAAAAhAAAAIAAAAAAAAAA=</HashCode>
       <FileName>Entity\Beverages.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="type" />
+      <Field Name="size" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="FoodWars.Merchandise">
-    <Position X="19.25" Y="7.5" Width="1.5" />
+    <Position X="12" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAgAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\Merchandise.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FoodWars.Time">
-    <Position X="21.5" Y="4.75" Width="1.5" />
+    <Position X="12.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAoAAAAIAAAAAACIAAAAiAAAAAAA=</HashCode>
       <FileName>Entity\Time.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FoodWars.Players">
-    <Position X="23.75" Y="6.25" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
+    <Position X="14.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgABACIAAQAgAABAAAAQAAAAEIAAAACAAAAAAAAA=</HashCode>
+      <HashCode>AAAIgABACIAAQAgAABAAAAQAAAAEIAAAACAAAAAACAA=</HashCode>
       <FileName>Entity\Players.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="bestTime" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="FoodWars.Entity.CustomerRole.Folk">
-    <Position X="8.5" Y="1.5" Width="1.5" />
+    <Position X="1.25" Y="1.25" Width="1.5" />
     <InheritanceLine Type="FoodWars.Customers" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="12.5" Y="4.812" />
-        <Point X="11.183" Y="4.812" />
-        <Point X="11.183" Y="2.562" />
-        <Point X="10" Y="2.562" />
+        <Point X="5.25" Y="4.528" />
+        <Point X="3.933" Y="4.528" />
+        <Point X="3.933" Y="2.312" />
+        <Point X="2.75" Y="2.312" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -84,20 +102,20 @@
     </TypeIdentifier>
   </Class>
   <Class Name="FoodWars.Entity.CustomerSubtype.BusinessMan">
-    <Position X="8.5" Y="3.75" Width="1.5" />
+    <Position X="1.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAABAA=</HashCode>
       <FileName>Entity\CustomerSubtype\BusinessMan.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FoodWars.Entity.CustomerSubtype.Samurai">
-    <Position X="8.5" Y="6" Width="1.5" />
+    <Position X="1.25" Y="5.75" Width="1.5" />
     <InheritanceLine Type="FoodWars.Customers" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="12.5" Y="5.562" />
-        <Point X="10.701" Y="5.562" />
-        <Point X="10.701" Y="6.938" />
-        <Point X="10" Y="6.938" />
+        <Point X="5.25" Y="5.232" />
+        <Point X="3.451" Y="5.232" />
+        <Point X="3.451" Y="6.688" />
+        <Point X="2.75" Y="6.688" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -106,13 +124,13 @@
     </TypeIdentifier>
   </Class>
   <Class Name="FoodWars.Entity.CustomerSubtype.Nobleman">
-    <Position X="8.5" Y="8.25" Width="1.5" />
+    <Position X="1.25" Y="8" Width="1.5" />
     <InheritanceLine Type="FoodWars.Customers" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="12.5" Y="5.938" />
-        <Point X="11.422" Y="5.938" />
-        <Point X="11.422" Y="9.125" />
-        <Point X="10" Y="9.125" />
+        <Point X="5.25" Y="5.585" />
+        <Point X="4.044" Y="5.585" />
+        <Point X="4.044" Y="8.875" />
+        <Point X="2.75" Y="8.875" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -121,13 +139,13 @@
     </TypeIdentifier>
   </Class>
   <Class Name="FoodWars.Entity.CustomerSubtype.RoyalFamily">
-    <Position X="8.5" Y="10.5" Width="1.5" />
-    <InheritanceLine Type="FoodWars.Customers" FixedFromPoint="true" FixedToPoint="true">
+    <Position X="1.25" Y="10.25" Width="1.5" />
+    <InheritanceLine Type="FoodWars.Customers" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="12.5" Y="6.562" />
-        <Point X="12.125" Y="6.562" />
-        <Point X="12.125" Y="11.375" />
-        <Point X="10" Y="11.375" />
+        <Point X="5.25" Y="6.171" />
+        <Point X="4.688" Y="6.171" />
+        <Point X="4.688" Y="11.125" />
+        <Point X="2.75" Y="11.125" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -135,5 +153,33 @@
       <FileName>Entity\CustomerSubtype\RoyalFamily.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Enum Name="FoodWars.Values.BeverageType">
+    <Position X="9.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAgAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Values\BeverageType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FoodWars.Values.CustomerType">
+    <Position X="5.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAIAQAAAAAA=</HashCode>
+      <FileName>Values\CustomerType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FoodWars.Values.GlassSize">
+    <Position X="12" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAIAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Values\GlassSize.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FoodWars.Values.IngredientCategory">
+    <Position X="5.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAQAAAAAAAAAAIAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Values\IngredientCategory.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

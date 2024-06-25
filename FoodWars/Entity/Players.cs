@@ -13,6 +13,7 @@ namespace FoodWars
         private int bestIncome;
         private long totalIncome;
         private int bestLevel;
+        private Time bestTime;
         private Image picture;
         #endregion
 
@@ -60,6 +61,15 @@ namespace FoodWars
             {
                 if (value <= 0) throw new ArgumentException("Best level must be greater than 0!");
                 else this.bestLevel = value;
+            }
+        }
+        public Time BestTime
+        {
+            get => bestTime;
+            set
+            {
+                if (value == null) throw new Exception("No time specified!");
+                else this.bestTime = value;
             }
         }
         public Image Picture
