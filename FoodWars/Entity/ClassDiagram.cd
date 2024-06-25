@@ -142,8 +142,8 @@
     <Position X="1.25" Y="10.25" Width="1.5" />
     <InheritanceLine Type="FoodWars.Customers" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="5.25" Y="6.171" />
-        <Point X="4.688" Y="6.171" />
+        <Point X="5.25" Y="6" />
+        <Point X="4.688" Y="6" />
         <Point X="4.688" Y="11.125" />
         <Point X="2.75" Y="11.125" />
       </Path>
