@@ -14,9 +14,10 @@ namespace FoodWars
         [STAThread]
         static void Main()
         {
+            MainMenuForm form = new MainMenuForm();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainMenuForm());
+            Application.Run(form);
         }
     }
 }
