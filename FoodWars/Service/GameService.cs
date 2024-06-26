@@ -199,7 +199,7 @@ namespace FoodWars.Service
                 }
             }
 
-            // Menghitung jumlah customer berdasarkan level
+            // Menghitung jumlah customer berdasarkan 
             int customerAmount;
             if (level <= 100) customerAmount = 10 + level / 5;
             else customerAmount = 30;
