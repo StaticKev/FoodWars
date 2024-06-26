@@ -72,16 +72,17 @@
             this.buttonSavePlayer.TabIndex = 4;
             this.buttonSavePlayer.Text = "Save Data";
             this.buttonSavePlayer.UseVisualStyleBackColor = true;
+            this.buttonSavePlayer.Click += new System.EventHandler(this.buttonSavePlayer_Click);
             // 
             // labelInputImage
             // 
             this.labelInputImage.AutoSize = true;
             this.labelInputImage.Font = new System.Drawing.Font("Times New Roman", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInputImage.Location = new System.Drawing.Point(727, 375);
+            this.labelInputImage.Location = new System.Drawing.Point(692, 375);
             this.labelInputImage.Name = "labelInputImage";
-            this.labelInputImage.Size = new System.Drawing.Size(468, 37);
+            this.labelInputImage.Size = new System.Drawing.Size(536, 37);
             this.labelInputImage.TabIndex = 5;
-            this.labelInputImage.Text = "Input image by clicking the square above";
+            this.labelInputImage.Text = "Input image (.jpg) by clicking the square above";
             this.labelInputImage.UseCompatibleTextRendering = true;
             this.labelInputImage.Click += new System.EventHandler(this.labelInputImage_Click);
             // 
@@ -95,6 +96,7 @@
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.panelPlayerPicture);
+            this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.Name = "FormNewPlayer";
             this.Text = "FormNewPlayer";
             this.Load += new System.EventHandler(this.FormNewPlayer_Load);

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBoxSlot1 = new System.Windows.Forms.GroupBox();
-            this.buttonConfirm = new System.Windows.Forms.Button();
-            this.checkBoxSelectPlayer1 = new System.Windows.Forms.CheckBox();
-            this.panelPicture1 = new System.Windows.Forms.Panel();
-            this.labelPlayerName1 = new System.Windows.Forms.Label();
-            this.labelBestIncome1 = new System.Windows.Forms.Label();
-            this.labelBestLevel1 = new System.Windows.Forms.Label();
             this.labelTotalIncome1 = new System.Windows.Forms.Label();
+            this.labelBestLevel1 = new System.Windows.Forms.Label();
+            this.labelBestIncome1 = new System.Windows.Forms.Label();
+            this.labelPlayerName1 = new System.Windows.Forms.Label();
+            this.panelPicture1 = new System.Windows.Forms.Panel();
+            this.checkBoxSelectPlayer1 = new System.Windows.Forms.CheckBox();
+            this.buttonConfirm = new System.Windows.Forms.Button();
             this.groupBoxSlot2 = new System.Windows.Forms.GroupBox();
             this.labelTotalIncome2 = new System.Windows.Forms.Label();
             this.labelBestLevel2 = new System.Windows.Forms.Label();
@@ -63,22 +63,55 @@
             this.groupBoxSlot1.Controls.Add(this.labelPlayerName1);
             this.groupBoxSlot1.Controls.Add(this.panelPicture1);
             this.groupBoxSlot1.Controls.Add(this.checkBoxSelectPlayer1);
-            this.groupBoxSlot1.Location = new System.Drawing.Point(100, 50);
+            this.groupBoxSlot1.Location = new System.Drawing.Point(77, 63);
             this.groupBoxSlot1.Name = "groupBoxSlot1";
             this.groupBoxSlot1.Size = new System.Drawing.Size(1720, 220);
             this.groupBoxSlot1.TabIndex = 0;
             this.groupBoxSlot1.TabStop = false;
             this.groupBoxSlot1.Text = "Slot 1 : ";
             // 
-            // buttonConfirm
+            // labelTotalIncome1
             // 
-            this.buttonConfirm.Font = new System.Drawing.Font("Times New Roman", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConfirm.Location = new System.Drawing.Point(760, 850);
-            this.buttonConfirm.Name = "buttonConfirm";
-            this.buttonConfirm.Size = new System.Drawing.Size(400, 75);
-            this.buttonConfirm.TabIndex = 3;
-            this.buttonConfirm.Text = "Confirm";
-            this.buttonConfirm.UseVisualStyleBackColor = true;
+            this.labelTotalIncome1.AutoSize = true;
+            this.labelTotalIncome1.Location = new System.Drawing.Point(742, 53);
+            this.labelTotalIncome1.Name = "labelTotalIncome1";
+            this.labelTotalIncome1.Size = new System.Drawing.Size(199, 32);
+            this.labelTotalIncome1.TabIndex = 5;
+            this.labelTotalIncome1.Text = "Total Income : ";
+            // 
+            // labelBestLevel1
+            // 
+            this.labelBestLevel1.AutoSize = true;
+            this.labelBestLevel1.Location = new System.Drawing.Point(197, 171);
+            this.labelBestLevel1.Name = "labelBestLevel1";
+            this.labelBestLevel1.Size = new System.Drawing.Size(169, 32);
+            this.labelBestLevel1.TabIndex = 4;
+            this.labelBestLevel1.Text = "Best Level : ";
+            // 
+            // labelBestIncome1
+            // 
+            this.labelBestIncome1.AutoSize = true;
+            this.labelBestIncome1.Location = new System.Drawing.Point(197, 116);
+            this.labelBestIncome1.Name = "labelBestIncome1";
+            this.labelBestIncome1.Size = new System.Drawing.Size(192, 32);
+            this.labelBestIncome1.TabIndex = 3;
+            this.labelBestIncome1.Text = "Best Income : ";
+            // 
+            // labelPlayerName1
+            // 
+            this.labelPlayerName1.AutoSize = true;
+            this.labelPlayerName1.Location = new System.Drawing.Point(197, 53);
+            this.labelPlayerName1.Name = "labelPlayerName1";
+            this.labelPlayerName1.Size = new System.Drawing.Size(195, 32);
+            this.labelPlayerName1.TabIndex = 2;
+            this.labelPlayerName1.Text = "Player name : ";
+            // 
+            // panelPicture1
+            // 
+            this.panelPicture1.Location = new System.Drawing.Point(25, 53);
+            this.panelPicture1.Name = "panelPicture1";
+            this.panelPicture1.Size = new System.Drawing.Size(150, 150);
+            this.panelPicture1.TabIndex = 1;
             // 
             // checkBoxSelectPlayer1
             // 
@@ -90,48 +123,15 @@
             this.checkBoxSelectPlayer1.Text = "Select";
             this.checkBoxSelectPlayer1.UseVisualStyleBackColor = true;
             // 
-            // panelPicture1
+            // buttonConfirm
             // 
-            this.panelPicture1.Location = new System.Drawing.Point(25, 53);
-            this.panelPicture1.Name = "panelPicture1";
-            this.panelPicture1.Size = new System.Drawing.Size(150, 150);
-            this.panelPicture1.TabIndex = 1;
-            // 
-            // labelPlayerName1
-            // 
-            this.labelPlayerName1.AutoSize = true;
-            this.labelPlayerName1.Location = new System.Drawing.Point(197, 53);
-            this.labelPlayerName1.Name = "labelPlayerName1";
-            this.labelPlayerName1.Size = new System.Drawing.Size(195, 32);
-            this.labelPlayerName1.TabIndex = 2;
-            this.labelPlayerName1.Text = "Player name : ";
-            // 
-            // labelBestIncome1
-            // 
-            this.labelBestIncome1.AutoSize = true;
-            this.labelBestIncome1.Location = new System.Drawing.Point(197, 116);
-            this.labelBestIncome1.Name = "labelBestIncome1";
-            this.labelBestIncome1.Size = new System.Drawing.Size(192, 32);
-            this.labelBestIncome1.TabIndex = 3;
-            this.labelBestIncome1.Text = "Best Income : ";
-            // 
-            // labelBestLevel1
-            // 
-            this.labelBestLevel1.AutoSize = true;
-            this.labelBestLevel1.Location = new System.Drawing.Point(197, 171);
-            this.labelBestLevel1.Name = "labelBestLevel1";
-            this.labelBestLevel1.Size = new System.Drawing.Size(169, 32);
-            this.labelBestLevel1.TabIndex = 4;
-            this.labelBestLevel1.Text = "Best Level : ";
-            // 
-            // labelTotalIncome1
-            // 
-            this.labelTotalIncome1.AutoSize = true;
-            this.labelTotalIncome1.Location = new System.Drawing.Point(742, 53);
-            this.labelTotalIncome1.Name = "labelTotalIncome1";
-            this.labelTotalIncome1.Size = new System.Drawing.Size(199, 32);
-            this.labelTotalIncome1.TabIndex = 5;
-            this.labelTotalIncome1.Text = "Total Income : ";
+            this.buttonConfirm.Font = new System.Drawing.Font("Times New Roman", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConfirm.Location = new System.Drawing.Point(737, 863);
+            this.buttonConfirm.Name = "buttonConfirm";
+            this.buttonConfirm.Size = new System.Drawing.Size(400, 75);
+            this.buttonConfirm.TabIndex = 3;
+            this.buttonConfirm.Text = "Confirm";
+            this.buttonConfirm.UseVisualStyleBackColor = true;
             // 
             // groupBoxSlot2
             // 
@@ -141,7 +141,7 @@
             this.groupBoxSlot2.Controls.Add(this.labelPlayerName2);
             this.groupBoxSlot2.Controls.Add(this.panelPicture2);
             this.groupBoxSlot2.Controls.Add(this.checkBoxSelectPlayer2);
-            this.groupBoxSlot2.Location = new System.Drawing.Point(100, 320);
+            this.groupBoxSlot2.Location = new System.Drawing.Point(77, 333);
             this.groupBoxSlot2.Name = "groupBoxSlot2";
             this.groupBoxSlot2.Size = new System.Drawing.Size(1720, 220);
             this.groupBoxSlot2.TabIndex = 6;
@@ -209,7 +209,7 @@
             this.groupBoxSlot3.Controls.Add(this.labelPlayerName3);
             this.groupBoxSlot3.Controls.Add(this.panelPicture3);
             this.groupBoxSlot3.Controls.Add(this.checkBoxSelectPlayer3);
-            this.groupBoxSlot3.Location = new System.Drawing.Point(100, 590);
+            this.groupBoxSlot3.Location = new System.Drawing.Point(77, 603);
             this.groupBoxSlot3.Name = "groupBoxSlot3";
             this.groupBoxSlot3.Size = new System.Drawing.Size(1720, 220);
             this.groupBoxSlot3.TabIndex = 7;

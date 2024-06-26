@@ -42,6 +42,7 @@
             this.buttonNewGame.TabIndex = 0;
             this.buttonNewGame.Text = "New Game";
             this.buttonNewGame.UseVisualStyleBackColor = true;
+            this.buttonNewGame.Click += new System.EventHandler(this.buttonNewGame_Click);
             // 
             // buttonLoadGame
             // 
@@ -52,6 +53,7 @@
             this.buttonLoadGame.TabIndex = 1;
             this.buttonLoadGame.Text = "Load Game";
             this.buttonLoadGame.UseVisualStyleBackColor = true;
+            this.buttonLoadGame.Click += new System.EventHandler(this.buttonLoadGame_Click);
             // 
             // buttonExitGame
             // 
@@ -62,6 +64,7 @@
             this.buttonExitGame.TabIndex = 2;
             this.buttonExitGame.Text = "Exit Game";
             this.buttonExitGame.UseVisualStyleBackColor = true;
+            this.buttonExitGame.Click += new System.EventHandler(this.buttonExitGame_Click);
             // 
             // MainMenuForm
             // 
@@ -72,6 +75,8 @@
             this.Controls.Add(this.buttonLoadGame);
             this.Controls.Add(this.buttonNewGame);
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.MaximumSize = new System.Drawing.Size(1920, 1080);
+            this.MinimumSize = new System.Drawing.Size(1920, 1080);
             this.Name = "MainMenuForm";
             this.Text = "Game Menu";
             this.Load += new System.EventHandler(this.MainMenuForm_Load);

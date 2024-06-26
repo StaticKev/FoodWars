@@ -280,6 +280,7 @@
             this.Controls.Add(this.groupBoxSlot1);
             this.Name = "FormSavePlayer";
             this.Text = "Choose Slot";
+            this.Load += new System.EventHandler(this.FormSavePlayer_Load);
             this.groupBoxSlot3.ResumeLayout(false);
             this.groupBoxSlot3.PerformLayout();
             this.groupBoxSlot2.ResumeLayout(false);
