@@ -69,6 +69,36 @@
     <Compile Include="Values\GlassSize.cs" />
     <Compile Include="Values\IngredientCategory.cs" />
     <Compile Include="Values\CustomerType.cs" />
+    <Compile Include="View\FormInGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormInGame.Designer.cs">
+      <DependentUpon>FormInGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormLevelDescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormLevelDescription.Designer.cs">
+      <DependentUpon>FormLevelDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormLoadPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormLoadPlayer.Designer.cs">
+      <DependentUpon>FormLoadPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormNewPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormNewPlayer.Designer.cs">
+      <DependentUpon>FormNewPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormSavePlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormSavePlayer.Designer.cs">
+      <DependentUpon>FormSavePlayer.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +117,21 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\FormInGame.resx">
+      <DependentUpon>FormInGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormLevelDescription.resx">
+      <DependentUpon>FormLevelDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormLoadPlayer.resx">
+      <DependentUpon>FormLoadPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormNewPlayer.resx">
+      <DependentUpon>FormNewPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormSavePlayer.resx">
+      <DependentUpon>FormSavePlayer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>

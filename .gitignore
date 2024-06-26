@@ -3,3 +3,9 @@ ECHO is on.
 # Visual Studio files
 
 .vs/
+.FoodWars/bin/Debug/*.exe
+.FoodWars/bin/Debug/*.pdb
+.FoodWars/bin/Debug/*.obj
+.FoodWars/bin/Debug/*.o
+.FoodWars/bin/Debug/*.map
+.FoodWars/bin/Debug/*.log
