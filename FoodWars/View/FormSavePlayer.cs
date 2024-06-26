@@ -21,6 +21,7 @@ namespace FoodWars.View
         private void FormSavePlayer_Load(object sender, EventArgs e)
         {
             formNewPlayer = (FormNewPlayer)this.Owner;
+            this.Size = new Size(1920, 1080);
         }
     }
 }

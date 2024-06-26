@@ -51,6 +51,9 @@ namespace FoodWars.View
         private void buttonSavePlayer_Click(object sender, EventArgs e)
         {
             Players newPlayer = new Players(textBoxName.Text,panelPlayerPicture.BackgroundImage);
+            FormSavePlayer form = new FormSavePlayer();
+            form.Owner = this;
+            form.ShowDialog();
 
         }
     }
