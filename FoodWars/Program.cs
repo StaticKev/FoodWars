@@ -1,6 +1,8 @@
-﻿using System;
+﻿using FoodWars.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,10 +16,15 @@ namespace FoodWars
         [STAThread]
         static void Main()
         {
-            MainMenuForm form = new MainMenuForm();
+            
             Application.EnableVisualStyles();
+            MainMenuForm formMenu = new MainMenuForm();
+            PlayerRepo playerRepo = new PlayerRepo();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(form);
+            Application.Run(formMenu);
+
         }
+
+
     }
 }
