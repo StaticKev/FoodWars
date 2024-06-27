@@ -86,11 +86,11 @@ namespace FoodWars.View
 
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
-            playerRepo = new PlayerRepo();
-
+/*            playerRepo = new PlayerRepo();
+*/
             if (confirmationMessageBox() == DialogResult.Yes)
             {
-                if (checkBoxSelectPlayer1.Checked == true)
+/*                if (checkBoxSelectPlayer1.Checked == true)
                 {
                     playerRepo.ArrayPlayers[0] = savePlayer;
                 }
@@ -101,7 +101,7 @@ namespace FoodWars.View
                 else
                 {
                     playerRepo.ArrayPlayers[2] = savePlayer;
-                }
+                }*/
 
             }
             else
@@ -109,7 +109,7 @@ namespace FoodWars.View
 
             }
             formMenu = new MainMenuForm();
-            formMenu.playerRepo = playerRepo;
+/*            formMenu.playerRepo = playerRepo;*/
             formMenu.ShowDialog();
             
         }
@@ -132,7 +132,7 @@ namespace FoodWars.View
         {
                 if (playerRepo!= null)
                 {
-                    labelPlayerName1.Text += " " + playerRepo.ArrayPlayers[0].Name;
+/*                    labelPlayerName1.Text += " " + playerRepo.ArrayPlayers[0].Name;
                     labelBestIncome1.Text += " " + playerRepo.ArrayPlayers[0].BestIncome;
                     labelBestLevel1.Text += " " + playerRepo.ArrayPlayers[0].BestLevel;
                     labelTotalIncome1.Text += " " + playerRepo.ArrayPlayers[0].TotalIncome;
@@ -145,7 +145,7 @@ namespace FoodWars.View
                     labelPlayerName3.Text += " " + playerRepo.ArrayPlayers[2].Name;
                     labelBestIncome3.Text += " " + playerRepo.ArrayPlayers[2].BestIncome;
                     labelBestLevel3.Text += " " + playerRepo.ArrayPlayers[2].BestLevel;
-                    labelTotalIncome3.Text += " " + playerRepo.ArrayPlayers[2].TotalIncome;
+                    labelTotalIncome3.Text += " " + playerRepo.ArrayPlayers[2].TotalIncome;*/
 
                 }
         }

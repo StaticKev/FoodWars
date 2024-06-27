@@ -3,7 +3,6 @@ D:\KEVIN\Programming\Projects\FoodWars\FoodWars\bin\Debug\FoodWars.exe
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\bin\Debug\FoodWars.pdb
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.csproj.AssemblyReference.cache
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.Properties.Resources.resources
-D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.MainMenuForm.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.csproj.GenerateResource.cache
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.csproj.CoreCompileInputs.cache
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.exe
@@ -23,3 +22,9 @@ D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.csproj.GenerateResource.cach
 D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.csproj.CoreCompileInputs.cache
 D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.exe
 D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.pdb
+D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.MainMenuForm.resources
+D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormInGame.resources
+D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormLevelDescription.resources
+D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormLoadPlayer.resources
+D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormNewPlayer.resources
+D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormSavePlayer.resources

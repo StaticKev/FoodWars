@@ -39,9 +39,10 @@
             // 
             this.labelInputImage.AutoSize = true;
             this.labelInputImage.Font = new System.Drawing.Font("Times New Roman", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInputImage.Location = new System.Drawing.Point(729, 398);
+            this.labelInputImage.Location = new System.Drawing.Point(273, 167);
+            this.labelInputImage.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.labelInputImage.Name = "labelInputImage";
-            this.labelInputImage.Size = new System.Drawing.Size(468, 37);
+            this.labelInputImage.Size = new System.Drawing.Size(188, 17);
             this.labelInputImage.TabIndex = 10;
             this.labelInputImage.Text = "Input image by clicking the square above";
             this.labelInputImage.UseCompatibleTextRendering = true;
@@ -50,10 +51,10 @@
             // buttonSavePlayer
             // 
             this.buttonSavePlayer.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSavePlayer.Location = new System.Drawing.Point(643, 812);
-            this.buttonSavePlayer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSavePlayer.Location = new System.Drawing.Point(241, 341);
+            this.buttonSavePlayer.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonSavePlayer.Name = "buttonSavePlayer";
-            this.buttonSavePlayer.Size = new System.Drawing.Size(600, 100);
+            this.buttonSavePlayer.Size = new System.Drawing.Size(225, 42);
             this.buttonSavePlayer.TabIndex = 9;
             this.buttonSavePlayer.Text = "Save Data";
             this.buttonSavePlayer.UseVisualStyleBackColor = true;
@@ -62,19 +63,20 @@
             // textBoxName
             // 
             this.textBoxName.Font = new System.Drawing.Font("Times New Roman", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxName.Location = new System.Drawing.Point(867, 509);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxName.Location = new System.Drawing.Point(325, 213);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(500, 62);
+            this.textBoxName.Size = new System.Drawing.Size(190, 29);
             this.textBoxName.TabIndex = 8;
             // 
             // labelName
             // 
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Times New Roman", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelName.Location = new System.Drawing.Point(518, 514);
+            this.labelName.Location = new System.Drawing.Point(194, 216);
+            this.labelName.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(278, 53);
+            this.labelName.Size = new System.Drawing.Size(109, 21);
             this.labelName.TabIndex = 7;
             this.labelName.Text = "Player name :";
             // 
@@ -82,25 +84,24 @@
             // 
             this.panelPlayerPicture.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelPlayerPicture.Font = new System.Drawing.Font("Times New Roman", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelPlayerPicture.Location = new System.Drawing.Point(793, 63);
-            this.panelPlayerPicture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelPlayerPicture.Location = new System.Drawing.Point(297, 26);
+            this.panelPlayerPicture.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.panelPlayerPicture.Name = "panelPlayerPicture";
-            this.panelPlayerPicture.Size = new System.Drawing.Size(299, 300);
+            this.panelPlayerPicture.Size = new System.Drawing.Size(112, 126);
             this.panelPlayerPicture.TabIndex = 6;
             this.panelPlayerPicture.Click += new System.EventHandler(this.panelPlayerPicture_Click);
             // 
             // FormNewPlayer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1888, 992);
+            this.ClientSize = new System.Drawing.Size(637, 437);
             this.Controls.Add(this.labelInputImage);
             this.Controls.Add(this.buttonSavePlayer);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.panelPlayerPicture);
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.MaximumSize = new System.Drawing.Size(1920, 1080);
+            this.MaximumSize = new System.Drawing.Size(730, 476);
             this.Name = "FormNewPlayer";
             this.Text = "FormSavePlayer";
             this.Load += new System.EventHandler(this.FormNewPlayer_Load);

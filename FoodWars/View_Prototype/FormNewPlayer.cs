@@ -28,12 +28,12 @@ namespace FoodWars.View
         {
             //Membuat object player baru
             Players newPlayer = new Players(textBoxName.Text, panelPlayerPicture.BackgroundImage);
-            FormSavePlayer form = new FormSavePlayer();
+/*            FormSavePlayer form = new FormSavePlayer();*/
             //Method untuk memindahkan data object
-            form.TransitPlayers(newPlayer);
+/*            form.TransitPlayers(newPlayer);
             form.Owner = this;
             this.Close();
-            form.ShowDialog();
+            form.ShowDialog();*/
         }
 
         private void panelPlayerPicture_Click(object sender, EventArgs e)
