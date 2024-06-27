@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace FoodWars.View
 {
-    public partial class FormLevelDescription : Form
+    public partial class FormInGame : Form
     {
-        public FormLevelDescription()
+        public FormInGame()
         {
             InitializeComponent();
+        }
+
+        private void buttonGlass_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

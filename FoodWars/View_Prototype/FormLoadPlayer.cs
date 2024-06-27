@@ -39,7 +39,7 @@ namespace FoodWars.View
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
 
-            if (checkBoxSelectPlayer1.Checked == true)
+/*            if (checkBoxSelectPlayer1.Checked == true)
             {
                 selectedPlayers = playerRepo.ArrayPlayers[0];
             }
@@ -50,7 +50,7 @@ namespace FoodWars.View
             else
             {
                 selectedPlayers = playerRepo.ArrayPlayers[2];
-            }
+            }*/
             FormLevelDescription form = new FormLevelDescription();
             form.Owner = this;
             form.ShowDialog();
@@ -63,7 +63,7 @@ namespace FoodWars.View
             
                 if (playerRepo != null)
                 {
-                    labelPlayerName1.Text += " " + playerRepo.ArrayPlayers[0].Name;
+/*                    labelPlayerName1.Text += " " + playerRepo.ArrayPlayers[0].Name;
                     labelBestIncome1.Text += " " + playerRepo.ArrayPlayers[0].BestIncome;
                     labelBestLevel1.Text += " " + playerRepo.ArrayPlayers[0].BestLevel;
                     labelTotalIncome1.Text += " " + playerRepo.ArrayPlayers[0].TotalIncome;
@@ -76,7 +76,7 @@ namespace FoodWars.View
                     labelPlayerName3.Text += " " + playerRepo.ArrayPlayers[2].Name;
                     labelBestIncome3.Text += " " + playerRepo.ArrayPlayers[2].BestIncome;
                     labelBestLevel3.Text += " " + playerRepo.ArrayPlayers[2].BestLevel;
-                    labelTotalIncome3.Text += " " + playerRepo.ArrayPlayers[2].TotalIncome;
+                    labelTotalIncome3.Text += " " + playerRepo.ArrayPlayers[2].TotalIncome;*/
 
                 }
             

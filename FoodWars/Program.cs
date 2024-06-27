@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FoodWars.View;
 
 namespace FoodWars
 {
@@ -18,9 +19,8 @@ namespace FoodWars
         {
             
             Application.EnableVisualStyles();
-            MainMenuForm formMenu = new MainMenuForm();
-            PlayerRepo playerRepo = new PlayerRepo();
             Application.SetCompatibleTextRenderingDefault(false);
+            MainMenuForm formMenu = new MainMenuForm();
             Application.Run(formMenu);
 
         }
