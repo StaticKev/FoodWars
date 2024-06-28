@@ -6,6 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FoodWars.View;
+using FoodWars.Service;
 
 namespace FoodWars
 {
@@ -17,11 +18,13 @@ namespace FoodWars
         [STAThread]
         static void Main()
         {
-            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MainMenuForm formMenu = new MainMenuForm();
-            Application.Run(formMenu);
+
+            PlayerRepo playerRepository = new PlayerRepo("Players.dat");
+            GameService gameService = new GameService(playerRepository);
+            BaseForm baseForm = new BaseForm(gameService);
+            Application.Run(baseForm);
 
         }
 

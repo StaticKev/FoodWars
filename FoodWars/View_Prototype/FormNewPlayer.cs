@@ -12,7 +12,7 @@ namespace FoodWars.View
 {
     public partial class FormNewPlayer : Form
     {
-        MainMenuForm formMenu;
+        BaseForm formMenu;
         public FormNewPlayer()
         {
             InitializeComponent();
@@ -20,7 +20,7 @@ namespace FoodWars.View
 
         private void FormNewPlayer_Load(object sender, EventArgs e)
         {
-            formMenu = (MainMenuForm)this.Owner;
+            formMenu = (BaseForm)this.Owner;
             this.Size = new Size(1920, 1080);
         }
 

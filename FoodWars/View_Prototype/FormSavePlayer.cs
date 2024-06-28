@@ -13,7 +13,7 @@ namespace FoodWars.View
 {
     public partial class FormSavePlayer : Form
     {
-        MainMenuForm formMenu;
+        BaseForm formMenu;
         FormNewPlayer formNewPlayer;
         Players savePlayer;
         PlayerRepo playerRepo;
@@ -108,7 +108,7 @@ namespace FoodWars.View
             {
 
             }
-            formMenu = new MainMenuForm();
+            formMenu = new BaseForm();
 /*            formMenu.playerRepo = playerRepo;*/
             formMenu.ShowDialog();
             
