@@ -14,7 +14,7 @@ namespace FoodWars.View
     public partial class FormLoadPlayer : Form
     {
         Players selectedPlayers;
-        MainMenuForm formMenu;
+        BaseForm formMenu;
         PlayerRepo playerRepo;
         public FormLoadPlayer()
         {
@@ -23,7 +23,7 @@ namespace FoodWars.View
 
         private void FormLoadPlayer_Load(object sender, EventArgs e)
         {
-            formMenu = (MainMenuForm)this.Owner;
+            formMenu = (BaseForm)this.Owner;
             this.Size = new Size(1920, 1080);
             //Tambahkan fitur kalau ga ada file yang diinginkan berati disabled groupbox
 

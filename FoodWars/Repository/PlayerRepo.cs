@@ -1,12 +1,7 @@
-﻿using FoodWars.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FoodWars.Repository
 {
@@ -15,7 +10,7 @@ namespace FoodWars.Repository
     {
         #region Data Members
         private string fileName = "Players.dat";
-        List<Players> listPlayers = new List<Players>();
+        private List<Players> listPlayers = new List<Players>();
         #endregion
 
         #region Constructors
@@ -85,7 +80,6 @@ namespace FoodWars.Repository
                 file.Close();
             }
         }
-
         public void UpdatePlayer(Players player)
         {
             if (!ListPlayers.Contains(player)) throw new ArgumentException("Player doesn't exist!");
@@ -102,15 +96,11 @@ namespace FoodWars.Repository
                 }
             }
         }
-
         public void AddPlayer(Players player)
         {
             this.ListPlayers.Add(player);
             this.SaveToFile();
         }
-
-
-
         #endregion
     }
 }

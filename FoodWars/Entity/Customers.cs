@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
 
 namespace FoodWars
 {
@@ -51,8 +48,9 @@ namespace FoodWars
             get => picture;
             private set
             {
-                if (value == null) throw new ArgumentException("No image specified!");
-                else this.picture = value;
+                // Test Purpose
+/*                if (value == null) throw new ArgumentException("No image specified!");
+                else */this.picture = value;
             }
         }
         protected Time Timer

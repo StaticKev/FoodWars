@@ -28,3 +28,5 @@ D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormLeve
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormLoadPlayer.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormNewPlayer.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormSavePlayer.resources
+D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.UserControl_Sample.resources
+D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.BaseForm.resources
