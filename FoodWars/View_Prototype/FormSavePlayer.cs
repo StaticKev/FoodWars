@@ -108,7 +108,7 @@ namespace FoodWars.View
             {
 
             }
-            formMenu = new BaseForm();
+/*            formMenu = new BaseForm();*/
 /*            formMenu.playerRepo = playerRepo;*/
             formMenu.ShowDialog();
             
