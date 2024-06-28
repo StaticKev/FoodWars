@@ -31,10 +31,9 @@ namespace FoodWars.Service
         #endregion
 
         #region Constructors
-        public GameService(PlayerRepo repo, Players player)
+        public GameService(PlayerRepo repo)
         {
             this.repo = repo;
-            this.player = player;
             chairs = new Customers[3];
         }
         #endregion
@@ -44,8 +43,9 @@ namespace FoodWars.Service
         #endregion
 
         #region Methods
-        public void StartGame(int level)
+        public void StartGame(int level, Players player)
         {
+            this.player = player;
             // =================================== JANGAN LUPA ISI PICTURE! ===================================
             List<Ingredients> riceIngredients = new List<Ingredients>
             {
