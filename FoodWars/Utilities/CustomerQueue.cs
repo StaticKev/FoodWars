@@ -5,19 +5,33 @@ namespace FoodWars.Utilities
     public class CustomerQueue
     {
         #region Data Members
+        private int size;
         private Customers[] queue;
         private int front;
         private int rear;
         #endregion
 
         #region Constructors
-        public CustomerQueue(int capacity)
+        public CustomerQueue(int size)
         {
-            this.queue = new Customers[capacity];
+            this.Size = size;
+            this.queue = new Customers[this.Size];
             this.front = -1;
             this.rear = -1;
         }
         #endregion
+
+        #region Properties
+        public int Size
+        {
+            get => this.size;
+            private set
+            {
+                if (this.size < 1) throw new ArgumentException("Size must be greater than zero!");
+                else this.size = value;
+            } 
+        }
+        #endregion 
 
         #region Methods
         public void EnQueue(Customers value)
@@ -69,7 +83,7 @@ namespace FoodWars.Utilities
 
         public bool IsFull()
         {
-            return rear == queue.Length;
+            return rear == this.Size;
         }
 
         public bool IsEmpty()
@@ -80,11 +94,6 @@ namespace FoodWars.Utilities
         public bool HasNext()
         {
             return front < rear + 1;
-        }
-
-        public int Size()
-        {
-            return queue.Length;
         }
         #endregion
 

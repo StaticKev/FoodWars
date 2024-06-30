@@ -34,7 +34,6 @@ namespace FoodWars.Service
         public GameService(PlayerRepo repo)
         {
             this.repo = repo;
-            chairs = new Customers[3];
         }
         #endregion
 
@@ -46,6 +45,7 @@ namespace FoodWars.Service
         public void StartGame(int level, Players player)
         {
             this.player = player;
+            chairs = new Customers[3];
             // =================================== JANGAN LUPA ISI PICTURE! ===================================
             List<Ingredients> riceIngredients = new List<Ingredients>
             {
@@ -132,11 +132,10 @@ namespace FoodWars.Service
 
             customerQueue = GenerateQueue();
 
-            // Membuka semua bahan" yang diperlukan: Ini ditaroh di view 
-
-            // Nyalakan timer, update tampilan 
-
             // Mulai tempatkan pengunjung pada kursi yang tersedia, update tampilan 
+
+            // Menyimpan customer yang akan masuk berikutnya untuk ditampilkan
+            nextCustomer = customerQueue.Peek();
 
             CustomerQueue GenerateQueue()
             {
@@ -386,11 +385,17 @@ namespace FoodWars.Service
                             catch (Exception ex) { }
                         }
                     }
+
+                    // Menambahkan durasi permainan sesuai dengan durasi pelayanan tiap customer 
+                    openDuration.Add(customer.Timer.GetDurationInSecond());
+
                     return customer;
                 }
 
             }
         }
+
+        
         #endregion
     }
 }

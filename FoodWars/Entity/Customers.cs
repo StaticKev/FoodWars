@@ -53,7 +53,7 @@ namespace FoodWars
                 else */this.picture = value;
             }
         }
-        protected Time Timer
+        public Time Timer
         {
             get => timer;
             set

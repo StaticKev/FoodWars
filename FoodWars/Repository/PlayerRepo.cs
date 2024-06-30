@@ -53,18 +53,18 @@ namespace FoodWars.Repository
         #region Methods
         private void SaveToFile()
         {
-            FileStream file = new FileStream(this.fileName, FileMode.Create, FileAccess.Write);
+            FileStream file = new FileStream(this.FileName, FileMode.Create, FileAccess.Write);
             BinaryFormatter formatter = new BinaryFormatter();
             formatter.Serialize(file, this.ListPlayers);
             file.Close();
         }
         private void ReadFromFile()
         {
-            if(File.Exists(this.fileName))
+            if (File.Exists(this.FileName))
             {
-                FileStream file = new FileStream(this.fileName, FileMode.Open, FileAccess.Read);
+                FileStream file = new FileStream(this.FileName, FileMode.Open, FileAccess.Read);
                 BinaryFormatter formatter = new BinaryFormatter();
-                object result = (List<Players>)formatter.Deserialize(file);
+                object result = formatter.Deserialize(file);
                 if (this.ListPlayers.GetType() == result.GetType())
                 {
 

@@ -4,8 +4,19 @@ using System.Windows.Forms;
 namespace FoodWars.View
 {
     /// <summary>
-    /// Standard user control for this application.
-    /// NDAK BOLEH DIPAKE!
+    /// ===================================================================
+    /// Contoh user control standar untuk aplikasi ini.
+    /// DISCLAIMER: Form ini hanya contoh, tidak boleh digunakan. 
+    /// ===================================================================
+    /// Data member, constructor, property dan event handler harus sama.
+    /// Nanti bisa ada banyak event handler. Setiap event handler akan 
+    /// menangani navigasi pada tampilan tertentu. Objek yang hanya 
+    /// boleh dibuat untuk event handler adalah UserControl. Untuk event
+    /// 'form_load' tidak boleh diisi!
+    /// ===================================================================
+    /// Note: Parameter dari class ini bisa GameService atau GameConfig.
+    ///       Kalau tampilannya itu setting, maka GameConfig. Tapi, kalau 
+    ///       game atau high score maka GameConfig.
     /// </summary>
 
     public partial class UserControl_Sample : UserControl

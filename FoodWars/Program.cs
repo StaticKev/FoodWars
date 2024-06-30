@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FoodWars.View;
 using FoodWars.Service;
+using FoodWars.Utilities;
 
 namespace FoodWars
 {
@@ -23,11 +24,10 @@ namespace FoodWars
 
             PlayerRepo playerRepository = new PlayerRepo("Players.dat");
             GameService gameService = new GameService(playerRepository);
-            BaseForm baseForm = new BaseForm(gameService);
+            BaseForm baseForm = new BaseForm(gameService, GameConfig.GetGameConfig());
             Application.Run(baseForm);
 
         }
-
 
     }
 }

@@ -2,6 +2,7 @@
 
 namespace FoodWars
 {
+    [Serializable]
     public class Time
     {
         #region Data Members 
@@ -20,7 +21,7 @@ namespace FoodWars
         #endregion
         
         #region Properties
-        public int Hour
+        private int Hour
         {
             get => hour;
             set
@@ -29,7 +30,7 @@ namespace FoodWars
                 else this.hour = value;
             }
         }
-        public int Minute
+        private int Minute
         {
             get => minute;
             set
@@ -38,7 +39,7 @@ namespace FoodWars
                 else this.minute = value;
             }
         }
-        public int Second
+        private int Second
         {
             get => second;
             set
@@ -62,7 +63,18 @@ namespace FoodWars
             this.Second = sec % 60;
         }
 
-        public string Convert()
+        public int GetDurationInSecond()
+        {
+            return this.Hour * 3600 + this.Minute * 60 + this.Second;
+        }
+
+        public bool IsLonger(Time time)
+        {
+            if (this.GetDurationInSecond() > time.GetDurationInSecond()) return true;
+            else return false;
+        }
+
+        public string DurationToString()
         {
             string data = this.Minute.ToString().PadLeft(2, '0') + " : " +
                 this.Second.ToString().PadLeft(2, '0');

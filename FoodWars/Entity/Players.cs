@@ -3,13 +3,14 @@ using System.Drawing;
 
 namespace FoodWars
 {
+    [Serializable]
     public class Players
     {
         #region Data Members
         private string name;
         private int bestIncome;
         private long totalIncome;
-        private int bestLevel;
+        private int currentLevel;
         private Time bestTime;
         private Image picture;
         #endregion
@@ -17,6 +18,11 @@ namespace FoodWars
         #region Constructors
         public Players(string name, Image picture)
         {
+            // DEV MODE 
+            if (name.Substring(0, 3).Equals("DEV")) this.CurrentLevel = int.Parse(name.Substring(3));
+            else this.currentLevel = 1;
+
+            this.CurrentLevel = 1;
             this.Name = name;
             this.TotalIncome = 0;
             this.Picture = picture;
@@ -39,6 +45,7 @@ namespace FoodWars
             set
             {
                 if (value <= 0) throw new ArgumentException("Best income must be greater than 0!");
+                else if (value != 0 && value < this.bestIncome) throw new ArgumentException("New best income must be greater than the previous one!");
                 else this.bestIncome = value;
             }
         }
@@ -47,17 +54,19 @@ namespace FoodWars
             get => totalIncome;
             set
             {
-                if (value < 0) throw new ArgumentException("Total income can't be negative!");
+                if (value < 0) throw new ArgumentException("Total income must be greater than 0!");
+                else if (value != 0 && value < this.totalIncome) throw new ArgumentException("New total income must be greater than the previous one!");
                 else this.totalIncome = value;
             }
         }
-        public int BestLevel
+        public int CurrentLevel
         {
-            get => bestLevel;
+            get => currentLevel;
             set
             {
-                if (value <= 0) throw new ArgumentException("Best level must be greater than 0!");
-                else this.bestLevel = value;
+                if (value <= 0) throw new ArgumentException("Current level must be greater than 0!");
+                else if (value != 0 && value < this.currentLevel) throw new ArgumentException("Level can only be incremented!");
+                else this.currentLevel = value;
             }
         }
         public Time BestTime
@@ -65,7 +74,8 @@ namespace FoodWars
             get => bestTime;
             set
             {
-                if (value == null) throw new Exception("No time specified!");
+                if (value == null) throw new ArgumentException("No time specified!");
+                else if (value.IsLonger(this.bestTime)) throw new ArgumentException("New best time can't be longer than the previous one!");
                 else this.bestTime = value;
             }
         }

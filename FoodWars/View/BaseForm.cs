@@ -1,4 +1,5 @@
 ﻿using FoodWars.Service;
+using FoodWars.Utilities;
 using System;
 using System.Windows.Forms;
 
@@ -7,13 +8,16 @@ namespace FoodWars.View
     public partial class BaseForm : Form
     {
         #region DataMembers
-        GameService game;
+        private GameService game;
+        private GameConfig gameConfig;
         #endregion
 
         #region Constructors
-        public BaseForm(GameService game)
+        public BaseForm(GameService game, GameConfig gameConfig)
         {
             InitializeComponent();
+            this.Game = game;
+            this.GameConfig = gameConfig;
         }
         #endregion
 
@@ -25,6 +29,15 @@ namespace FoodWars.View
             {
                 if (value == null) throw new NullReferenceException("No service specified!");
                 else this.game = value;
+            }
+        }
+        private GameConfig GameConfig
+        {
+            get => this.gameConfig;
+            set
+            {
+                if (value == null) throw new NullReferenceException("No config found!");
+                else this.gameConfig = value;
             }
         }
         #endregion

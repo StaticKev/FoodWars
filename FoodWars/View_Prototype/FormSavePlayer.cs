@@ -41,7 +41,7 @@ namespace FoodWars.View
 
                     labelPlayerName1.Text += " " + savePlayer.Name;
                     labelBestIncome1.Text += " " + savePlayer.BestIncome;
-                    labelBestLevel1.Text += " " + savePlayer.BestLevel;
+                    labelBestLevel1.Text += " " + savePlayer.CurrentLevel;
                     labelTotalIncome1.Text += " " + savePlayer.TotalIncome;
                 }
             }
@@ -58,7 +58,7 @@ namespace FoodWars.View
                 {
                     labelPlayerName2.Text += " " + savePlayer.Name;
                     labelBestIncome2.Text += " " + savePlayer.BestIncome;
-                    labelBestLevel2.Text += " " + savePlayer.BestLevel;
+                    labelBestLevel2.Text += " " + savePlayer.CurrentLevel;
                     labelTotalIncome2.Text += " " + savePlayer.TotalIncome;
                 }
 
@@ -77,7 +77,7 @@ namespace FoodWars.View
                 {
                     labelPlayerName3.Text += " " + savePlayer.Name;
                     labelBestIncome3.Text += " " + savePlayer.BestIncome;
-                    labelBestLevel3.Text += " " + savePlayer.BestLevel;
+                    labelBestLevel3.Text += " " + savePlayer.CurrentLevel;
                     labelTotalIncome3.Text += " " + savePlayer.TotalIncome;
                 }
 
