@@ -1,6 +1,6 @@
 ﻿namespace FoodWars.View
 {
-    partial class UserControl_Sample
+    partial class UserControl_std
     {
         /// <summary> 
         /// Required designer variable.

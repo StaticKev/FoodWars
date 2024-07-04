@@ -19,14 +19,14 @@ namespace FoodWars.View
     ///       game atau high score maka GameConfig.
     /// </summary>
 
-    public partial class UserControl_Sample : UserControl
+    public partial class UserControl_std : UserControl
     {
         #region Data Members
         private BaseForm baseForm;
         #endregion
 
         #region Constructors
-        public UserControl_Sample(BaseForm baseForm)
+        public UserControl_std(BaseForm baseForm)
         {
             InitializeComponent();
             this.BaseForm = baseForm;
