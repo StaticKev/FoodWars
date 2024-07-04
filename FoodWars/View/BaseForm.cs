@@ -10,6 +10,7 @@ namespace FoodWars.View
         #region DataMembers
         private GameService game;
         private GameConfig gameConfig;
+        // Tambahkan BGM
         #endregion
 
         #region Constructors
@@ -18,6 +19,8 @@ namespace FoodWars.View
             InitializeComponent();
             this.Game = game;
             this.GameConfig = gameConfig;
+
+            // Nyalakan BGM
         }
         #endregion
 

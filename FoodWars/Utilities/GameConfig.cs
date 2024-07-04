@@ -17,12 +17,15 @@ namespace FoodWars.Utilities
         #endregion
 
         #region Constructors 
-        public GameConfig()
+        public GameConfig(bool isComparator)
         {
-            this.BgmOn = true;
-            this.SfxOn = true;
-            this.fileName = "GameConfig.dat";
-            this.UpdateGameConfig();
+            if (!isComparator)
+            {
+                this.BgmOn = true;
+                this.SfxOn = true;
+                this.fileName = "GameConfig.dat";
+                this.UpdateGameConfig();
+            }
         }
         #endregion
 
@@ -57,25 +60,32 @@ namespace FoodWars.Utilities
             string fileName = "GameConfig.dat";
             GameConfig config;
 
+            Console.WriteLine("File is exist: " + File.Exists(fileName));
+
             if (File.Exists(fileName))
             {
                 FileStream file = new FileStream(fileName, FileMode.Open, FileAccess.Read);
                 BinaryFormatter formatter = new BinaryFormatter();
                 object result = formatter.Deserialize(file);
-                GameConfig comparator = new GameConfig();
+                GameConfig comparator = new GameConfig(true);
+
+                Console.WriteLine("Result is equal: " + (result.GetType() == comparator.GetType()));
+
                 if (result.GetType() == comparator.GetType())
                 {
                     config = (GameConfig)result;
+                    Console.WriteLine("========== Found a GameConfig file! ==========");
                 }
                 else
                 {
+                    Console.WriteLine("========== File type doesn't match GameConfig ==========");
                     throw new IOException("Incovertible read result");
                 }
                 file.Close();
             }
             else
             {
-                config = new GameConfig();
+                config = new GameConfig(false);
             }
 
             return config;
