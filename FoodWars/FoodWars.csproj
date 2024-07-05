@@ -76,6 +76,18 @@
     <Compile Include="View\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MainMenuUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MainMenuUserControl.Designer.cs">
+      <DependentUpon>MainMenuUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SwitchPlayerUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SwitchPlayerUserControl.Designer.cs">
+      <DependentUpon>SwitchPlayerUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControl_std.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -127,6 +139,12 @@
     <EmbeddedResource Include="View\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\MainMenuUserControl.resx">
+      <DependentUpon>MainMenuUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SwitchPlayerUserControl.resx">
+      <DependentUpon>SwitchPlayerUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\UserControl_std.resx">
       <DependentUpon>UserControl_std.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +179,87 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\2062361-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit Button %28400x120%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Load Game Button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New Game Button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FormMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InGame HUD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level Description.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New Players.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChefTable %28InGame%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FormLoad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background InGame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MainMenuUserControl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_leaderboard_stroke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_exit_stroke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_leaderboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_lederboard_stroke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_settings_stroke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_start_stroke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_switchPlayer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_switchPlayer_stroke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MainMenuUserControl_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SwitchPlayerUserControl_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\K_PP.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

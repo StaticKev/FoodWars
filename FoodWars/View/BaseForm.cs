@@ -47,7 +47,10 @@ namespace FoodWars.View
 
         private void BaseForm_Load(object sender, EventArgs e)
         {
-            // Main Menu User Control goes here!
+            MainMenuUserControl mainMenuUserControl = new MainMenuUserControl(this);
+
+            mainPanel.Controls.Add(mainMenuUserControl);
+            mainPanel.Dock = DockStyle.Fill;
         }
     }
 }

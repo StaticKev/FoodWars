@@ -60,8 +60,6 @@ namespace FoodWars.Utilities
             string fileName = "GameConfig.dat";
             GameConfig config;
 
-            Console.WriteLine("File is exist: " + File.Exists(fileName));
-
             if (File.Exists(fileName))
             {
                 FileStream file = new FileStream(fileName, FileMode.Open, FileAccess.Read);
@@ -69,16 +67,12 @@ namespace FoodWars.Utilities
                 object result = formatter.Deserialize(file);
                 GameConfig comparator = new GameConfig(true);
 
-                Console.WriteLine("Result is equal: " + (result.GetType() == comparator.GetType()));
-
                 if (result.GetType() == comparator.GetType())
                 {
                     config = (GameConfig)result;
-                    Console.WriteLine("========== Found a GameConfig file! ==========");
                 }
                 else
                 {
-                    Console.WriteLine("========== File type doesn't match GameConfig ==========");
                     throw new IOException("Incovertible read result");
                 }
                 file.Close();

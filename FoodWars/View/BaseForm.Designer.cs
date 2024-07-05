@@ -33,6 +33,7 @@
             // 
             // mainPanel
             // 
+            this.mainPanel.BackColor = System.Drawing.Color.Transparent;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(944, 501);
@@ -56,6 +57,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel mainPanel;
+        public System.Windows.Forms.Panel mainPanel;
     }
 }
