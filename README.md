@@ -1,11 +1,14 @@
-Yang uda fix:
+Done: 
 - Domain Entity
 - Repository
 - Method: GenerateCustomerQueue
 - Gameplay, konsep
-- Form: MainMenu
+- BaseForm
 
-Yang belom: 
+On Progress: 
+- Creating main menu user control
+
+Pending tasks: 
 - Service: GameService
 - Banyak view yang belom
 - Navigasi antar view
