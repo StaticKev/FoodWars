@@ -10,13 +10,14 @@ namespace FoodWars.Repository
     {
         #region Data Members
         private string fileName = "Players.dat";
-        private List<Players> listPlayers = new List<Players>();
+        private List<Players> listPlayers;
         #endregion
 
         #region Constructors
         public PlayerRepo(string fileName)
         {
             this.FileName = fileName;
+            listPlayers = new List<Players>();
             ReadFromFile();
         }
         #endregion
@@ -35,12 +36,13 @@ namespace FoodWars.Repository
         {
             get
             {
-                List<Players> getListPlayers = new List <Players>();
-                foreach (Players p in this.ListPlayers)
-                {
-                    getListPlayers.Add(p);
-                }
-                return getListPlayers;
+                /*                List<Players> getListPlayers = new List <Players>();
+                                foreach (Players p in this.listPlayers)
+                                {
+                                    getListPlayers.Add(p);
+                                }
+                                return getListPlayers;*/
+                return listPlayers;
             }
             private set
             {
@@ -78,6 +80,10 @@ namespace FoodWars.Repository
 
                 }
                 file.Close();
+            } 
+            else
+            {
+                SaveToFile();
             }
         }
         public void UpdatePlayer(Players player)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Text;
 
 namespace FoodWars
 {
@@ -19,12 +20,13 @@ namespace FoodWars
         public Players(string name, Image picture)
         {
             // DEV MODE 
-            if (name.Substring(0, 3).Equals("DEV")) this.CurrentLevel = int.Parse(name.Substring(3));
-            else this.currentLevel = 1;
+            /*            if (name.Substring(0, 3).Equals("DEV")) this.CurrentLevel = int.Parse(name.Substring(3));
+                        else this.currentLevel = 1;*/
 
             this.CurrentLevel = 1;
             this.Name = name;
             this.TotalIncome = 0;
+            this.bestTime = new Time(0, 0, 0);
             this.Picture = picture;
         }
         #endregion

@@ -397,7 +397,15 @@ namespace FoodWars.Service
             }
         }
 
-        
+        public void AddPlayer(Players player)
+        {
+            repo.AddPlayer(player);
+        }
+
+        public List<Players> GetPlayers()
+        {
+            return repo.ListPlayers;
+        }
         #endregion
     }
 }
