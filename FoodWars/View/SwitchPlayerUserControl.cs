@@ -1,5 +1,6 @@
 ﻿using FoodWars.Repository;
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace FoodWars.View
@@ -8,6 +9,7 @@ namespace FoodWars.View
     {
         #region Data Members
         private BaseForm baseForm;
+        private BindingList<Players> players; // jangan lupa kasi property 
         #endregion
 
         #region Constructors
@@ -34,16 +36,58 @@ namespace FoodWars.View
         private void SwitchPlayerUserControl_Load(object sender, EventArgs e)
         {
             comboBox_Players.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            // Update combo box
+            players = new BindingList<Players>(BaseForm.Game.GetPlayers());
+            comboBox_Players.DataSource = players;
+            comboBox_Players.DisplayMember = "Name";
+
+            DisplayData();
+            UpdateCurrentPlayer((Players)comboBox_Players.SelectedItem);
         }
 
-        private void button_backToMainMenu_Click(object sender, EventArgs e)
+        private void Button_backToMainMenu_Click(object sender, EventArgs e)
         {
             MainMenuUserControl mainMenu = new MainMenuUserControl(BaseForm);
 
             BaseForm.mainPanel.Controls.Remove(this);
             BaseForm.mainPanel.Controls.Add(mainMenu);
             mainMenu.Dock = DockStyle.Fill;
+        }
 
+        private void Button_newPlayer_Click(object sender, EventArgs e)
+        {
+            NewPlayerUserControl newPlayerUc = new NewPlayerUserControl(BaseForm);
+
+            BaseForm.mainPanel.Controls.Remove(this);
+            BaseForm.mainPanel.Controls.Add(newPlayerUc);
+            newPlayerUc.Dock = DockStyle.Fill;
+        }
+
+        private void ComboBox_Player_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplayData();
+            UpdateCurrentPlayer((Players)comboBox_Players.SelectedItem);
+        }
+        #endregion
+
+        #region Methods
+        private void DisplayData()
+        {
+            if (players.Count > 0)
+            {
+                Players player = (Players)comboBox_Players.SelectedItem;
+                label_level.Text = player.CurrentLevel.ToString();
+                label_totalIncome.Text = player.TotalIncome.ToString();
+                label_bestIncome.Text = player.BestIncome.ToString();
+                label_bestTime.Text = player.BestTime.DurationToString();
+                pictBox_Profile.BackgroundImage = player.Picture;
+            }
+        }
+
+        private void UpdateCurrentPlayer(Players player)
+        {
+            BaseForm.Game.Player = player;
         }
         #endregion
     }

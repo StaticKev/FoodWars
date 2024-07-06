@@ -41,9 +41,10 @@ namespace FoodWars.View
             }
             else
             {
+                label_Name.Text = "Name: " + BaseForm.Game.Player.Name;
+                label_Level.Text = "Level: " + BaseForm.Game.Player.CurrentLevel.ToString();
                 pictBox_ButtonStart.Image = Resources.button_start;
             }
-
         }
         #region START
         private void Button_Start_Click(object sender, EventArgs e)

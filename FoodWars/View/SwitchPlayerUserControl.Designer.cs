@@ -40,13 +40,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label_totalIncome = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label_Level = new System.Windows.Forms.Label();
+            this.label_level = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictBox_Profile = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictBox_Profile)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +58,7 @@
             this.comboBox_Players.Name = "comboBox_Players";
             this.comboBox_Players.Size = new System.Drawing.Size(229, 29);
             this.comboBox_Players.TabIndex = 0;
+            this.comboBox_Players.SelectedIndexChanged += new System.EventHandler(this.ComboBox_Player_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -71,7 +72,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label_totalIncome);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label_Level);
+            this.groupBox1.Controls.Add(this.label_level);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.comboBox_Players);
@@ -92,6 +93,7 @@
             this.button_newPlayer.TabIndex = 10;
             this.button_newPlayer.Text = "New Player";
             this.button_newPlayer.UseVisualStyleBackColor = true;
+            this.button_newPlayer.Click += new System.EventHandler(this.Button_newPlayer_Click);
             // 
             // button_backToMainMenu
             // 
@@ -102,7 +104,7 @@
             this.button_backToMainMenu.TabIndex = 9;
             this.button_backToMainMenu.Text = "Back";
             this.button_backToMainMenu.UseVisualStyleBackColor = true;
-            this.button_backToMainMenu.Click += new System.EventHandler(this.button_backToMainMenu_Click);
+            this.button_backToMainMenu.Click += new System.EventHandler(this.Button_backToMainMenu_Click);
             // 
             // button_achievements
             // 
@@ -175,15 +177,15 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Total Income: ";
             // 
-            // label_Level
+            // label_level
             // 
-            this.label_Level.AutoSize = true;
-            this.label_Level.Font = new System.Drawing.Font("Samurai Blast", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Level.Location = new System.Drawing.Point(188, 81);
-            this.label_Level.Name = "label_Level";
-            this.label_Level.Size = new System.Drawing.Size(16, 16);
-            this.label_Level.TabIndex = 3;
-            this.label_Level.Text = "-";
+            this.label_level.AutoSize = true;
+            this.label_level.Font = new System.Drawing.Font("Samurai Blast", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_level.Location = new System.Drawing.Point(188, 81);
+            this.label_level.Name = "label_level";
+            this.label_level.Size = new System.Drawing.Size(16, 16);
+            this.label_level.TabIndex = 3;
+            this.label_level.Text = "-";
             // 
             // label2
             // 
@@ -205,21 +207,21 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Name: ";
             // 
-            // pictureBox1
+            // pictBox_Profile
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.BackgroundImage = global::FoodWars.Properties.Resources.DefaultIcon;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(5, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(290, 290);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pictBox_Profile.BackColor = System.Drawing.Color.White;
+            this.pictBox_Profile.BackgroundImage = global::FoodWars.Properties.Resources.DefaultIcon;
+            this.pictBox_Profile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictBox_Profile.Location = new System.Drawing.Point(5, 5);
+            this.pictBox_Profile.Name = "pictBox_Profile";
+            this.pictBox_Profile.Size = new System.Drawing.Size(290, 290);
+            this.pictBox_Profile.TabIndex = 1;
+            this.pictBox_Profile.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.pictBox_Profile);
             this.panel1.Location = new System.Drawing.Point(136, 132);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(300, 300);
@@ -240,7 +242,7 @@
             this.Load += new System.EventHandler(this.SwitchPlayerUserControl_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictBox_Profile)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -250,9 +252,9 @@
 
         private System.Windows.Forms.ComboBox comboBox_Players;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictBox_Profile;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label_Level;
+        private System.Windows.Forms.Label label_level;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label_totalIncome;

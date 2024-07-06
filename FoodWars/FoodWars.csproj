@@ -100,6 +100,12 @@
     <Compile Include="View\MainMenuUserControl.Designer.cs">
       <DependentUpon>MainMenuUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\NewPlayerUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\NewPlayerUserControl.Designer.cs">
+      <DependentUpon>NewPlayerUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\SettingsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainMenuUserControl.resx">
       <DependentUpon>MainMenuUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NewPlayerUserControl.resx">
+      <DependentUpon>NewPlayerUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SettingsUserControl.resx">
       <DependentUpon>SettingsUserControl.cs</DependentUpon>
@@ -305,6 +314,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PlayerInfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewPlayerUserControl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Symbol_Plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Symbol_Plus_Stroke.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

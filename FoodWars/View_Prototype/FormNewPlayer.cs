@@ -72,5 +72,10 @@ namespace FoodWars.View
         }
 
         #endregion
+
+        private void panelPlayerPicture_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

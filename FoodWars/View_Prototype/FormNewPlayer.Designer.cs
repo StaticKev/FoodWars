@@ -52,7 +52,7 @@
             // 
             this.buttonSavePlayer.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSavePlayer.Location = new System.Drawing.Point(241, 341);
-            this.buttonSavePlayer.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.buttonSavePlayer.Margin = new System.Windows.Forms.Padding(1);
             this.buttonSavePlayer.Name = "buttonSavePlayer";
             this.buttonSavePlayer.Size = new System.Drawing.Size(225, 42);
             this.buttonSavePlayer.TabIndex = 9;
@@ -64,7 +64,7 @@
             // 
             this.textBoxName.Font = new System.Drawing.Font("Times New Roman", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxName.Location = new System.Drawing.Point(325, 213);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(1);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(190, 29);
             this.textBoxName.TabIndex = 8;
@@ -85,11 +85,12 @@
             this.panelPlayerPicture.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelPlayerPicture.Font = new System.Drawing.Font("Times New Roman", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelPlayerPicture.Location = new System.Drawing.Point(297, 26);
-            this.panelPlayerPicture.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.panelPlayerPicture.Margin = new System.Windows.Forms.Padding(1);
             this.panelPlayerPicture.Name = "panelPlayerPicture";
             this.panelPlayerPicture.Size = new System.Drawing.Size(112, 126);
             this.panelPlayerPicture.TabIndex = 6;
             this.panelPlayerPicture.Click += new System.EventHandler(this.panelPlayerPicture_Click);
+            this.panelPlayerPicture.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPlayerPicture_Paint);
             // 
             // FormNewPlayer
             // 
