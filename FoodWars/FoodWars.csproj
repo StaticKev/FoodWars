@@ -300,5 +300,11 @@
   <ItemGroup>
     <None Include="Resources\button_start1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_start_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayerInfo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

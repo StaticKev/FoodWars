@@ -203,6 +203,16 @@ namespace FoodWars.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PlayerInfo {
+            get {
+                object obj = ResourceManager.GetObject("PlayerInfo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SwitchPlayerUserControl_bg {
             get {
                 object obj = ResourceManager.GetObject("SwitchPlayerUserControl_bg", resourceCulture);
