@@ -76,11 +76,35 @@
     <Compile Include="View\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\LeaderboardUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\LeaderboardUserControl.Designer.cs">
+      <DependentUpon>LeaderboardUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LevelDescriptionUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\LevelDescriptionUserControl.Designer.cs">
+      <DependentUpon>LevelDescriptionUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LevelInGameUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\LevelInGameUserControl.Designer.cs">
+      <DependentUpon>LevelInGameUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainMenuUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\MainMenuUserControl.Designer.cs">
       <DependentUpon>MainMenuUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SettingsUserControl.Designer.cs">
+      <DependentUpon>SettingsUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\SwitchPlayerUserControl.cs">
       <SubType>UserControl</SubType>
@@ -139,8 +163,20 @@
     <EmbeddedResource Include="View\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\LeaderboardUserControl.resx">
+      <DependentUpon>LeaderboardUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LevelDescriptionUserControl.resx">
+      <DependentUpon>LevelDescriptionUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LevelInGameUserControl.resx">
+      <DependentUpon>LevelInGameUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MainMenuUserControl.resx">
       <DependentUpon>MainMenuUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SettingsUserControl.resx">
+      <DependentUpon>SettingsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SwitchPlayerUserControl.resx">
       <DependentUpon>SwitchPlayerUserControl.cs</DependentUpon>
@@ -260,6 +296,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\K_PP.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_start1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

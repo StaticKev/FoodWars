@@ -133,6 +133,16 @@ namespace FoodWars.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap button_start_disabled {
+            get {
+                object obj = ResourceManager.GetObject("button_start_disabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap button_start_stroke {
             get {
                 object obj = ResourceManager.GetObject("button_start_stroke", resourceCulture);

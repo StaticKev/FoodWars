@@ -17,7 +17,6 @@ D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormLevelDescription.re
 D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormLoadPlayer.resources
 D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormNewPlayer.resources
 D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormSavePlayer.resources
-D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.MainMenuForm.resources
 D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.csproj.GenerateResource.cache
 D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.csproj.CoreCompileInputs.cache
 D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.exe
@@ -31,3 +30,11 @@ D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.BaseForm
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.MainMenuUserControl.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.UserControl_std.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.SwitchPlayerUserControl.resources
+D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.View.BaseForm.resources
+D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.View.MainMenuUserControl.resources
+D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.View.SwitchPlayerUserControl.resources
+D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.View.UserControl_std.resources
+D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.View.LeaderboardUserControl.resources
+D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.View.LevelDescriptionUserControl.resources
+D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.View.LevelInGameUserControl.resources
+D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.View.SettingsUserControl.resources
