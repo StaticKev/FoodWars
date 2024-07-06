@@ -35,32 +35,28 @@ namespace FoodWars.View
         #region Event Handlers
         private void MainMenuUserControl_Load(object sender, EventArgs e)
         {
-            if (playersAvailable()==false)
+            if (BaseForm.Game.Player == null)
             {
-                pictBox_ButtonStart.Image = Properties.Resources.button_start_disabled;
+                pictBox_ButtonStart.Image = Resources.button_start_disabled;
             }
             else
             {
-                pictBox_ButtonStart.Image = Properties.Resources.button_start;
+                pictBox_ButtonStart.Image = Resources.button_start;
             }
 
         }
         #region START
         private void Button_Start_Click(object sender, EventArgs e)
         {
-            if (playersAvailable() == false)
+            if (BaseForm.Game.Player != null)
             {
-                //SHOW EXCEPTION??
-            }
-            else
-            {
-                //TO VIEW
+                // Navigate to GameView
             }
         }
 
         private void Button_Start_MouseEnter(object sender, EventArgs e)
         {
-            if (playersAvailable() == false)
+            if (BaseForm.Game.Player == null)
             {
                 pictBox_ButtonStart.Image = Properties.Resources.button_start_disabled;
             }
@@ -72,7 +68,7 @@ namespace FoodWars.View
 
         private void Button_Start_MouseLeave(object sender, EventArgs e)
         {
-            if (playersAvailable() == false)
+            if (BaseForm.Game.Player == null)
             {
                 pictBox_ButtonStart.Image = Properties.Resources.button_start_disabled;
             }
@@ -135,7 +131,6 @@ namespace FoodWars.View
             pictBox_ButtonSettings.Image = Resources.button_settings;
         }
         #endregion
-
         #region EXIT BUTTON
         private void Button_Exit_MouseClick(object sender, EventArgs e)
         {
@@ -152,31 +147,6 @@ namespace FoodWars.View
             pictBox_ButtonExit.Image = Resources.button_exit;
         }
         #endregion
-        #endregion
-
-        #region METHOD
-        private bool playersAvailable()
-        {
-            if (game.Player == null)
-            {
-
-                return false;
-
-            }
-            else
-            {
-
-                return true;
-
-            }
-        }
-
-
-        public void gameService(GameService transit)
-        {
-            this.game = transit;
-        }
-
         #endregion
     }
 }

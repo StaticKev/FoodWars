@@ -25,10 +25,10 @@ namespace FoodWars.View
         #endregion
 
         #region Properties
-        private GameService Game
+        public GameService Game
         {
             get => this.game;
-            set
+            private set
             {
                 if (value == null) throw new NullReferenceException("No service specified!");
                 else this.game = value;
@@ -48,7 +48,6 @@ namespace FoodWars.View
         private void BaseForm_Load(object sender, EventArgs e)
         {
             MainMenuUserControl mainMenuUserControl = new MainMenuUserControl(this);
-            mainMenuUserControl.gameService(this.Game);
             mainPanel.Controls.Add(mainMenuUserControl);
             mainPanel.Dock = DockStyle.Fill;
         }

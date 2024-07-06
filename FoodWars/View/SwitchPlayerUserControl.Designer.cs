@@ -208,7 +208,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.BackgroundImage = global::FoodWars.Properties.Resources.K_PP;
+            this.pictureBox1.BackgroundImage = global::FoodWars.Properties.Resources.DefaultIcon;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(5, 5);
             this.pictureBox1.Name = "pictureBox1";

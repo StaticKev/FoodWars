@@ -34,11 +34,15 @@
             this.pictBox_Leaderboard = new System.Windows.Forms.PictureBox();
             this.pictBox_ButtonSwitchPlayer = new System.Windows.Forms.PictureBox();
             this.pictBox_ButtonStart = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label_Name = new System.Windows.Forms.Label();
+            this.label_Level = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictBox_ButtonExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBox_ButtonSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBox_Leaderboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBox_ButtonSwitchPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBox_ButtonStart)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictBox_ButtonExit
@@ -111,12 +115,44 @@
             this.pictBox_ButtonStart.MouseEnter += new System.EventHandler(this.Button_Start_MouseEnter);
             this.pictBox_ButtonStart.MouseLeave += new System.EventHandler(this.Button_Start_MouseLeave);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.label_Level);
+            this.panel1.Controls.Add(this.label_Name);
+            this.panel1.Location = new System.Drawing.Point(661, 376);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(236, 125);
+            this.panel1.TabIndex = 6;
+            // 
+            // label_Name
+            // 
+            this.label_Name.AutoSize = true;
+            this.label_Name.Font = new System.Drawing.Font("Samurai Blast", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Name.Location = new System.Drawing.Point(41, 49);
+            this.label_Name.Name = "label_Name";
+            this.label_Name.Size = new System.Drawing.Size(53, 10);
+            this.label_Name.TabIndex = 0;
+            this.label_Name.Text = "Name: -";
+            // 
+            // label_Level
+            // 
+            this.label_Level.AutoSize = true;
+            this.label_Level.Font = new System.Drawing.Font("Samurai Blast", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Level.Location = new System.Drawing.Point(41, 76);
+            this.label_Level.Name = "label_Level";
+            this.label_Level.Size = new System.Drawing.Size(57, 10);
+            this.label_Level.TabIndex = 1;
+            this.label_Level.Text = "Level: -";
+            // 
             // MainMenuUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FoodWars.Properties.Resources.MainMenuUserControl_bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictBox_ButtonExit);
             this.Controls.Add(this.pictBox_ButtonSettings);
             this.Controls.Add(this.pictBox_Leaderboard);
@@ -131,6 +167,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictBox_Leaderboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBox_ButtonSwitchPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBox_ButtonStart)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -142,5 +180,8 @@
         private System.Windows.Forms.PictureBox pictBox_Leaderboard;
         private System.Windows.Forms.PictureBox pictBox_ButtonSettings;
         private System.Windows.Forms.PictureBox pictBox_ButtonExit;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label_Name;
+        private System.Windows.Forms.Label label_Level;
     }
 }
