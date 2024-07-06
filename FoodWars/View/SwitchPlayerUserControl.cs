@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FoodWars.Repository;
+using System;
 using System.Windows.Forms;
 
 namespace FoodWars.View

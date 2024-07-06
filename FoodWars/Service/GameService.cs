@@ -39,6 +39,8 @@ namespace FoodWars.Service
 
         #region Properties
 
+        public Players Player { get => player; set => player = value; }
+
         #endregion
 
         #region Methods
