@@ -21,6 +21,7 @@ namespace FoodWars
             this.Type = customerType;
             this.Orders = new List<Items>();
             this.Picture = picture;
+            this.Timer = new Time(0, 0, 0);
         }
         #endregion
 
@@ -58,7 +59,7 @@ namespace FoodWars
             get => timer;
             set
             {
-                if (timer == null) throw new NullReferenceException();
+                if (value == null) throw new NullReferenceException();
                 else this.timer = value;
             }
         }

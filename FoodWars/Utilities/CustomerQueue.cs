@@ -27,7 +27,7 @@ namespace FoodWars.Utilities
             get => this.size;
             private set
             {
-                if (this.size < 1) throw new ArgumentException("Size must be greater than zero!");
+                if (value < 1) throw new ArgumentException("Size must be greater than zero!");
                 else this.size = value;
             } 
         }

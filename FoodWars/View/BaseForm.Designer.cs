@@ -49,7 +49,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "BaseForm";
-            this.Text = "BaseForm";
+            this.Text = "Food Wars";
             this.Load += new System.EventHandler(this.BaseForm_Load);
             this.ResumeLayout(false);
 

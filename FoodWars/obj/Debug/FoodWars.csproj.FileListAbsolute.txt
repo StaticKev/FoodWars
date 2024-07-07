@@ -44,3 +44,4 @@ D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.LevelInG
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.SettingsUserControl.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.NewPlayerUserControl.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.InGameUserControl.resources
+D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.PauseUserControl.resources
