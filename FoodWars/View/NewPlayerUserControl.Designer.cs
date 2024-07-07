@@ -97,7 +97,7 @@
             // pictBox_Image
             // 
             this.pictBox_Image.BackColor = System.Drawing.Color.Transparent;
-            this.pictBox_Image.BackgroundImage = global::FoodWars.Properties.Resources.Symbol_Plus;
+            this.pictBox_Image.BackgroundImage = global::FoodWars.Properties.Resources.button_plus;
             this.pictBox_Image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictBox_Image.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictBox_Image.Location = new System.Drawing.Point(416, 141);
@@ -113,7 +113,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::FoodWars.Properties.Resources.NewPlayerUserControl;
+            this.BackgroundImage = global::FoodWars.Properties.Resources.bg_newPlayer;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.pictBox_Image);
             this.Controls.Add(this.button_SavePlayer);

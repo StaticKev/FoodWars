@@ -5,26 +5,28 @@ using FoodWars.Utilities;
 using FoodWars.Values;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
+using System.Configuration;
 using System.Linq;
-
 namespace FoodWars.Service
 {
     public class GameService
     {
         #region Data Members
-        private PlayerRepo repo;
+        private PlayerRepo repo; // Memang tidak diberi property
         private Players player; // Menyimpan status player yang sedang bermain saat ini.
 
-        private CustomerQueue customerQueue;
+        private CustomerQueue customerQueue; // Memang tidak diberi property 
 
         // Kelihatan User
         private Customers[] chairs;
         private Customers nextCustomer; // Diinisialisasi setelah CustomerQueue digenerate
         private int dailyRevenue; // Diinisialisasi saat saat service dibuat. Saat game berakhir, tambahkan pada totalRevenue milik player, kemudian reset menjadi 0.
         private Time openDuration; // ============================== BELOM DIINSTANSIASI ==============================
+        private bool isPaused;
         // Buat satu class untuk menghitung interval antar customer sesuai aturan yang berlaku
 
+        private IngredientsMap availableIngredients; // Untuk menentukan bahan apa saja yang tersedia.
+        private BeverageType[] availableBeverages; // Untuk menentukan minuman apa saja yang tersedia.
         private Items chosenItem; // Item yang dipilih untuk diberikan kepada pelanggan. 
         private Foods foodBeingPrepared; // Makanan yang sedang disiapkan di meja penyajian.
         private Beverages beveragesBeingPrepared; // Minuman yang sedang disiapkan pada dispenser minuman.
@@ -38,16 +40,100 @@ namespace FoodWars.Service
         #endregion
 
         #region Properties
-
-        public Players Player { get => player; set => player = value; }
-
+        public Players Player 
+        { 
+            get => player; 
+            set
+            {
+                if (value == null) throw new NullReferenceException("No player chosen!");
+                else player = value;
+            }
+        }
+        private Customers[] Chairs 
+        { 
+            get => chairs; 
+            set
+            {
+                if (value == null) throw new NullReferenceException("Invalid value for array of Customers!");
+                else chairs = value;
+            } 
+        }
+        public int DailyRevenue 
+        { 
+            get => dailyRevenue; 
+            private set
+            {
+                if (value <= 0) throw new ArgumentException("Daily revenue must be larger than 0!");
+                else dailyRevenue = value;
+            } 
+        }
+        public Time OpenDuration 
+        { 
+            get => openDuration; 
+            private set
+            {
+                if (value == null) throw new NullReferenceException("Requires an insantiated Time object!");
+                else if (openDuration.GetDurationInSecond() == 0) throw new ArgumentException("Open duration can't be zero!");
+                else openDuration = value;
+            }
+        }
+        public bool IsPaused
+        {
+            get => isPaused;
+            set => isPaused = value;
+        }
+        public IngredientsMap AvailableIngredients
+        {
+            get => availableIngredients;
+            private set
+            {
+                if (value == null) throw new ArgumentException("Invalid value for availableIngredients!");
+                else availableIngredients = value;
+            }
+        }
+        public BeverageType[] AvailableBeverages
+        {
+            get => availableBeverages;
+            private set
+            {
+                if (value == null) throw new ArgumentException("Invalid value for availableBeverages!");
+            }
+        }
+        public Items ChosenItem 
+        { 
+            get => chosenItem; 
+            set
+            {
+                if (value == null) throw new NullReferenceException("No object found!");
+                else chosenItem = value;
+            }
+        }
+        public Foods FoodsBeingPrepared 
+        { 
+            get => foodBeingPrepared; 
+            private set
+            {
+                if (value == null) throw new NullReferenceException("Invalid value for food!");
+                else foodBeingPrepared = value;
+            } 
+        }
+        public Beverages BeveragesBeingPrepared 
+        { 
+            get => beveragesBeingPrepared; 
+            private set
+            {
+                if (value == null) throw new NullReferenceException("Invalid value for beverage!");
+                else beveragesBeingPrepared = value;
+            }
+        }
         #endregion
 
         #region Methods
         public void StartGame(int level, Players player)
         {
-            this.player = player;
-            chairs = new Customers[3];
+            this.Player = player;
+            Chairs = new Customers[3];
+            IsPaused = false;
             // =================================== JANGAN LUPA ISI PICTURE! ===================================
             List<Ingredients> riceIngredients = new List<Ingredients>
             {
@@ -74,8 +160,8 @@ namespace FoodWars.Service
                 new Ingredients("Korokke", 10_000, IngredientCategory.SIDE_DISHES, null)
             };
 
-            IngredientsMap availableIngredients = new IngredientsMap();
-            BeverageType[] availableBeverages = new BeverageType[] { BeverageType.WATER, BeverageType.OCHA, BeverageType.SAKE };
+            AvailableIngredients = new IngredientsMap();
+            AvailableBeverages = new BeverageType[] { BeverageType.WATER, BeverageType.OCHA, BeverageType.SAKE };
             Merchandise[] merch = new Merchandise[]
             {
                 new Merchandise("Keychain", 70_000, 2, null),
@@ -98,7 +184,7 @@ namespace FoodWars.Service
                 allowedProtein = proteinIngredients.Count;
                 allowedVegetable = vegetableIngredients.Count;
                 allowedSideDishes = sideDishesIngredients.Count;
-                allowedBeverages = availableBeverages.Count();
+                allowedBeverages = AvailableBeverages.Count();
             }
             else
             {
@@ -127,10 +213,10 @@ namespace FoodWars.Service
             }
             allowedBeverages = level / 50 + 1;
 
-            availableIngredients.Add(IngredientCategory.RICE, riceIngredients, allowedRice);
-            availableIngredients.Add(IngredientCategory.PROTEIN, proteinIngredients, allowedProtein);
-            availableIngredients.Add(IngredientCategory.VEGETABLES, vegetableIngredients, allowedVegetable);
-            availableIngredients.Add(IngredientCategory.SIDE_DISHES, sideDishesIngredients, allowedSideDishes);
+            AvailableIngredients.Add(IngredientCategory.RICE, riceIngredients, allowedRice);
+            AvailableIngredients.Add(IngredientCategory.PROTEIN, proteinIngredients, allowedProtein);
+            AvailableIngredients.Add(IngredientCategory.VEGETABLES, vegetableIngredients, allowedVegetable);
+            AvailableIngredients.Add(IngredientCategory.SIDE_DISHES, sideDishesIngredients, allowedSideDishes);
 
             customerQueue = GenerateQueue();
 
@@ -192,7 +278,7 @@ namespace FoodWars.Service
 
                 // Menghitung jumlah customer berdasarkan 
                 int customerAmount;
-                if (level <= 100) customerAmount = 10 + level / 5;
+                if (level <= 100) customerAmount = 5 + level / 5;
                 else customerAmount = 30;
 
                 // Menentukan 80% customer yang akan mengikuti rasio level, dan 20% customer yang akan diacak
@@ -308,10 +394,10 @@ namespace FoodWars.Service
                             // JANGAN LUPA ISI PICTURE!
                             Foods food = new Foods("", null);
 
-                            food.AddIngredient(availableIngredients.GetRandomIngredient(IngredientCategory.RICE));
-                            food.AddIngredient(availableIngredients.GetRandomIngredient(IngredientCategory.PROTEIN));
-                            food.AddIngredient(availableIngredients.GetRandomIngredient(IngredientCategory.VEGETABLES));
-                            food.AddIngredient(availableIngredients.GetRandomIngredient(IngredientCategory.SIDE_DISHES));
+                            food.AddIngredient(AvailableIngredients.GetRandomIngredient(IngredientCategory.RICE));
+                            food.AddIngredient(AvailableIngredients.GetRandomIngredient(IngredientCategory.PROTEIN));
+                            food.AddIngredient(AvailableIngredients.GetRandomIngredient(IngredientCategory.VEGETABLES));
+                            food.AddIngredient(AvailableIngredients.GetRandomIngredient(IngredientCategory.SIDE_DISHES));
                             try
                             {
                                 customer.AddOrder(food);
@@ -328,10 +414,7 @@ namespace FoodWars.Service
                             bool isCold = false;
                             if (Randomizer.Generate(2) == 1) isCold = true;
 
-                            int beverageOption = Randomizer.Generate(allowedBeverages);
-                            BeverageType beverageType = BeverageType.WATER;
-                            if (beverageOption == 1) beverageType = BeverageType.OCHA;
-                            else if (beverageOption == 2) beverageType = BeverageType.SAKE;
+                            BeverageType beverageType = AvailableBeverages[Randomizer.Generate(allowedBeverages)];
 
                             // JANGAN LUPA ISI PICTURE! (Yang ini pake pengecekan, bergantung pada isCold, beverageType, dan glassSize)
                             Beverages beverage = new Beverages("", isCold, beverageType, glassSize, null);
@@ -389,7 +472,7 @@ namespace FoodWars.Service
                     }
 
                     // Menambahkan durasi permainan sesuai dengan durasi pelayanan tiap customer 
-                    openDuration.Add(customer.Timer.GetDurationInSecond());
+                    OpenDuration.Add(customer.Timer.GetDurationInSecond());
 
                     return customer;
                 }

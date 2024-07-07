@@ -68,8 +68,16 @@ namespace FoodWars
                     }
                     base.Price = price;
                 }
+            } 
+            else
+            {
+                // Ini di catch ketika nambahkan ingredient, trus panggil method SwitchIngredient
+                throw new ArgumentException("Ingredient already present in the menu!");
             }
         }
+
+        // ============================== BELOM KELAR ==============================
+        private void SwitchIngredient() { }
 
         // POTENTIALLY_BEING_MODIFIED_LATER
         private void GenerateName()

@@ -63,6 +63,46 @@ namespace FoodWars.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bg_inGame {
+            get {
+                object obj = ResourceManager.GetObject("bg_inGame", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bg_mainMenu {
+            get {
+                object obj = ResourceManager.GetObject("bg_mainMenu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bg_newPlayer {
+            get {
+                object obj = ResourceManager.GetObject("bg_newPlayer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bg_SwitchPlayer {
+            get {
+                object obj = ResourceManager.GetObject("bg_SwitchPlayer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap button_exit {
             get {
                 object obj = ResourceManager.GetObject("button_exit", resourceCulture);
@@ -93,9 +133,29 @@ namespace FoodWars.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap button_lederboard_stroke {
+        internal static System.Drawing.Bitmap button_leaderboard_stroke {
             get {
-                object obj = ResourceManager.GetObject("button_lederboard_stroke", resourceCulture);
+                object obj = ResourceManager.GetObject("button_leaderboard_stroke", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button_plus {
+            get {
+                object obj = ResourceManager.GetObject("button_plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button_plus_stroke {
+            get {
+                object obj = ResourceManager.GetObject("button_plus_stroke", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +233,9 @@ namespace FoodWars.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DefaultIcon {
+        internal static System.Drawing.Bitmap element_playerInfo {
             get {
-                object obj = ResourceManager.GetObject("DefaultIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("element_playerInfo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,69 +243,9 @@ namespace FoodWars.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap K_PP {
+        internal static System.Drawing.Bitmap icon_default {
             get {
-                object obj = ResourceManager.GetObject("K_PP", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap MainMenuUserControl_bg {
-            get {
-                object obj = ResourceManager.GetObject("MainMenuUserControl_bg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap NewPlayerUserControl {
-            get {
-                object obj = ResourceManager.GetObject("NewPlayerUserControl", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap PlayerInfo {
-            get {
-                object obj = ResourceManager.GetObject("PlayerInfo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap SwitchPlayerUserControl_bg {
-            get {
-                object obj = ResourceManager.GetObject("SwitchPlayerUserControl_bg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Symbol_Plus {
-            get {
-                object obj = ResourceManager.GetObject("Symbol_Plus", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Symbol_Plus_Stroke {
-            get {
-                object obj = ResourceManager.GetObject("Symbol_Plus_Stroke", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_default", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -50,23 +50,23 @@ namespace FoodWars.View
             }
             catch (Exception ex) 
             {
-                pictBox_Image.BackgroundImage = Resources.DefaultIcon;
+                pictBox_Image.BackgroundImage = Resources.icon_default;
             }
         }
 
         private void PictureBox_Image_MouseEnter(object sender, EventArgs e)
         {
-            if (pictBox_Image.BackgroundImage.Flags == Resources.Symbol_Plus.Flags)
+            if (pictBox_Image.BackgroundImage.Flags == Resources.button_plus.Flags)
             {
-                pictBox_Image.BackgroundImage = Resources.Symbol_Plus_Stroke;
+                pictBox_Image.BackgroundImage = Resources.button_plus_stroke;
             } 
         }
 
         private void PictureBox_Image_MouseLeave(object sender, EventArgs e)
         {
-            if (pictBox_Image.BackgroundImage.Flags == Resources.Symbol_Plus_Stroke.Flags)
+            if (pictBox_Image.BackgroundImage.Flags == Resources.button_plus_stroke.Flags)
             {
-                pictBox_Image.BackgroundImage = Resources.Symbol_Plus;
+                pictBox_Image.BackgroundImage = Resources.button_plus;
             }
         }
 
@@ -81,7 +81,7 @@ namespace FoodWars.View
 
         private void button_SavePlayer_Click(object sender, EventArgs e)
         {
-            if (pictBox_Image.BackgroundImage.Flags == Resources.Symbol_Plus.Flags)
+            if (pictBox_Image.BackgroundImage.Flags == Resources.button_plus.Flags)
             {
                 MessageBox.Show("No image specified!");
             }
@@ -98,7 +98,7 @@ namespace FoodWars.View
                 MessageBox.Show("Successfully added a new player!");
 
                 textBox_Name.Text = "";
-                pictBox_Image.BackgroundImage = Resources.Symbol_Plus;
+                pictBox_Image.BackgroundImage = Resources.button_plus;
             }
         }
         #endregion
