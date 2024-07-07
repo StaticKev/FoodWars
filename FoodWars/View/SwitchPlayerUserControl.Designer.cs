@@ -210,7 +210,7 @@
             // pictBox_Profile
             // 
             this.pictBox_Profile.BackColor = System.Drawing.Color.White;
-            this.pictBox_Profile.BackgroundImage = global::FoodWars.Properties.Resources.DefaultIcon;
+            this.pictBox_Profile.BackgroundImage = global::FoodWars.Properties.Resources.icon_default;
             this.pictBox_Profile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictBox_Profile.Location = new System.Drawing.Point(5, 5);
             this.pictBox_Profile.Name = "pictBox_Profile";

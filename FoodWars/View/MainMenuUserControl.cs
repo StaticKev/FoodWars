@@ -51,7 +51,11 @@ namespace FoodWars.View
         {
             if (BaseForm.Game.Player != null)
             {
-                // Navigate to GameView
+                InGameUserControl inGameUc = new InGameUserControl(BaseForm);
+
+                BaseForm.mainPanel.Controls.Add(inGameUc);
+                BaseForm.mainPanel.Controls.Remove(this);
+                inGameUc.Dock = DockStyle.Fill;
             }
         }
 
@@ -108,7 +112,7 @@ namespace FoodWars.View
 
         private void Button_Leaderboard_MouseEnter(object sender, EventArgs e)
         {
-            pictBox_Leaderboard.Image = Resources.button_lederboard_stroke;
+            pictBox_Leaderboard.Image = Resources.button_leaderboard_stroke;
         }
 
         private void Button_Leaderboard_MouseLeave(object sender, EventArgs e)

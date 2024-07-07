@@ -34,16 +34,7 @@ namespace FoodWars.Repository
         }
         public List<Players> ListPlayers 
         {
-            get
-            {
-                /*                List<Players> getListPlayers = new List <Players>();
-                                foreach (Players p in this.listPlayers)
-                                {
-                                    getListPlayers.Add(p);
-                                }
-                                return getListPlayers;*/
-                return listPlayers;
-            }
+            get => listPlayers;
             private set
             {
                 if (value == null)throw new Exception("List can't be null");
@@ -93,7 +84,7 @@ namespace FoodWars.Repository
             {
                 for (int i = 0; i < ListPlayers.Count; i++)
                 {
-                    if (player.Equals(ListPlayers[i]))
+                    if (player.Name == ListPlayers[i].Name)
                     {
                         ListPlayers[i] = player;
                         this.SaveToFile();
@@ -104,8 +95,19 @@ namespace FoodWars.Repository
         }
         public void AddPlayer(Players player)
         {
-            this.ListPlayers.Add(player);
-            this.SaveToFile();
+            bool isPresent = false;
+
+            foreach(Players p in ListPlayers)
+            {
+                if (player.Name == p.Name) isPresent = true;
+            }
+
+            if (isPresent) throw new ArgumentException("Player already exist. Use a different name!");
+            else
+            {
+                this.ListPlayers.Add(player);
+                this.SaveToFile();
+            }
         }
         #endregion
     }

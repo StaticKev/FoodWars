@@ -76,6 +76,12 @@
     <Compile Include="View\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\InGameUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\InGameUserControl.Designer.cs">
+      <DependentUpon>InGameUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LeaderboardUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </Compile>
     <EmbeddedResource Include="View\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\InGameUserControl.resx">
+      <DependentUpon>InGameUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LeaderboardUserControl.resx">
       <DependentUpon>LeaderboardUserControl.cs</DependentUpon>
@@ -265,12 +274,6 @@
     <None Include="Resources\MainMenuUserControl.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\button_leaderboard_stroke.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\button_exit_stroke.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\button_leaderboard.png" />
   </ItemGroup>
   <ItemGroup>
@@ -280,19 +283,10 @@
     <None Include="Resources\button_settings.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\button_settings_stroke.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\button_start.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\button_start_stroke.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\button_switchPlayer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\button_switchPlayer_stroke.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\button_exit.png" />
@@ -323,6 +317,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Symbol_Plus_Stroke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_start_stroke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_switchPlayer_stroke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_exit_stroke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_leaderboard_stroke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_settings_stroke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_inGame.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
