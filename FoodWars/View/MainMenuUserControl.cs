@@ -42,7 +42,8 @@ namespace FoodWars.View
             else
             {
                 label_Name.Text = "Name: " + BaseForm.Game.Player.Name;
-                label_Level.Text = "Level: " + BaseForm.Game.Player.CurrentLevel.ToString();
+                label_Level.Text = "Level: " + BaseForm.Game.Player.Level.ToString();
+                pictBox_Profile.BackgroundImage = BaseForm.Game.Player.Picture;
                 pictBox_ButtonStart.Image = Resources.button_start;
             }
         }

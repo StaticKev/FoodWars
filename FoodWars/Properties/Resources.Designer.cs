@@ -103,6 +103,16 @@ namespace FoodWars.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap board_gameStatus {
+            get {
+                object obj = ResourceManager.GetObject("board_gameStatus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap button_exit {
             get {
                 object obj = ResourceManager.GetObject("button_exit", resourceCulture);
@@ -136,6 +146,26 @@ namespace FoodWars.Properties {
         internal static System.Drawing.Bitmap button_leaderboard_stroke {
             get {
                 object obj = ResourceManager.GetObject("button_leaderboard_stroke", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button_pause {
+            get {
+                object obj = ResourceManager.GetObject("button_pause", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button_pause_stroke {
+            get {
+                object obj = ResourceManager.GetObject("button_pause_stroke", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

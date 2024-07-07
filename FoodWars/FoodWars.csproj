@@ -112,6 +112,12 @@
     <Compile Include="View\NewPlayerUserControl.Designer.cs">
       <DependentUpon>NewPlayerUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\PauseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\PauseUserControl.Designer.cs">
+      <DependentUpon>PauseUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\SettingsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NewPlayerUserControl.resx">
       <DependentUpon>NewPlayerUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PauseUserControl.resx">
+      <DependentUpon>PauseUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SettingsUserControl.resx">
       <DependentUpon>SettingsUserControl.cs</DependentUpon>
@@ -335,6 +344,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bg_inGame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\board_gameStatus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_pause_stroke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_pause.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -77,7 +77,7 @@ namespace FoodWars.View
             if (players.Count > 0)
             {
                 Players player = (Players)comboBox_Players.SelectedItem;
-                label_level.Text = player.CurrentLevel.ToString();
+                label_level.Text = player.Level.ToString();
                 label_totalIncome.Text = player.TotalIncome.ToString();
                 label_bestIncome.Text = player.BestIncome.ToString();
                 label_bestTime.Text = player.BestTime.DurationToString();
@@ -87,7 +87,11 @@ namespace FoodWars.View
 
         private void UpdateCurrentPlayer(Players player)
         {
-            BaseForm.Game.Player = player;
+            try
+            {
+                BaseForm.Game.Player = player;
+            } catch (Exception ex) { }
+           
         }
         #endregion
     }

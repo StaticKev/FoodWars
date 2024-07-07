@@ -12,19 +12,21 @@ namespace FoodWars.Service
     public class GameService
     {
         #region Data Members
+        // Persist during the entire application lifetime!
         private PlayerRepo repo; // Memang tidak diberi property
         private Players player; // Menyimpan status player yang sedang bermain saat ini.
 
-        private CustomerQueue customerQueue; // Memang tidak diberi property 
-
-        // Kelihatan User
+        // Game components (Reinitialized during a new game)
+        private CustomerQueue customerQueue; 
         private Customers[] chairs;
         private Customers nextCustomer; // Diinisialisasi setelah CustomerQueue digenerate
         private int dailyRevenue; // Diinisialisasi saat saat service dibuat. Saat game berakhir, tambahkan pada totalRevenue milik player, kemudian reset menjadi 0.
         private Time openDuration; // ============================== BELOM DIINSTANSIASI ==============================
-        private bool isPaused;
-        // Buat satu class untuk menghitung interval antar customer sesuai aturan yang berlaku
 
+        // Buat satu data member untuk menghitung interval antar customer sesuai aturan yang berlaku
+        private int customerInterval;
+
+        // Ini ndak perlu property
         private IngredientsMap availableIngredients; // Untuk menentukan bahan apa saja yang tersedia.
         private BeverageType[] availableBeverages; // Untuk menentukan minuman apa saja yang tersedia.
         private Items chosenItem; // Item yang dipilih untuk diberikan kepada pelanggan. 
@@ -40,133 +42,118 @@ namespace FoodWars.Service
         #endregion
 
         #region Properties
-        public Players Player 
-        { 
-            get => player; 
-            set
-            {
-                if (value == null) throw new NullReferenceException("No player chosen!");
-                else player = value;
-            }
-        }
+        public Players Player { get => player; set => player = value; }
+        private CustomerQueue CustomerQueue { get => customerQueue; set => customerQueue = value; }
         private Customers[] Chairs 
         { 
             get => chairs; 
-            set
-            {
-                if (value == null) throw new NullReferenceException("Invalid value for array of Customers!");
-                else chairs = value;
-            } 
+            set => chairs = value;
         }
+        private Customers NextCustomer { get => nextCustomer; set => nextCustomer = value; }
         public int DailyRevenue 
         { 
             get => dailyRevenue; 
             private set
             {
-                if (value <= 0) throw new ArgumentException("Daily revenue must be larger than 0!");
+                if (value < 0) throw new ArgumentException("Daily revenue can't be negative!");
                 else dailyRevenue = value;
             } 
         }
         public Time OpenDuration 
         { 
             get => openDuration; 
-            private set
-            {
-                if (value == null) throw new NullReferenceException("Requires an insantiated Time object!");
-                else if (openDuration.GetDurationInSecond() == 0) throw new ArgumentException("Open duration can't be zero!");
-                else openDuration = value;
-            }
+            private set => openDuration = value;
         }
-        public bool IsPaused
-        {
-            get => isPaused;
-            set => isPaused = value;
+        public int CustomerInterval 
+        { 
+            get => customerInterval; 
+            set
+            {
+                if (value < 0) throw new ArgumentException("Interval can't be negative!");
+                else customerInterval = value;
+            }
         }
         public IngredientsMap AvailableIngredients
         {
             get => availableIngredients;
-            private set
-            {
-                if (value == null) throw new ArgumentException("Invalid value for availableIngredients!");
-                else availableIngredients = value;
-            }
+            private set => availableIngredients = value;
         }
         public BeverageType[] AvailableBeverages
         {
             get => availableBeverages;
-            private set
-            {
-                if (value == null) throw new ArgumentException("Invalid value for availableBeverages!");
-            }
+            private set => availableBeverages = value;
         }
         public Items ChosenItem 
         { 
-            get => chosenItem; 
-            set
-            {
-                if (value == null) throw new NullReferenceException("No object found!");
-                else chosenItem = value;
-            }
+            get => chosenItem;
+            set => chosenItem = value;
         }
         public Foods FoodsBeingPrepared 
         { 
             get => foodBeingPrepared; 
-            private set
-            {
-                if (value == null) throw new NullReferenceException("Invalid value for food!");
-                else foodBeingPrepared = value;
-            } 
+            private set => foodBeingPrepared = value;
         }
         public Beverages BeveragesBeingPrepared 
         { 
             get => beveragesBeingPrepared; 
-            private set
-            {
-                if (value == null) throw new NullReferenceException("Invalid value for beverage!");
-                else beveragesBeingPrepared = value;
-            }
+            private set => beveragesBeingPrepared = value;
         }
         #endregion
 
         #region Methods
-        public void StartGame(int level, Players player)
+        public void ResetGameState()
         {
-            this.Player = player;
+            CustomerQueue = null;
+            Chairs = null;
+            NextCustomer = null;
+            DailyRevenue = 0;
+            OpenDuration = null;
+            CustomerInterval = 5;
+
+            availableIngredients = null;
+            availableBeverages = null;
+            chosenItem = null;
+            foodBeingPrepared = null;
+            beveragesBeingPrepared = null;
+
+        }
+        public void StartGame()
+        {
             Chairs = new Customers[3];
-            IsPaused = false;
+            OpenDuration = new Time(0, 0, 0);
             // =================================== JANGAN LUPA ISI PICTURE! ===================================
             List<Ingredients> riceIngredients = new List<Ingredients>
             {
-                new Ingredients("Regular Rice", 5_000, IngredientCategory.RICE, null),
-                new Ingredients("Brown Rice", 10_000, IngredientCategory.RICE, null),
-                new Ingredients("Corn Rice", 7_000, IngredientCategory.RICE, null)
+                new Ingredients("Regular Rice", 50, IngredientCategory.RICE, null),
+                new Ingredients("Brown Rice", 100, IngredientCategory.RICE, null),
+                new Ingredients("Corn Rice", 70, IngredientCategory.RICE, null)
             };
             List<Ingredients> proteinIngredients = new List<Ingredients>
             {
-                new Ingredients("Tonkatsu", 30_000, IngredientCategory.PROTEIN, null),
-                new Ingredients("Karage", 20_000, IngredientCategory.PROTEIN, null),
-                new Ingredients("Ebi Furai", 25_000, IngredientCategory.PROTEIN, null)
+                new Ingredients("Tonkatsu", 300, IngredientCategory.PROTEIN, null),
+                new Ingredients("Karage", 200, IngredientCategory.PROTEIN, null),
+                new Ingredients("Ebi Furai", 250, IngredientCategory.PROTEIN, null)
             };
             List<Ingredients> vegetableIngredients = vegetableIngredients = new List<Ingredients>
             {
-                new Ingredients("Pickled Radish", 5_000, IngredientCategory.VEGETABLES, null),
-                new Ingredients("Edamame", 5_000, IngredientCategory.VEGETABLES, null),
-                new Ingredients("Hibiki Salad", 5_000, IngredientCategory.VEGETABLES, null)
+                new Ingredients("Pickled Radish", 50, IngredientCategory.VEGETABLES, null),
+                new Ingredients("Edamame", 50, IngredientCategory.VEGETABLES, null),
+                new Ingredients("Hibiki Salad", 60, IngredientCategory.VEGETABLES, null)
             };
             List<Ingredients> sideDishesIngredients = sideDishesIngredients = new List<Ingredients>
             {
-                new Ingredients("Sunomono", 7_000, IngredientCategory.SIDE_DISHES, null),
-                new Ingredients("Nimono", 8_000, IngredientCategory.SIDE_DISHES, null),
-                new Ingredients("Korokke", 10_000, IngredientCategory.SIDE_DISHES, null)
+                new Ingredients("Sunomono", 70, IngredientCategory.SIDE_DISHES, null),
+                new Ingredients("Nimono", 80, IngredientCategory.SIDE_DISHES, null),
+                new Ingredients("Korokke", 100, IngredientCategory.SIDE_DISHES, null)
             };
 
             AvailableIngredients = new IngredientsMap();
             AvailableBeverages = new BeverageType[] { BeverageType.WATER, BeverageType.OCHA, BeverageType.SAKE };
             Merchandise[] merch = new Merchandise[]
             {
-                new Merchandise("Keychain", 70_000, 2, null),
-                new Merchandise("T-Shirt", 90_000, 3, null),
-                new Merchandise("Action Figure", 120_000, 1, null)
+                new Merchandise("Keychain", 700, 2, null),
+                new Merchandise("T-Shirt", 900, 3, null),
+                new Merchandise("Action Figure", 1200, 1, null)
             };
             CustomerType[] customerTypes = customerTypes = new CustomerType[] { CustomerType.MALE, CustomerType.FEMALE, CustomerType.CHILD };
 
@@ -179,7 +166,7 @@ namespace FoodWars.Service
             int allowedBeverages = 1;
 
             // Pengecekan untuk batasan bahan
-            if (level >= 100) {
+            if (Player.Level >= 100) {
                 allowedRice = riceIngredients.Count;
                 allowedProtein = proteinIngredients.Count;
                 allowedVegetable = vegetableIngredients.Count;
@@ -211,7 +198,7 @@ namespace FoodWars.Service
                     else break;
                 }
             }
-            allowedBeverages = level / 50 + 1;
+            allowedBeverages = Player.Level / 50 + 1;
 
             AvailableIngredients.Add(IngredientCategory.RICE, riceIngredients, allowedRice);
             AvailableIngredients.Add(IngredientCategory.PROTEIN, proteinIngredients, allowedProtein);
@@ -229,23 +216,23 @@ namespace FoodWars.Service
             {
                 // Menentukan peran apa saja yang diizinkan muncul pada level tertentu
                 List<int> availableRole = new List<int>();
-                if (level >= 1)
+                if (Player.Level >= 1)
                 {
                     availableRole.Add(0);
 
-                    if (level >= 5)
+                    if (Player.Level >= 5)
                     {
                         availableRole.Add(1);
 
-                        if (level >= 10)
+                        if (Player.Level >= 10)
                         {
                             availableRole.Add(2);
 
-                            if (level >= 20)
+                            if (Player.Level >= 20)
                             {
                                 availableRole.Add(3);
 
-                                if (level >= 30)
+                                if (Player.Level >= 30)
                                 {
                                     availableRole.Add(4);
                                 }
@@ -257,18 +244,18 @@ namespace FoodWars.Service
                 // Menentukan batasan jumlah produk yang diizinkan pada level tertentu
                 int minProduct = 1;
                 int maxProduct = 1;
-                if (level >= 5)
+                if (Player.Level >= 5)
                 {
                     maxProduct++;
 
-                    if (level >= 20)
+                    if (Player.Level >= 20)
                     {
                         maxProduct++;
 
-                        if (level >= 50)
+                        if (Player.Level >= 50)
                         {
                             minProduct++;
-                            if (level >= 90)
+                            if (Player.Level >= 90)
                             {
                                 minProduct++;
                             }
@@ -278,7 +265,7 @@ namespace FoodWars.Service
 
                 // Menghitung jumlah customer berdasarkan 
                 int customerAmount;
-                if (level <= 100) customerAmount = 5 + level / 5;
+                if (Player.Level <= 100) customerAmount = 5 + Player.Level / 5;
                 else customerAmount = 30;
 
                 // Menentukan 80% customer yang akan mengikuti rasio level, dan 20% customer yang akan diacak
@@ -287,7 +274,7 @@ namespace FoodWars.Service
 
                 // Menentukan rasio dari 80% customer
                 List<int> customerRoleRatio = new List<int>();
-                if (level > 30)
+                if (Player.Level > 30)
                 {
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.35));
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.3));
@@ -297,20 +284,20 @@ namespace FoodWars.Service
 
                     if (customerRoleRatio.Sum() < fixedRoleCustomer) customerRoleRatio[0]++;
                 }
-                else if (level > 20)
+                else if (Player.Level > 20)
                 {
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.4));
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.3));
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.2));
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.1));
                 }
-                else if (level > 10)
+                else if (Player.Level > 10)
                 {
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.5));
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.3));
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.2));
                 }
-                else if (level > 5)
+                else if (Player.Level > 5)
                 {
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.7));
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.3));
@@ -472,6 +459,7 @@ namespace FoodWars.Service
                     }
 
                     // Menambahkan durasi permainan sesuai dengan durasi pelayanan tiap customer 
+                    customer.SetTimer();
                     OpenDuration.Add(customer.Timer.GetDurationInSecond());
 
                     return customer;

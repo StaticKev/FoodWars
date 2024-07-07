@@ -35,14 +35,16 @@
             this.pictBox_ButtonSwitchPlayer = new System.Windows.Forms.PictureBox();
             this.pictBox_ButtonStart = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label_Name = new System.Windows.Forms.Label();
             this.label_Level = new System.Windows.Forms.Label();
+            this.label_Name = new System.Windows.Forms.Label();
+            this.pictBox_Profile = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictBox_ButtonExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBox_ButtonSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBox_Leaderboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBox_ButtonSwitchPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBox_ButtonStart)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictBox_Profile)).BeginInit();
             this.SuspendLayout();
             // 
             // pictBox_ButtonExit
@@ -119,6 +121,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.pictBox_Profile);
             this.panel1.Controls.Add(this.label_Level);
             this.panel1.Controls.Add(this.label_Name);
             this.panel1.Location = new System.Drawing.Point(661, 376);
@@ -126,25 +129,34 @@
             this.panel1.Size = new System.Drawing.Size(236, 125);
             this.panel1.TabIndex = 6;
             // 
+            // label_Level
+            // 
+            this.label_Level.Font = new System.Drawing.Font("Samurai Blast", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Level.Location = new System.Drawing.Point(104, 76);
+            this.label_Level.Name = "label_Level";
+            this.label_Level.Size = new System.Drawing.Size(104, 10);
+            this.label_Level.TabIndex = 1;
+            this.label_Level.Text = "Level: -";
+            // 
             // label_Name
             // 
-            this.label_Name.AutoSize = true;
             this.label_Name.Font = new System.Drawing.Font("Samurai Blast", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Name.Location = new System.Drawing.Point(41, 49);
+            this.label_Name.Location = new System.Drawing.Point(104, 49);
             this.label_Name.Name = "label_Name";
-            this.label_Name.Size = new System.Drawing.Size(53, 10);
+            this.label_Name.Size = new System.Drawing.Size(104, 10);
             this.label_Name.TabIndex = 0;
             this.label_Name.Text = "Name: -";
             // 
-            // label_Level
+            // pictBox_Profile
             // 
-            this.label_Level.AutoSize = true;
-            this.label_Level.Font = new System.Drawing.Font("Samurai Blast", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Level.Location = new System.Drawing.Point(41, 76);
-            this.label_Level.Name = "label_Level";
-            this.label_Level.Size = new System.Drawing.Size(57, 10);
-            this.label_Level.TabIndex = 1;
-            this.label_Level.Text = "Level: -";
+            this.pictBox_Profile.BackgroundImage = global::FoodWars.Properties.Resources.icon_default;
+            this.pictBox_Profile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictBox_Profile.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictBox_Profile.Location = new System.Drawing.Point(31, 37);
+            this.pictBox_Profile.Name = "pictBox_Profile";
+            this.pictBox_Profile.Size = new System.Drawing.Size(62, 62);
+            this.pictBox_Profile.TabIndex = 2;
+            this.pictBox_Profile.TabStop = false;
             // 
             // MainMenuUserControl
             // 
@@ -168,7 +180,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictBox_ButtonSwitchPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBox_ButtonStart)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictBox_Profile)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -183,5 +195,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label_Name;
         private System.Windows.Forms.Label label_Level;
+        private System.Windows.Forms.PictureBox pictBox_Profile;
     }
 }

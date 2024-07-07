@@ -23,9 +23,9 @@ namespace FoodWars
 
             int price = 0;
 
-            if (this.BeverageType == BeverageType.WATER) price += 5000;
-            else if (this.BeverageType == BeverageType.OCHA) price += 7000;
-            else price += 10000;
+            if (this.BeverageType == BeverageType.WATER) price += 50;
+            else if (this.BeverageType == BeverageType.OCHA) price += 70;
+            else price += 100;
 
             if (this.IsCold) price += 1000;
 
@@ -61,7 +61,38 @@ namespace FoodWars
             else return false;
         }
 
-        // POTENTIALLY_BEING_MODIFIED_LATER
+        public void SwitchVariety(bool isCold)
+        {
+            if (IsCold != isCold)
+            {
+                IsCold = !IsCold;
+                SwitchImage();
+            }
+        }
+
+        public void SwitchVariety(GlassSize glassSize)
+        {
+            if (Size != glassSize)
+            {
+                Size = glassSize;
+                SwitchImage();
+            }
+        }
+
+        public void SwitchVariety(BeverageType beverageType)
+        {
+            if (BeverageType != beverageType)
+            {
+                BeverageType = beverageType;
+                SwitchImage();
+            }
+        }
+
+        private void SwitchImage()
+        {
+            // Mengganti image sesuai dengan kombinasi menu
+        }
+
         private void GenerateName()
         {
             string name = "";

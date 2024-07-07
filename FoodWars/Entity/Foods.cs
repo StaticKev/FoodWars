@@ -76,10 +76,21 @@ namespace FoodWars
             }
         }
 
-        // ============================== BELOM KELAR ==============================
-        private void SwitchIngredient() { }
+        // Method yang dipanggil di meja chef, mengganti ingredient dari food yang sedang disiapkan
+        private void SwitchIngredient(Ingredients ingredient) 
+        {
+            foreach (Ingredients ingredientPresent in this.Ingredients)
+            {
+                if (ingredient.Category == ingredientPresent.Category)
+                {
+                    this.Ingredients.Remove(ingredientPresent);
+                    this.Ingredients.Add(ingredient);
+                    GenerateName();
+                    break;
+                }
+            }
+        }
 
-        // POTENTIALLY_BEING_MODIFIED_LATER
         private void GenerateName()
         {
             string name = "";

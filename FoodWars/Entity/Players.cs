@@ -11,7 +11,7 @@ namespace FoodWars
         private string name;
         private int bestIncome;
         private long totalIncome;
-        private int currentLevel;
+        private int level;
         private Time bestTime;
         private Image picture;
         #endregion
@@ -23,7 +23,7 @@ namespace FoodWars
             /*            if (name.Substring(0, 3).Equals("DEV")) this.CurrentLevel = int.Parse(name.Substring(3));
                         else this.currentLevel = 1;*/
 
-            this.CurrentLevel = 1;
+            this.Level = 1;
             this.Name = name;
             this.TotalIncome = 0;
             this.bestTime = new Time(0, 0, 0);
@@ -61,14 +61,14 @@ namespace FoodWars
                 else this.totalIncome = value;
             }
         }
-        public int CurrentLevel
+        public int Level
         {
-            get => currentLevel;
+            get => level;
             set
             {
                 if (value <= 0) throw new ArgumentException("Current level must be greater than 0!");
-                else if (value != 0 && value < this.currentLevel) throw new ArgumentException("Level can only be incremented!");
-                else this.currentLevel = value;
+                else if (value != 0 && value < this.level) throw new ArgumentException("Level can only be incremented!");
+                else this.level = value;
             }
         }
         public Time BestTime
