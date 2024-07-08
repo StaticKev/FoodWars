@@ -354,5 +354,20 @@
   <ItemGroup>
     <None Include="Resources\button_pause.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Leaderboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chekcbox_Checked_False.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checkbox_Check_True.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chekcbox_Checked_False1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -109,6 +109,14 @@ namespace FoodWars.View
         private void Button_Leaderboard_Click(object sender, EventArgs e)
         {
             // Navigate to view
+            if (BaseForm.Game.GetPlayers() != null)
+            {
+                LeaderboardUserControl leaderboardUc = new LeaderboardUserControl(BaseForm);
+
+                BaseForm.mainPanel.Controls.Add(leaderboardUc);
+                BaseForm.mainPanel.Controls.Remove(this);
+                leaderboardUc.Dock = DockStyle.Fill;
+            }
         }
 
         private void Button_Leaderboard_MouseEnter(object sender, EventArgs e)
@@ -125,6 +133,12 @@ namespace FoodWars.View
         private void Button_Settings_MouseClick(object sender, EventArgs e)
         {
             // Navigate to view
+
+            SettingsUserControl settingsUC = new SettingsUserControl(BaseForm);
+
+            BaseForm.mainPanel.Controls.Add(settingsUC);
+            BaseForm.mainPanel.Controls.Remove(this);
+            settingsUC.Dock = DockStyle.Fill;
         }
 
         private void Button_Settings_MouseEnter(object sender, EventArgs e)

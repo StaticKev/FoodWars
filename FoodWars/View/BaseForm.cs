@@ -34,7 +34,7 @@ namespace FoodWars.View
                 else this.game = value;
             }
         }
-        private GameConfig GameConfig
+        public GameConfig GameConfig
         {
             get => this.gameConfig;
             set
