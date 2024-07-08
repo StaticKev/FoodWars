@@ -5,7 +5,6 @@ using FoodWars.Utilities;
 using FoodWars.Values;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 namespace FoodWars.Service
 {
@@ -24,7 +23,7 @@ namespace FoodWars.Service
         private Time openDuration; // ============================== BELOM DIINSTANSIASI ==============================
 
         // Buat satu data member untuk menghitung interval antar customer sesuai aturan yang berlaku
-        private int customerInterval;
+        private Time customerInterval;
 
         // Ini ndak perlu property
         private IngredientsMap availableIngredients; // Untuk menentukan bahan apa saja yang tersedia.
@@ -64,12 +63,12 @@ namespace FoodWars.Service
             get => openDuration; 
             private set => openDuration = value;
         }
-        public int CustomerInterval 
+        public Time CustomerInterval 
         { 
             get => customerInterval; 
             set
             {
-                if (value < 0) throw new ArgumentException("Interval can't be negative!");
+                if (value == null) throw new ArgumentNullException("Argument can't be null!");
                 else customerInterval = value;
             }
         }
@@ -108,7 +107,7 @@ namespace FoodWars.Service
             NextCustomer = null;
             DailyRevenue = 0;
             OpenDuration = null;
-            CustomerInterval = 5;
+            CustomerInterval = new Time(0, 0, 5);
 
             availableIngredients = null;
             availableBeverages = null;
@@ -120,7 +119,8 @@ namespace FoodWars.Service
         public void StartGame()
         {
             Chairs = new Customers[3];
-            OpenDuration = new Time(0, 0, 0);
+            OpenDuration = new Time(0, 0, 1);
+            CustomerInterval = new Time(0, 0, 5);
             // =================================== JANGAN LUPA ISI PICTURE! ===================================
             List<Ingredients> riceIngredients = new List<Ingredients>
             {

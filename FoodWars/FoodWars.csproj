@@ -346,13 +346,16 @@
     <None Include="Resources\bg_inGame.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\board_gameStatus.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\button_pause_stroke.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\button_pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\board_gameStatus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\msg_bubble.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

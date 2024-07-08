@@ -34,6 +34,9 @@ namespace FoodWars.View
         private void InGameUserControl_Load(object sender, EventArgs e)
         {
             BaseForm.Game.StartGame();
+            msg_bubble1.Hide();
+            msg_bubble2.Hide();
+            msg_bubble3.Hide();
             label_timeLeft.Text = BaseForm.Game.OpenDuration.DurationToString();
         }
 
