@@ -4,6 +4,7 @@
     {
         WATER, 
         OCHA, 
-        SAKE
+        SAKE,
+        UNASSIGNED
     }
 }

@@ -58,52 +58,81 @@ namespace FoodWars.View
             if (BaseForm.Game.OpenDuration.GetSecond() > 0)
             {
                 Console.WriteLine("<" + BaseForm.Game.OpenDuration.DurationToString() + ">");
-                UpdateWaitingRoom();
+                UpdateWaitingRoom(); // INI HARUS DIPANGGIL TIAP 1/10 detik
+            }
+
+            if (BaseForm.Game.GameIsOver())
+            {
+                // 1) Navigasi ke GameOverView atau GameCompleteView
+                // 2) <GameCompleteView>
+                //    - Tampilkan pencapaian di level
+                //    - Simpan data player
+                //    - Reset game.
+                //    <GameOverView>
+                //    - Reset game
+                //    - Kembali ke main menu 
             }
         }
 
         private void UpdateWaitingRoom()
         {
-            string ListToString(List<Items> orders)
-            {
-                string result = "";
-
-                foreach(Items order in orders)
-                {
-                    result += order.Name;
-                } 
-
-                return result;
-            }
             Customers[] waitingCustomers = BaseForm.Game.Chairs;
             // Mengupdate tampilan ruang tunggu berdasarkan array of customers (sementara di console)
             for (int i = 0; i < waitingCustomers.Length; i++)
             {
                 if (waitingCustomers[i] != null)
                 {
-                    Console.WriteLine((i + 1) + " - " + ListToString(waitingCustomers[i].Orders) + " | Time left: " + waitingCustomers[i].WaitingDuration.GetSecond());
                     if (i == 0)
                     {
                         msg_bubble1.Show();
                         timerLabel_c1.Text = waitingCustomers[i].WaitingDuration.GetSecond().ToString();
+                        pictBox_cust1.BackgroundImage = waitingCustomers[i].Picture;
+                        pictBox_cust1.Show();
+                        if (waitingCustomers[i].Orders.Count >= 1)
+                        {
+
+                        }
+                        if (waitingCustomers[i].Orders.Count >= 2)
+                        {
+
+                        }
+                        if (waitingCustomers[i].Orders.Count == 3)
+                        {
+
+                        }
                     }
                     else if (i == 1)
                     {
                         msg_bubble2.Show();
                         timerLabel_c2.Text = waitingCustomers[i].WaitingDuration.GetSecond().ToString();
+                        pictBox_cust2.BackgroundImage = waitingCustomers[i].Picture;
+                        pictBox_cust2.Show();
                     }
                     else
                     {
                         msg_bubble3.Show();
                         timerLabel_c3.Text = waitingCustomers[i].WaitingDuration.GetSecond().ToString();
+                        pictBox_cust3.BackgroundImage = waitingCustomers[i].Picture;
+                        pictBox_cust3.Show();
                     }
                 }
                 else
                 {
-                    Console.WriteLine((i + 1) + " - Empty");
-                    if (i == 0) msg_bubble1.Hide();
-                    else if (i == 1) msg_bubble2.Hide();
-                    else msg_bubble3.Hide();
+                    if (i == 0)
+                    {
+                        msg_bubble1.Hide();
+                        pictBox_cust1.Hide();
+                    }
+                    else if (i == 1)
+                    {
+                        msg_bubble2.Hide();
+                        pictBox_cust2.Hide();
+                    }
+                    else
+                    {
+                        msg_bubble3.Hide();
+                        pictBox_cust3.Hide();
+                    }
                 }
             }
             Console.WriteLine("");
