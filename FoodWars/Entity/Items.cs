@@ -42,23 +42,14 @@ namespace FoodWars
             get => price;
             set
             {
-                if (this.price != 0) throw new ArgumentException("Price already assigned!");
-                else
-                {
-                    if (value <= 0) throw new ArgumentException("Price must be greater than 0!");
-                    else this.price = value;
-                }
+                if (value <= 0) throw new ArgumentException("Price must be greater than 0!");
+                else this.price = value;
             }
         }
         public Image Picture
         {
             get => picture;
-            private set
-            {
-                this.picture = value; // TEST_PURPOSE
-/*                if (value == null) throw new ArgumentException("No image specified!");
-                else this.picture = value;*/
-            }
+            set => picture = value;
         }
         #endregion
 

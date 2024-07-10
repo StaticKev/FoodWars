@@ -1,14 +1,14 @@
 ﻿using FoodWars.Entity.CustomerRole;
 using FoodWars.Entity.CustomerSubtype;
+using FoodWars.Properties;
 using FoodWars.Repository;
 using FoodWars.Utilities;
 using FoodWars.Values;
-using FoodWars.View;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Windows.Forms.VisualStyles;
+using System.Security.Cryptography;
 namespace FoodWars.Service
 {
     public class GameService
@@ -19,13 +19,11 @@ namespace FoodWars.Service
         private Players player; // Menyimpan status player yang sedang bermain saat ini.
 
         // Game components (Reinitialized during a new game)
-        private CustomerQueue customerQueue; 
+        private CustomerQueue customerQueue;
         private Customers[] chairs;
         private int dailyRevenue; // Diinisialisasi saat saat service dibuat. Saat game berakhir, tambahkan pada totalRevenue milik player, kemudian reset menjadi 0.
         private Time openDuration; // ============================== BELOM DIINSTANSIASI ==============================
 
-        /*        private Time customerInterval; // Buat satu data member untuk menghitung interval antar customer sesuai aturan yang berlaku
-                private Time pendingInterval; // Memberi jeda 2 detik sebelum customer berikutnya masuk. */
         private Time[] chairsPendingInterval;
 
         // Ini ndak perlu property
@@ -46,23 +44,23 @@ namespace FoodWars.Service
         #region Properties
         public Players Player { get => player; set => player = value; }
         private CustomerQueue CustomerQueue { get => customerQueue; set => customerQueue = value; }
-        public Customers[] Chairs 
-        { 
-            get => chairs; 
+        public Customers[] Chairs
+        {
+            get => chairs;
             private set => chairs = value;
         }
-        public int DailyRevenue 
-        { 
-            get => dailyRevenue; 
+        public int DailyRevenue
+        {
+            get => dailyRevenue;
             private set
             {
                 if (value < 0) throw new ArgumentException("Daily revenue can't be negative!");
                 else dailyRevenue = value;
-            } 
+            }
         }
-        public Time OpenDuration 
-        { 
-            get => openDuration; 
+        public Time OpenDuration
+        {
+            get => openDuration;
             private set => openDuration = value;
         }
         private Time[] ChairsPendingInterval
@@ -74,24 +72,6 @@ namespace FoodWars.Service
                 else chairsPendingInterval = value;
             }
         }
-/*        public Time CustomerInterval 
-        { 
-            get => customerInterval; 
-            set
-            {
-                if (value == null) throw new ArgumentNullException("Argument can't be null!");
-                else customerInterval = value;
-            }
-        }
-        public Time PendingInterval
-        {
-            get => pendingInterval;
-            set
-            {
-                if (value == null) throw new ArgumentNullException("Argument can't be null!");
-                else pendingInterval = value;
-            }
-        }*/
         public IngredientsMap AvailableIngredients
         {
             get => availableIngredients;
@@ -102,19 +82,19 @@ namespace FoodWars.Service
             get => availableBeverages;
             private set => availableBeverages = value;
         }
-        public Items ChosenItem 
-        { 
+        public Items ChosenItem
+        {
             get => chosenItem;
             set => chosenItem = value;
         }
-        public Foods FoodsBeingPrepared 
-        { 
-            get => foodBeingPrepared; 
+        public Foods FoodsBeingPrepared
+        {
+            get => foodBeingPrepared;
             private set => foodBeingPrepared = value;
         }
-        public Beverages BeveragesBeingPrepared 
-        { 
-            get => beveragesBeingPrepared; 
+        public Beverages BeveragesBeingPrepared
+        {
+            get => beveragesBeingPrepared;
             private set => beveragesBeingPrepared = value;
         }
         #endregion
@@ -134,6 +114,8 @@ namespace FoodWars.Service
             beveragesBeingPrepared = null;
 
         }
+
+        // ======================================== BELOM ISI PICTURE! ========================================
         public void StartGame()
         {
             Chairs = new Customers[3];
@@ -367,32 +349,43 @@ namespace FoodWars.Service
                 Customers GenerateRandomCustomer(int itemCount, CustomerType customerType, int chosenRole)
                 {
                     Customers customer;
+                    Image picture = null;
 
                     // JANGAN LUPA ISI PICTURE! (Yang ini pake pengecekan, bergantung pada type, dan role)
                     if (chosenRole == 0)
                     {
-                        customer = new Folk(customerType, null);
-                        // Pengecekan untuk image
+                        if (customerType == CustomerType.MALE) picture = Resources.folk_male;
+                        else if (customerType == CustomerType.FEMALE) picture = Resources.folk_female;
+                        else picture = Resources.folk_child;
+                        customer = new Folk(customerType, picture);
                     }
                     else if (chosenRole == 1)
                     {
-                        customer = new BusinessMan(customerType, null);
-                        // Pengecekan untuk image
+                        if (customerType == CustomerType.MALE) picture = Resources.businessMan_male;
+                        else if (customerType == CustomerType.FEMALE) picture = Resources.businessMan_female;
+                        else picture = Resources.businessMan_child;
+                        customer = new BusinessMan(customerType, picture);
                     }
                     else if (chosenRole == 2)
                     {
-                        customer = new Samurai(customerType, null);
-                        // Pengecekan untuk image
+                        if (customerType == CustomerType.MALE) picture = Resources.samurai_male;
+                        else if (customerType == CustomerType.FEMALE) picture = Resources.samurai_female;
+                        else picture = Resources.samurai_child;
+                        customer = new Samurai(customerType, picture);
                     }
                     else if (chosenRole == 3)
                     {
-                        customer = new Nobleman(customerType, null);
-                        // Pengecekan untuk image
+                        if (customerType == CustomerType.MALE) picture = Resources.nobleman_male;
+                        else if (customerType == CustomerType.FEMALE) picture = Resources.nobleman_female;
+                        else picture = Resources.nobleman_child;
+                        customer = new Nobleman(customerType, picture);
                     }
                     else
                     {
-                        customer = new RoyalFamily(customerType, null);
-                        // Pengecekan untuk image
+                        if (customerType == CustomerType.MALE) picture = Resources.royalFamily_male;
+                        else if (customerType == CustomerType.FEMALE) picture = Resources.royalFamily_female;
+                        else picture = Resources.royalFamily_child;
+                        customer = new RoyalFamily(customerType, picture);
                     }
 
                     int availableItems = 3;
@@ -428,7 +421,53 @@ namespace FoodWars.Service
                             BeverageType beverageType = AvailableBeverages[Randomizer.Generate(allowedBeverages)];
 
                             // JANGAN LUPA ISI PICTURE! (Yang ini pake pengecekan, bergantung pada isCold, beverageType, dan glassSize)
-                            Beverages beverage = new Beverages("", isCold, beverageType, glassSize, null);
+                            if (beverageType == BeverageType.WATER)
+                            {
+                                if (isCold)
+                                {
+                                    if (glassSize == GlassSize.SMALL) picture = Resources.Bev_water_S_Cold; // Air kecil dingin
+                                    else if (glassSize == GlassSize.MEDIUM) picture = Resources.Bev_water_M_Cold; // Air sedang dingin
+                                    else picture = Resources.Bev_water_L_Cold; // Air besar dingin
+                                }
+                                else
+                                {
+                                    if (glassSize == GlassSize.SMALL) picture = Resources.Bev_water_S; // Air kecil
+                                    else if (glassSize == GlassSize.MEDIUM) picture = Resources.Bev_water_M; // Air sedang
+                                    else picture = Resources.Bev_water_L; // Air besar
+                                }
+                            }
+                            else if (beverageType == BeverageType.OCHA)
+                            {
+                                if (isCold)
+                                {
+                                    if (glassSize == GlassSize.SMALL) picture = Resources.Bev_ocha_S_Cold; // Ocha kecil dingin
+                                    else if (glassSize == GlassSize.MEDIUM) picture = Resources.Bev_ocha_M_Cold; // Ocha sedang dingin
+                                    else picture = Resources.Bev_ocha_L_Cold; // Ocha besar dingin
+                                }
+                                else
+                                {
+                                    if (glassSize == GlassSize.SMALL) picture = Resources.Bev_ocha_S; // Ocha kecil
+                                    else if (glassSize == GlassSize.MEDIUM) picture = Resources.Bev_ocha_M; // Ocha sedang
+                                    else picture = Resources.Bev_ocha_L; // Ocha besar
+                                }
+                            }
+                            else
+                            {
+                                if (isCold)
+                                {
+                                    if (glassSize == GlassSize.SMALL) picture = Resources.Bev_sake_S_Cold; // Sake kecil dingin
+                                    else if (glassSize == GlassSize.MEDIUM) picture = Resources.Bev_sake_M_Cold; // Sake sedang dingin
+                                    else picture = Resources.Bev_sake_L_Cold; // Sake besar dingin
+                                }
+                                else
+                                {
+                                    if (glassSize == GlassSize.SMALL) picture = Resources.Bev_sake_S; // Sake kecil
+                                    else if (glassSize == GlassSize.MEDIUM) picture = Resources.Bev_sake_M; // Sake sedang
+                                    else picture = Resources.Bev_sake_L; // Sake besar
+                                }
+                            }
+
+                            Beverages beverage = new Beverages("", isCold, beverageType, glassSize, picture);
 
                             try
                             {
@@ -520,19 +559,10 @@ namespace FoodWars.Service
                     }
 
                     return maximumServingDuration;
-                } 
+                }
             }
         }
-
-        public void AddPlayer(Players player)
-        {
-            repo.AddPlayer(player);
-        }
-
-        public List<Players> GetPlayers()
-        {
-            return repo.ListPlayers;
-        }
+        // ======================================== BELOM ISI PICTURE! ========================================
 
         public int CustomersLeft()
         {
@@ -551,6 +581,8 @@ namespace FoodWars.Service
                 Chairs[chairIndex].WaitingDuration.Add(-1);
                 if (Chairs[chairIndex].WaitingDuration.GetSecond() == 0)
                 {
+                    // Hitung makanan yang telah dijual
+                    Chairs[chairIndex].CountTotalPrice();
                     Chairs[chairIndex] = null;
                     ChairsPendingInterval[chairIndex].Add(3);
                 }
@@ -559,11 +591,14 @@ namespace FoodWars.Service
                     // Sebelum dikeluarkan, simpan sisa waktu tunggu
                     int remainingWaitingTime = Chairs[chairIndex].WaitingDuration.GetSecond();
 
+                    // Hitung makanan yang telah dijual dan tambahkan ke daily income 
+                    DailyRevenue += Chairs[chairIndex].CountTotalPrice();
+
                     // Keluarkan customer 
                     Chairs[chairIndex] = null;
 
                     // Jika sisa waktu tunggu kurang dari 10 detik, maka interval pelanggan berikutnya = sisa waktu tunggu
-                    // JIka sisa waktu tunggu lebih dari 10 detik, maka interval pelanggan berikutnya = 10 detik
+                    // Jika sisa waktu tunggu lebih dari 10 detik, maka interval pelanggan berikutnya = 10 detik
                     if (remainingWaitingTime < 10) ChairsPendingInterval[chairIndex].Add(remainingWaitingTime);
                     else ChairsPendingInterval[chairIndex].Add(10);
                 }
@@ -580,7 +615,7 @@ namespace FoodWars.Service
                         // Tambahkan durasi tunggu customer terakhir
                         Chairs[chairIndex].WaitingDuration.Add(-Chairs[chairIndex].WaitingDuration.GetSecond());
                         Chairs[chairIndex].WaitingDuration.Add(OpenDuration.GetSecond() - 1);
-                    } 
+                    }
                     else
                     {
                         // Tambahkan open duration 
@@ -591,20 +626,57 @@ namespace FoodWars.Service
 
                 if (CustomerQueue.Size - CustomerQueue.CustomerLeft() < 4)
                 {
-                    // ChairsPendingInterval[chairIndex].Add(10);
                     for (int i = ChairsPendingInterval.Length - (ChairsPendingInterval.Length - chairIndex - 1); i < ChairsPendingInterval.Length; i++)
                     {
                         ChairsPendingInterval[i].Add(10);
-                    } 
+                    }
                 }
             }
         }
 
-        // Fungsi untuk mengeluarkan player jika pesanan selesai. ?????
-        public void FinishOrder()
+        // Fungsi untuk mengecek apakah pesanan sesuai                              <BELOM DIPANGGIL>
+        public bool CheckOrder(int chairIndex)
         {
-            // Mengeluarkan pelanggan tertentu dari kursi
-            // Jika seluruh pesanan dari pelanggan telah dilayani, tambahkan uang ke player. 
+            bool orderMatch = false;
+            foreach (Items order in Chairs[chairIndex].Orders)
+            {
+                if (order.GetType() == ChosenItem.GetType())
+                {
+                    if (order.Name == ChosenItem.Name)
+                    {
+                        // Panggil method untuk memasukkan order ke list lain di customer
+                        Chairs[chairIndex].MarkCompleteOrder(ChosenItem);
+                        orderMatch = true;
+                        break;
+                    }
+                }
+            }
+
+            // Jika orderMatch salah maka, buat message bubble menjadi merah.
+            // Jika benar, ubah bg image dari panel agar menjadi centang hijau.
+            return orderMatch;
+        }
+
+        // Fungsi untuk mengecek jika game sudah selesai (customer habis atau waktu habis)
+        public bool GameIsOver()
+        {
+            bool queueIsEmpty = CustomerQueue.CustomerLeft() == 0;
+            bool chairsAreEmpty = Chairs[0] == null && Chairs[1] == null && Chairs[2] == null;
+            bool isClosed = OpenDuration.GetSecond() == 0;
+
+            return ((queueIsEmpty && chairsAreEmpty) || isClosed);
+        }
+
+        // Method untuk 
+
+        public void AddPlayer(Players player)
+        {
+            repo.AddPlayer(player);
+        }
+
+        public List<Players> GetPlayers()
+        {
+            return repo.ListPlayers;
         }
         #endregion
     }

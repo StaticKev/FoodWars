@@ -11,6 +11,7 @@ namespace FoodWars
         private string name;
         private CustomerType type;
         private List<Items> orders;
+        private List<Items> completedOrders;
         private Image picture;
         private Time waitingDuration;
         #endregion
@@ -20,6 +21,7 @@ namespace FoodWars
         {
             this.Type = customerType;
             this.Orders = new List<Items>();
+            this.CompletedOrders = new List<Items>();
             this.Picture = picture;
             this.WaitingDuration = new Time(0, 0, 0);
         }
@@ -42,6 +44,15 @@ namespace FoodWars
                     if (value == null) throw new ArgumentException("Attempted to assign an empty list of \'Items\'!");
                     else orders = value;
                 }
+            }
+        }
+        protected List<Items> CompletedOrders
+        {
+            get => completedOrders;
+            set
+            {
+                if (value == null) throw new ArgumentException("No orders specified!");
+                else completedOrders = value;
             }
         }
         public Image Picture
@@ -73,6 +84,11 @@ namespace FoodWars
             else throw new ArgumentException("Maximum number of orders reached!");
         }
         public abstract void SetTimer();
+        public void MarkCompleteOrder(Items order)
+        {
+            Orders.Remove(order);
+            CompletedOrders.Add(order);
+        }
         public abstract int CountTotalPrice();
         #endregion
     }

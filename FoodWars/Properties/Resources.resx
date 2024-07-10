@@ -118,6 +118,60 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Bev_ocha_L" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_ocha_L.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bev_ocha_L_Cold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_ocha_L_Cold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bev_ocha_M" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_ocha_M.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bev_ocha_M_Cold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_ocha_M_Cold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bev_ocha_S" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_ocha_S.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bev_ocha_S_Cold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_ocha_S_Cold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bev_sake_L" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_sake_L.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bev_sake_L_Cold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_sake_L_Cold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bev_sake_M" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_sake_M.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bev_sake_M_Cold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_sake_M_Cold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bev_sake_S" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_sake_S.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bev_sake_S_Cold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_sake_S_Cold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bev_water_L" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_water_L.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bev_water_L_Cold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_water_Cold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bev_water_M" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_water_M.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bev_water_M_Cold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_water_M_Cold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bev_water_S" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_water_S.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bev_water_S_Cold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bev_water_S_Cold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bg_inGame" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg_inGame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -132,6 +186,15 @@
   </data>
   <data name="board_gameStatus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\board_gameStatus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="businessMan_child" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\businessMan_child.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="businessMan_female" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\businessMan_female.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="businessMan_male" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\businessMan_male.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button_exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,10 +244,58 @@
   <data name="element_playerInfo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PlayerInfo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="folk_child" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\folk_child.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="folk_female" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\folk_female.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="folk_male" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\folk_male.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="glass_L" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\glass_L.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="glass_M" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\glass_M.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="glass_S" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\glass_S.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icon_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2062361-200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="msg_bubble" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\msg_bubble.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="msg_bubble_incorrect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\msg_bubble_incorrect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nobleman_child" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nobleman_child.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nobleman_female" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nobleman_female.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nobleman_male" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nobleman_male.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="royalFamily_child" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\royalFamily_child.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="royalFamily_female" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\royalFamily_female.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="royalFamily_male" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\royalFamily_male.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="samurai_child" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\samurai_child.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="samurai_female" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\samurai_female.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="samurai_male" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\samurai_male.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

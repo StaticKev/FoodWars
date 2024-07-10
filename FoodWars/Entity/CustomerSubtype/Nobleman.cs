@@ -14,7 +14,7 @@ namespace FoodWars.Entity.CustomerSubtype
         {
             int total = 0;
 
-            foreach (Items item in base.Orders)
+            foreach (Items item in base.CompletedOrders)
             {
                 total += item.Price;
             }

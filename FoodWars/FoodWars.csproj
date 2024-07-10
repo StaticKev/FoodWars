@@ -357,5 +357,116 @@
   <ItemGroup>
     <None Include="Resources\msg_bubble.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_ocha_M_Cold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_ocha_S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_ocha_S_Cold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_sake_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_sake_L_Cold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_sake_M.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_sake_M_Cold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_sake_S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_sake_S_Cold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_water_Cold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_water_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_water_M.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_water_M_Cold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_water_S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_water_S_Cold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glass_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glass_M.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glass_S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_ocha_L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_ocha_L_Cold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bev_ocha_M.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\msg_bubble_incorrect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nobleman_child.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nobleman_female.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nobleman_male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\royalFamily_child.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\royalFamily_female.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\royalFamily_male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\samurai_child.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\samurai_male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\businessMan_child.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\businessMan_female.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\businessMan_male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folk_child.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folk_female.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folk_male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\samurai_female.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
