@@ -1,4 +1,5 @@
 ﻿using FoodWars.Values;
+using System;
 using System.Drawing;
 
 namespace FoodWars.Entity.CustomerRole
@@ -29,14 +30,11 @@ namespace FoodWars.Entity.CustomerRole
 
         public override void SetTimer()
         {
-            int totalSec = 60;
+            int totalSec = 30;
 
-            totalSec -= (3 - base.Orders.Count) * 10;
+            totalSec += base.Orders.Count * 10;
 
-            int sec = totalSec % 60;
-            int min = totalSec / 60;
-
-            base.Timer = new Time(0, min, sec);
+            base.WaitingDuration = new Time(0, 0, totalSec);
         }
     }
 }

@@ -71,13 +71,11 @@ namespace FoodWars.Utilities
 
         public Customers Peek()
         {
-            if (IsEmpty())
-            {
-                throw new ArgumentException("Queue is empty!");
-            }
+            if (IsEmpty()) return null;
             else
             {
-                return queue[front];
+                if (!HasNext()) return null;
+                else return queue[front];
             }
         }
 
@@ -93,7 +91,12 @@ namespace FoodWars.Utilities
 
         public bool HasNext()
         {
-            return front < rear + 1;
+            return front < size;
+        }
+
+        public int CustomerLeft()
+        {
+            return Size - front;
         }
         #endregion
 

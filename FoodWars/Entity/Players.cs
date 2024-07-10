@@ -26,7 +26,7 @@ namespace FoodWars
             this.Level = 1;
             this.Name = name;
             this.TotalIncome = 0;
-            this.bestTime = new Time(0, 0, 0);
+            this.BestTime = new Time(0, 0, 0);
             this.Picture = picture;
         }
         #endregion
@@ -77,7 +77,13 @@ namespace FoodWars
             set
             {
                 if (value == null) throw new ArgumentException("No time specified!");
-                else if (value.IsLonger(this.bestTime)) throw new ArgumentException("New best time can't be longer than the previous one!");
+                else if (bestTime != null)
+                {
+                    if (value.IsLonger(this.bestTime))
+                    {
+                        throw new ArgumentException("New best time can't be longer than the previous one!");
+                    }
+                }
                 else this.bestTime = value;
             }
         }

@@ -3,9 +3,12 @@ using FoodWars.Entity.CustomerSubtype;
 using FoodWars.Repository;
 using FoodWars.Utilities;
 using FoodWars.Values;
+using FoodWars.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Windows.Forms.VisualStyles;
 namespace FoodWars.Service
 {
     public class GameService
@@ -18,12 +21,12 @@ namespace FoodWars.Service
         // Game components (Reinitialized during a new game)
         private CustomerQueue customerQueue; 
         private Customers[] chairs;
-        private Customers nextCustomer; // Diinisialisasi setelah CustomerQueue digenerate
         private int dailyRevenue; // Diinisialisasi saat saat service dibuat. Saat game berakhir, tambahkan pada totalRevenue milik player, kemudian reset menjadi 0.
         private Time openDuration; // ============================== BELOM DIINSTANSIASI ==============================
 
-        // Buat satu data member untuk menghitung interval antar customer sesuai aturan yang berlaku
-        private Time customerInterval;
+        /*        private Time customerInterval; // Buat satu data member untuk menghitung interval antar customer sesuai aturan yang berlaku
+                private Time pendingInterval; // Memberi jeda 2 detik sebelum customer berikutnya masuk. */
+        private Time[] chairsPendingInterval;
 
         // Ini ndak perlu property
         private IngredientsMap availableIngredients; // Untuk menentukan bahan apa saja yang tersedia.
@@ -43,12 +46,11 @@ namespace FoodWars.Service
         #region Properties
         public Players Player { get => player; set => player = value; }
         private CustomerQueue CustomerQueue { get => customerQueue; set => customerQueue = value; }
-        private Customers[] Chairs 
+        public Customers[] Chairs 
         { 
             get => chairs; 
-            set => chairs = value;
+            private set => chairs = value;
         }
-        private Customers NextCustomer { get => nextCustomer; set => nextCustomer = value; }
         public int DailyRevenue 
         { 
             get => dailyRevenue; 
@@ -63,7 +65,16 @@ namespace FoodWars.Service
             get => openDuration; 
             private set => openDuration = value;
         }
-        public Time CustomerInterval 
+        private Time[] ChairsPendingInterval
+        {
+            get => chairsPendingInterval;
+            set
+            {
+                if (value == null) throw new ArgumentNullException("Value can't be null!");
+                else chairsPendingInterval = value;
+            }
+        }
+/*        public Time CustomerInterval 
         { 
             get => customerInterval; 
             set
@@ -72,6 +83,15 @@ namespace FoodWars.Service
                 else customerInterval = value;
             }
         }
+        public Time PendingInterval
+        {
+            get => pendingInterval;
+            set
+            {
+                if (value == null) throw new ArgumentNullException("Argument can't be null!");
+                else pendingInterval = value;
+            }
+        }*/
         public IngredientsMap AvailableIngredients
         {
             get => availableIngredients;
@@ -104,10 +124,8 @@ namespace FoodWars.Service
         {
             CustomerQueue = null;
             Chairs = null;
-            NextCustomer = null;
             DailyRevenue = 0;
             OpenDuration = null;
-            CustomerInterval = new Time(0, 0, 5);
 
             availableIngredients = null;
             availableBeverages = null;
@@ -119,8 +137,11 @@ namespace FoodWars.Service
         public void StartGame()
         {
             Chairs = new Customers[3];
-            OpenDuration = new Time(0, 0, 1);
-            CustomerInterval = new Time(0, 0, 5);
+            OpenDuration = new Time(0, 0, 0);
+            ChairsPendingInterval = new Time[3];
+            ChairsPendingInterval[0] = new Time(0, 0, 0);
+            ChairsPendingInterval[1] = new Time(0, 0, 0);
+            ChairsPendingInterval[2] = new Time(0, 0, 0);
             // =================================== JANGAN LUPA ISI PICTURE! ===================================
             List<Ingredients> riceIngredients = new List<Ingredients>
             {
@@ -198,7 +219,8 @@ namespace FoodWars.Service
                     else break;
                 }
             }
-            allowedBeverages = Player.Level / 50 + 1;
+            if (Player.Level >= 100) allowedBeverages = 3;
+            else allowedBeverages = Player.Level / 50 + 1;
 
             AvailableIngredients.Add(IngredientCategory.RICE, riceIngredients, allowedRice);
             AvailableIngredients.Add(IngredientCategory.PROTEIN, proteinIngredients, allowedProtein);
@@ -206,11 +228,6 @@ namespace FoodWars.Service
             AvailableIngredients.Add(IngredientCategory.SIDE_DISHES, sideDishesIngredients, allowedSideDishes);
 
             customerQueue = GenerateQueue();
-
-            // Mulai tempatkan pengunjung pada kursi yang tersedia, update tampilan 
-
-            // Menyimpan customer yang akan masuk berikutnya untuk ditampilkan
-            nextCustomer = customerQueue.Peek();
 
             CustomerQueue GenerateQueue()
             {
@@ -266,7 +283,7 @@ namespace FoodWars.Service
                 // Menghitung jumlah customer berdasarkan 
                 int customerAmount;
                 if (Player.Level <= 100) customerAmount = 5 + Player.Level / 5;
-                else customerAmount = 30;
+                else customerAmount = 25;
 
                 // Menentukan 80% customer yang akan mengikuti rasio level, dan 20% customer yang akan diacak
                 int randomizedRoleCustomer = (int)(customerAmount * 0.2);
@@ -310,6 +327,9 @@ namespace FoodWars.Service
                 // Queue yang akan dikembalikan
                 CustomerQueue customerQueue = new CustomerQueue(customerAmount);
 
+                // Mencatat durasi pelayanan dari tiap customer
+                List<int> totalServingDuration = new List<int>();
+
                 // Mengisi queue sesuai dengan aturan
                 for (int i = fixedRoleCustomer; i > 0; i--)
                 {
@@ -336,6 +356,10 @@ namespace FoodWars.Service
                         availableRole[Randomizer.Generate(availableRole.Count)]
                         ));
                 }
+
+                // Mencari durasi maksimum untuk melayani seluruh customer pada 3 kursi.
+                // Durasi maksimum pelayanan seluruh customer = lama permainan. 
+                OpenDuration.Add(GetMaximumServingDuration());
 
                 return customerQueue;
 
@@ -460,11 +484,43 @@ namespace FoodWars.Service
 
                     // Menambahkan durasi permainan sesuai dengan durasi pelayanan tiap customer 
                     customer.SetTimer();
-                    OpenDuration.Add(customer.Timer.GetDurationInSecond());
+                    totalServingDuration.Add(customer.WaitingDuration.GetSecond());
 
                     return customer;
                 }
 
+                int GetMaximumServingDuration()
+                {
+                    int maximumServingDuration = 0;
+                    int[] timeline = new int[3];
+
+                    for (int i = 0; i < totalServingDuration.Count; i++)
+                    {
+                        int smallestElement = int.MaxValue;
+                        int smallestElementIndex = 0;
+                        for (int j = 0; j < timeline.Length; j++)
+                        {
+                            if (timeline[j] < smallestElement)
+                            {
+                                smallestElement = timeline[j];
+                                smallestElementIndex = j;
+                            }
+                        }
+
+                        if (smallestElement == 0) timeline[smallestElementIndex] += totalServingDuration[i] + 11;
+                        else timeline[smallestElementIndex] += totalServingDuration[i] + 3;
+
+                        Console.WriteLine();
+                        foreach (int inti in timeline) Console.Write(inti + ", ");
+                    }
+
+                    foreach (int max in timeline)
+                    {
+                        if (max > maximumServingDuration) maximumServingDuration = max;
+                    }
+
+                    return maximumServingDuration;
+                } 
             }
         }
 
@@ -476,6 +532,69 @@ namespace FoodWars.Service
         public List<Players> GetPlayers()
         {
             return repo.ListPlayers;
+        }
+
+        public int CustomersLeft()
+        {
+            return CustomerQueue.CustomerLeft();
+        }
+
+        // Fungsi untuk mengupdate seluruh customer 
+        public void UpdateAllCustomer(int chairIndex)
+        {
+            // Mengupdate pending interval sebuah kursi 
+            if (ChairsPendingInterval[chairIndex].GetSecond() > 0) ChairsPendingInterval[chairIndex].Add(-1);
+
+            // Update waktu tunggu semua customer dan keluarkan customer yang sudah selesai
+            if (Chairs[chairIndex] != null)
+            {
+                Chairs[chairIndex].WaitingDuration.Add(-1);
+                if (Chairs[chairIndex].WaitingDuration.GetSecond() == 0)
+                {
+                    Chairs[chairIndex] = null;
+                    ChairsPendingInterval[chairIndex].Add(3);
+                }
+                else if (Chairs[chairIndex].Orders.Count == 0)
+                {
+                    // Sebelum dikeluarkan, simpan sisa waktu tunggu
+                    int remainingWaitingTime = Chairs[chairIndex].WaitingDuration.GetSecond();
+
+                    // Keluarkan customer 
+                    Chairs[chairIndex] = null;
+
+                    // Jika sisa waktu tunggu kurang dari 10 detik, maka interval pelanggan berikutnya = sisa waktu tunggu
+                    // JIka sisa waktu tunggu lebih dari 10 detik, maka interval pelanggan berikutnya = 10 detik
+                    if (remainingWaitingTime < 10) ChairsPendingInterval[chairIndex].Add(remainingWaitingTime);
+                    else ChairsPendingInterval[chairIndex].Add(10);
+                }
+            }
+
+            // Menugaskan customer kedalam kursi yang masih kosong dan memberi pending interval 10 detik pada 3 customer pertama
+            if (Chairs[chairIndex] == null && ChairsPendingInterval[chairIndex].GetSecond() == 0 && CustomerQueue.CustomerLeft() > 0)
+            {
+                Chairs[chairIndex] = CustomerQueue.DeQueue(); // Tugaskan customer pada kursi kosong (dari depan)
+                if (CustomerQueue.CustomerLeft() == 0)
+                {
+                    Chairs[chairIndex].WaitingDuration.Add(-Chairs[chairIndex].WaitingDuration.GetSecond());
+                    Chairs[chairIndex].WaitingDuration.Add(OpenDuration.GetSecond() - 1);
+                }
+
+                if (CustomerQueue.Size - CustomerQueue.CustomerLeft() < 4)
+                {
+                    // ChairsPendingInterval[chairIndex].Add(10);
+                    for (int i = ChairsPendingInterval.Length - (ChairsPendingInterval.Length - chairIndex - 1); i < ChairsPendingInterval.Length; i++)
+                    {
+                        ChairsPendingInterval[i].Add(10);
+                    } 
+                }
+            }
+        }
+
+        // Fungsi untuk mengeluarkan player jika pesanan selesai. ?????
+        public void FinishOrder()
+        {
+            // Mengeluarkan pelanggan tertentu dari kursi
+            // Jika seluruh pesanan dari pelanggan telah dilayani, tambahkan uang ke player. 
         }
         #endregion
     }

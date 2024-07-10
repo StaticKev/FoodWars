@@ -63,14 +63,14 @@ namespace FoodWars
             this.Second = sec % 60;
         }
 
-        public int GetDurationInSecond()
+        public int GetSecond()
         {
             return this.Hour * 3600 + this.Minute * 60 + this.Second;
         }
 
         public bool IsLonger(Time time)
         {
-            if (this.GetDurationInSecond() > time.GetDurationInSecond()) return true;
+            if (this.GetSecond() > time.GetSecond()) return true;
             else return false;
         }
 

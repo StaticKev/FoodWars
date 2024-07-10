@@ -12,7 +12,7 @@ namespace FoodWars
         private CustomerType type;
         private List<Items> orders;
         private Image picture;
-        private Time timer;
+        private Time waitingDuration;
         #endregion
 
         #region Constructors
@@ -21,7 +21,7 @@ namespace FoodWars
             this.Type = customerType;
             this.Orders = new List<Items>();
             this.Picture = picture;
-            this.Timer = new Time(0, 0, 0);
+            this.WaitingDuration = new Time(0, 0, 0);
         }
         #endregion
 
@@ -54,13 +54,13 @@ namespace FoodWars
                 else */this.picture = value;
             }
         }
-        public Time Timer
+        public Time WaitingDuration
         {
-            get => timer;
+            get => waitingDuration;
             set
             {
                 if (value == null) throw new NullReferenceException();
-                else this.timer = value;
+                else this.waitingDuration = value;
             }
         }
         #endregion
@@ -73,10 +73,6 @@ namespace FoodWars
             else throw new ArgumentException("Maximum number of orders reached!");
         }
         public abstract void SetTimer();
-        public void UpdateTimer()
-        {
-            this.Timer.Add(-1);
-        }
         public abstract int CountTotalPrice();
         #endregion
     }

@@ -35,7 +35,7 @@ namespace FoodWars.View
             this.panel1 = new System.Windows.Forms.Panel();
             this.label_income = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label_customerLeft = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +47,7 @@ namespace FoodWars.View
             this.pictBox_cust2 = new System.Windows.Forms.PictureBox();
             this.pictBox_cust3 = new System.Windows.Forms.PictureBox();
             this.msg_bubble1 = new System.Windows.Forms.Panel();
+            this.timerLabel_c1 = new System.Windows.Forms.Label();
             this.itemBase_1C = new System.Windows.Forms.Panel();
             this.rice_1C = new System.Windows.Forms.Panel();
             this.protein_1C = new System.Windows.Forms.Panel();
@@ -63,6 +64,7 @@ namespace FoodWars.View
             this.veggie_1A = new System.Windows.Forms.Panel();
             this.sideDish_1A = new System.Windows.Forms.Panel();
             this.msg_bubble2 = new System.Windows.Forms.Panel();
+            this.timerLabel_c2 = new System.Windows.Forms.Label();
             this.itemBase_2C = new System.Windows.Forms.Panel();
             this.rice_2C = new System.Windows.Forms.Panel();
             this.protein_2C = new System.Windows.Forms.Panel();
@@ -79,6 +81,7 @@ namespace FoodWars.View
             this.veggie_2B = new System.Windows.Forms.Panel();
             this.sideDish_2B = new System.Windows.Forms.Panel();
             this.msg_bubble3 = new System.Windows.Forms.Panel();
+            this.timerLabel_c3 = new System.Windows.Forms.Label();
             this.itemBase_3C = new System.Windows.Forms.Panel();
             this.rice_3C = new System.Windows.Forms.Panel();
             this.protein_3C = new System.Windows.Forms.Panel();
@@ -94,9 +97,6 @@ namespace FoodWars.View
             this.protein_3B = new System.Windows.Forms.Panel();
             this.veggie_3B = new System.Windows.Forms.Panel();
             this.sideDish_3B = new System.Windows.Forms.Panel();
-            this.timerLabel_c1 = new System.Windows.Forms.Label();
-            this.timerLabel_c2 = new System.Windows.Forms.Label();
-            this.timerLabel_c3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -174,35 +174,35 @@ namespace FoodWars.View
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label_customerLeft);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(0, 73);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(104, 82);
             this.panel2.TabIndex = 3;
             // 
-            // label4
+            // label_customerLeft
             // 
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Samurai Blast", 8F);
-            this.label4.Location = new System.Drawing.Point(9, 53);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label4.Size = new System.Drawing.Size(80, 9);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "-";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_customerLeft.BackColor = System.Drawing.Color.Transparent;
+            this.label_customerLeft.Font = new System.Drawing.Font("Samurai Blast", 14F);
+            this.label_customerLeft.Location = new System.Drawing.Point(10, 51);
+            this.label_customerLeft.Name = "label_customerLeft";
+            this.label_customerLeft.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label_customerLeft.Size = new System.Drawing.Size(80, 16);
+            this.label_customerLeft.TabIndex = 5;
+            this.label_customerLeft.Text = "0";
+            this.label_customerLeft.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Samurai Blast", 8F);
-            this.label3.Location = new System.Drawing.Point(20, 29);
+            this.label3.Location = new System.Drawing.Point(20, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 18);
+            this.label3.Size = new System.Drawing.Size(65, 18);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Next\r\nCustomer";
+            this.label3.Text = "Customer \r\nLeft";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -268,7 +268,7 @@ namespace FoodWars.View
             // timer
             // 
             this.timer.Enabled = true;
-            this.timer.Interval = 1000;
+            this.timer.Interval = 100;
             this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // pictBox_cust1
@@ -310,6 +310,17 @@ namespace FoodWars.View
             this.msg_bubble1.Name = "msg_bubble1";
             this.msg_bubble1.Size = new System.Drawing.Size(110, 200);
             this.msg_bubble1.TabIndex = 9;
+            // 
+            // timerLabel_c1
+            // 
+            this.timerLabel_c1.BackColor = System.Drawing.Color.Transparent;
+            this.timerLabel_c1.Font = new System.Drawing.Font("Samurai Blast", 10F);
+            this.timerLabel_c1.Location = new System.Drawing.Point(20, 165);
+            this.timerLabel_c1.Name = "timerLabel_c1";
+            this.timerLabel_c1.Size = new System.Drawing.Size(78, 16);
+            this.timerLabel_c1.TabIndex = 7;
+            this.timerLabel_c1.Text = "0";
+            this.timerLabel_c1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // itemBase_1C
             // 
@@ -445,6 +456,17 @@ namespace FoodWars.View
             this.msg_bubble2.Name = "msg_bubble2";
             this.msg_bubble2.Size = new System.Drawing.Size(110, 200);
             this.msg_bubble2.TabIndex = 10;
+            // 
+            // timerLabel_c2
+            // 
+            this.timerLabel_c2.BackColor = System.Drawing.Color.Transparent;
+            this.timerLabel_c2.Font = new System.Drawing.Font("Samurai Blast", 10F);
+            this.timerLabel_c2.Location = new System.Drawing.Point(20, 165);
+            this.timerLabel_c2.Name = "timerLabel_c2";
+            this.timerLabel_c2.Size = new System.Drawing.Size(78, 16);
+            this.timerLabel_c2.TabIndex = 8;
+            this.timerLabel_c2.Text = "0";
+            this.timerLabel_c2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // itemBase_2C
             // 
@@ -582,6 +604,17 @@ namespace FoodWars.View
             this.msg_bubble3.Size = new System.Drawing.Size(110, 200);
             this.msg_bubble3.TabIndex = 11;
             // 
+            // timerLabel_c3
+            // 
+            this.timerLabel_c3.BackColor = System.Drawing.Color.Transparent;
+            this.timerLabel_c3.Font = new System.Drawing.Font("Samurai Blast", 10F);
+            this.timerLabel_c3.Location = new System.Drawing.Point(20, 165);
+            this.timerLabel_c3.Name = "timerLabel_c3";
+            this.timerLabel_c3.Size = new System.Drawing.Size(78, 16);
+            this.timerLabel_c3.TabIndex = 15;
+            this.timerLabel_c3.Text = "0";
+            this.timerLabel_c3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // itemBase_3C
             // 
             this.itemBase_3C.Controls.Add(this.rice_3C);
@@ -704,39 +737,6 @@ namespace FoodWars.View
             this.sideDish_3B.Size = new System.Drawing.Size(60, 39);
             this.sideDish_3B.TabIndex = 19;
             // 
-            // timerLabel_c1
-            // 
-            this.timerLabel_c1.BackColor = System.Drawing.Color.Transparent;
-            this.timerLabel_c1.Font = new System.Drawing.Font("Samurai Blast", 10F);
-            this.timerLabel_c1.Location = new System.Drawing.Point(20, 165);
-            this.timerLabel_c1.Name = "timerLabel_c1";
-            this.timerLabel_c1.Size = new System.Drawing.Size(78, 16);
-            this.timerLabel_c1.TabIndex = 7;
-            this.timerLabel_c1.Text = "0";
-            this.timerLabel_c1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // timerLabel_c2
-            // 
-            this.timerLabel_c2.BackColor = System.Drawing.Color.Transparent;
-            this.timerLabel_c2.Font = new System.Drawing.Font("Samurai Blast", 10F);
-            this.timerLabel_c2.Location = new System.Drawing.Point(20, 165);
-            this.timerLabel_c2.Name = "timerLabel_c2";
-            this.timerLabel_c2.Size = new System.Drawing.Size(78, 16);
-            this.timerLabel_c2.TabIndex = 8;
-            this.timerLabel_c2.Text = "0";
-            this.timerLabel_c2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // timerLabel_c3
-            // 
-            this.timerLabel_c3.BackColor = System.Drawing.Color.Transparent;
-            this.timerLabel_c3.Font = new System.Drawing.Font("Samurai Blast", 10F);
-            this.timerLabel_c3.Location = new System.Drawing.Point(20, 165);
-            this.timerLabel_c3.Name = "timerLabel_c3";
-            this.timerLabel_c3.Size = new System.Drawing.Size(78, 16);
-            this.timerLabel_c3.TabIndex = 15;
-            this.timerLabel_c3.Text = "0";
-            this.timerLabel_c3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // InGameUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -818,7 +818,7 @@ namespace FoodWars.View
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label_income;
         private System.Windows.Forms.Label label_timeLeft;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label_customerLeft;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictBox_buttonPause;
 
