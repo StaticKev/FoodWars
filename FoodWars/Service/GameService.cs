@@ -575,8 +575,18 @@ namespace FoodWars.Service
                 Chairs[chairIndex] = CustomerQueue.DeQueue(); // Tugaskan customer pada kursi kosong (dari depan)
                 if (CustomerQueue.CustomerLeft() == 0)
                 {
-                    Chairs[chairIndex].WaitingDuration.Add(-Chairs[chairIndex].WaitingDuration.GetSecond());
-                    Chairs[chairIndex].WaitingDuration.Add(OpenDuration.GetSecond() - 1);
+                    if (OpenDuration.GetSecond() > Chairs[chairIndex].WaitingDuration.GetSecond() + 1)
+                    {
+                        // Tambahkan durasi tunggu customer terakhir
+                        Chairs[chairIndex].WaitingDuration.Add(-Chairs[chairIndex].WaitingDuration.GetSecond());
+                        Chairs[chairIndex].WaitingDuration.Add(OpenDuration.GetSecond() - 1);
+                    } 
+                    else
+                    {
+                        // Tambahkan open duration 
+                        OpenDuration.Add(-OpenDuration.GetSecond());
+                        OpenDuration.Add(Chairs[chairIndex].WaitingDuration.GetSecond() + 1);
+                    }
                 }
 
                 if (CustomerQueue.Size - CustomerQueue.CustomerLeft() < 4)
