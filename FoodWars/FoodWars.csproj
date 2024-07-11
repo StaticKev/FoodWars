@@ -468,5 +468,14 @@
   <ItemGroup>
     <None Include="Resources\samurai_female.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\merch_tumbler.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\merch_actionFigure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\merch_fan.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
