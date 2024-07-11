@@ -79,11 +79,14 @@ namespace FoodWars
         // Method yang dipanggil di meja chef, mengganti ingredient dari food yang sedang disiapkan
         private void SwitchIngredient(Ingredients ingredient) 
         {
-            foreach (Ingredients ingredientPresent in this.Ingredients)
+            // Cek dulu apakah ingredient bertipe tersebut ada, jika ada gantikan, jika tidak tambahkan
+
+            foreach (Ingredients ing in this.Ingredients)
             {
-                if (ingredient.Category == ingredientPresent.Category)
+                bool ingredientIsNotPresent = boo
+                if (ingredient.Category == ing.Category)
                 {
-                    this.Ingredients.Remove(ingredientPresent);
+                    this.Ingredients.Remove(ing);
                     this.Ingredients.Add(ingredient);
                     GenerateName();
                     break;

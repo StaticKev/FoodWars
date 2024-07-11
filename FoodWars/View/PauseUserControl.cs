@@ -50,6 +50,7 @@ namespace FoodWars.View
             // Navigate back to InGameView
             // Remove yang ini, start timer, tampilkan yang sebelumnya. 
             InGameUc.timer.Start();
+            inGameUc.updateUITimer.Start();
             BaseForm.mainPanel.Controls.Add(InGameUc);
             BaseForm.mainPanel.Controls.Remove(this);
         }
@@ -59,6 +60,8 @@ namespace FoodWars.View
             MainMenuUserControl mainMenuUc = new MainMenuUserControl(BaseForm);
 
             BaseForm.Game.ResetGameState();
+            InGameUc.timer.Stop();
+            inGameUc.updateUITimer.Stop();
             BaseForm.mainPanel.Controls.Add(mainMenuUc);
             BaseForm.mainPanel.Controls.Remove(this);
             BaseForm.mainPanel.Controls.Remove(inGameUc);

@@ -343,9 +343,6 @@
     <None Include="Resources\button_settings_stroke.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bg_inGame.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\button_pause_stroke.png" />
   </ItemGroup>
   <ItemGroup>
@@ -476,6 +473,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\merch_fan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\protein_ebi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\protein_tofu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\protein_tonkatsu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rice_brown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rice_corn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rice_regular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\side_korokke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\side_nimono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\side_sunomono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\veggie_edamame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\veggie_hibiki.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\veggie_pickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_inGame.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

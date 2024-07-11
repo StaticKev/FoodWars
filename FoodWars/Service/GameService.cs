@@ -8,8 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Windows.Forms;
 namespace FoodWars.Service
 {
     public class GameService
@@ -113,10 +111,10 @@ namespace FoodWars.Service
             get => beveragesBeingPrepared;
             private set => beveragesBeingPrepared = value;
         }
-        public Merchandise[] Merch
+        private Merchandise[] Merch
         {
             get => merch;
-            private set
+            set
             {
                 if (value == null) throw new ArgumentException("Value can't be null!");
                 else merch = value;
@@ -140,7 +138,6 @@ namespace FoodWars.Service
 
         }
 
-        // ======================================== BELOM ISI PICTURE! ========================================
         public void StartGame()
         {
             Chairs = new Customers[3];
@@ -158,27 +155,27 @@ namespace FoodWars.Service
             // =================================== JANGAN LUPA ISI PICTURE! ===================================
             List<Ingredients> riceIngredients = new List<Ingredients>
             {
-                new Ingredients("Regular Rice", 50, IngredientCategory.RICE, null),
-                new Ingredients("Brown Rice", 100, IngredientCategory.RICE, null),
-                new Ingredients("Corn Rice", 70, IngredientCategory.RICE, null)
+                new Ingredients("Regular Rice", 50, IngredientCategory.RICE, Resources.rice_regular),
+                new Ingredients("Brown Rice", 100, IngredientCategory.RICE, Resources.rice_brown),
+                new Ingredients("Corn Rice", 70, IngredientCategory.RICE, Resources.rice_corn)
             };
             List<Ingredients> proteinIngredients = new List<Ingredients>
             {
-                new Ingredients("Tonkatsu", 300, IngredientCategory.PROTEIN, null),
-                new Ingredients("Karage", 200, IngredientCategory.PROTEIN, null),
-                new Ingredients("Ebi Furai", 250, IngredientCategory.PROTEIN, null)
+                new Ingredients("Tonkatsu", 300, IngredientCategory.PROTEIN, Resources.protein_tonkatsu),
+                new Ingredients("Tofu", 150, IngredientCategory.PROTEIN, Resources.protein_tofu),
+                new Ingredients("Ebi Furai", 250, IngredientCategory.PROTEIN, Resources.protein_ebi)
             };
             List<Ingredients> vegetableIngredients = vegetableIngredients = new List<Ingredients>
             {
-                new Ingredients("Pickled Radish", 50, IngredientCategory.VEGETABLES, null),
-                new Ingredients("Edamame", 50, IngredientCategory.VEGETABLES, null),
-                new Ingredients("Hibiki Salad", 60, IngredientCategory.VEGETABLES, null)
+                new Ingredients("Edamame", 50, IngredientCategory.VEGETABLES, Resources.veggie_edamame),
+                new Ingredients("Pickled Raddish", 50, IngredientCategory.VEGETABLES, Resources.veggie_pickle),
+                new Ingredients("Hibiki Salad", 60, IngredientCategory.VEGETABLES, Resources.veggie_hibiki)
             };
             List<Ingredients> sideDishesIngredients = sideDishesIngredients = new List<Ingredients>
             {
-                new Ingredients("Sunomono", 70, IngredientCategory.SIDE_DISHES, null),
-                new Ingredients("Nimono", 80, IngredientCategory.SIDE_DISHES, null),
-                new Ingredients("Korokke", 100, IngredientCategory.SIDE_DISHES, null)
+                new Ingredients("Sunomono", 70, IngredientCategory.SIDE_DISHES, Resources.side_sunomono),
+                new Ingredients("Nimono", 80, IngredientCategory.SIDE_DISHES, Resources.side_nimono),
+                new Ingredients("Korokke", 100, IngredientCategory.SIDE_DISHES, Resources.side_korokke)
             };
 
             AvailableIngredients = new IngredientsMap();
@@ -427,8 +424,7 @@ namespace FoodWars.Service
                         int option = Randomizer.Generate(availableItems);
                         if (option == 0)
                         {
-                            // JANGAN LUPA ISI PICTURE!
-                            Foods food = new Foods("", null);
+                            Foods food = new Foods("", Resources.plate);
 
                             food.AddIngredient(AvailableIngredients.GetRandomIngredient(IngredientCategory.RICE));
                             food.AddIngredient(AvailableIngredients.GetRandomIngredient(IngredientCategory.PROTEIN));
@@ -594,7 +590,6 @@ namespace FoodWars.Service
                 }
             }
         }
-        // ======================================== BELOM ISI PICTURE! ========================================
 
         // Fungsi untuk mengupdate seluruh customer 
         public void UpdateAllCustomer(int chairIndex)
@@ -609,7 +604,6 @@ namespace FoodWars.Service
                 if (Chairs[chairIndex].WaitingDuration.GetSecond() == 0)
                 {
                     // Hitung makanan yang telah dijual
-                    Chairs[chairIndex].CountTotalPrice();
                     Chairs[chairIndex] = null;
                     ChairsPendingInterval[chairIndex].Add(3);
                 }
@@ -662,7 +656,29 @@ namespace FoodWars.Service
             }
         }
 
-        // Fungsi untuk mengecek apakah pesanan sesuai                              <BELOM DIPANGGIL>
+        public void CreateNewFood() 
+        {
+            FoodsBeingPrepared = new Foods("", Resources.plate);
+        }
+
+        public void CreateNewBeverage(GlassSize glassSize) 
+        {
+            if (glassSize == GlassSize.SMALL) BeveragesBeingPrepared = new Beverages("", Resources.glass_S, glassSize);
+            else if (glassSize == GlassSize.SMALL) BeveragesBeingPrepared = new Beverages("", Resources.glass_M, glassSize);
+            else BeveragesBeingPrepared = new Beverages("", Resources.glass_L, glassSize);
+        }
+
+        public bool SelectMerch(int merchIndex)
+        {
+            if (Merch[merchIndex].Stock != 0)
+            {
+                SelectedItem = Merch[merchIndex];
+                return true;
+            }
+            else return false;
+        }
+
+        // Fungsi untuk mengecek apakah pesanan sesuai
         public bool CheckOrder(int chairIndex)
         {
             // Cek jika item yang dipilih adalah merch maka, kurangi stoknya.
@@ -691,8 +707,9 @@ namespace FoodWars.Service
                 }
             }
 
-            // Jika orderMatch salah maka, buat message bubble menjadi merah.
+            // Jika orderMatch salah maka, buat message bubble menjadi merah, dan hapus dari selected item.
             // Jika benar, ubah bg image dari panel agar menjadi centang hijau.
+            SelectedItem = null;
             return false;
         }
 
