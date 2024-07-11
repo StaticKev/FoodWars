@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Windows.Forms;
 namespace FoodWars.Service
 {
     public class GameService
@@ -22,14 +23,16 @@ namespace FoodWars.Service
         private CustomerQueue customerQueue;
         private Customers[] chairs;
         private int dailyRevenue; // Diinisialisasi saat saat service dibuat. Saat game berakhir, tambahkan pada totalRevenue milik player, kemudian reset menjadi 0.
-        private Time openDuration; // ============================== BELOM DIINSTANSIASI ==============================
+        private int customerServed;
+        private Time openDuration;
 
         private Time[] chairsPendingInterval;
 
         // Ini ndak perlu property
         private IngredientsMap availableIngredients; // Untuk menentukan bahan apa saja yang tersedia.
         private BeverageType[] availableBeverages; // Untuk menentukan minuman apa saja yang tersedia.
-        private Items chosenItem; // Item yang dipilih untuk diberikan kepada pelanggan. 
+        private Merchandise[] merch; // Khusus ini perlu property, soalnya user harus tau stock nya.
+        private Items selectedItem; // Item yang dipilih untuk diberikan kepada pelanggan. 
         private Foods foodBeingPrepared; // Makanan yang sedang disiapkan di meja penyajian.
         private Beverages beveragesBeingPrepared; // Minuman yang sedang disiapkan pada dispenser minuman.
         #endregion
@@ -37,11 +40,19 @@ namespace FoodWars.Service
         #region Constructors
         public GameService(PlayerRepo repo)
         {
-            this.repo = repo;
+            this.GameRepo = repo;
         }
         #endregion
 
         #region Properties
+        private PlayerRepo GameRepo {
+            get => repo;
+            set
+            {
+                if (value == null) throw new ArgumentException("No repo specified!");
+                else repo = value;
+            }
+        }
         public Players Player { get => player; set => player = value; }
         private CustomerQueue CustomerQueue { get => customerQueue; set => customerQueue = value; }
         public Customers[] Chairs
@@ -57,6 +68,11 @@ namespace FoodWars.Service
                 if (value < 0) throw new ArgumentException("Daily revenue can't be negative!");
                 else dailyRevenue = value;
             }
+        }
+        public int CustomerServed
+        {
+            get => customerServed;
+            set => customerServed = value;
         }
         public Time OpenDuration
         {
@@ -82,10 +98,10 @@ namespace FoodWars.Service
             get => availableBeverages;
             private set => availableBeverages = value;
         }
-        public Items ChosenItem
+        public Items SelectedItem
         {
-            get => chosenItem;
-            set => chosenItem = value;
+            get => selectedItem;
+            set => selectedItem = value;
         }
         public Foods FoodsBeingPrepared
         {
@@ -97,6 +113,15 @@ namespace FoodWars.Service
             get => beveragesBeingPrepared;
             private set => beveragesBeingPrepared = value;
         }
+        public Merchandise[] Merch
+        {
+            get => merch;
+            private set
+            {
+                if (value == null) throw new ArgumentException("Value can't be null!");
+                else merch = value;
+            }
+        } 
         #endregion
 
         #region Methods
@@ -109,7 +134,7 @@ namespace FoodWars.Service
 
             availableIngredients = null;
             availableBeverages = null;
-            chosenItem = null;
+            selectedItem = null;
             foodBeingPrepared = null;
             beveragesBeingPrepared = null;
 
@@ -124,6 +149,12 @@ namespace FoodWars.Service
             ChairsPendingInterval[0] = new Time(0, 0, 0);
             ChairsPendingInterval[1] = new Time(0, 0, 0);
             ChairsPendingInterval[2] = new Time(0, 0, 0);
+
+            // Menghitung jumlah customer 
+            int customerAmount;
+            if (Player.Level <= 100) customerAmount = 5 + Player.Level / 5;
+            else customerAmount = 25;
+
             // =================================== JANGAN LUPA ISI PICTURE! ===================================
             List<Ingredients> riceIngredients = new List<Ingredients>
             {
@@ -152,11 +183,11 @@ namespace FoodWars.Service
 
             AvailableIngredients = new IngredientsMap();
             AvailableBeverages = new BeverageType[] { BeverageType.WATER, BeverageType.OCHA, BeverageType.SAKE };
-            Merchandise[] merch = new Merchandise[]
+            Merch = new Merchandise[]
             {
-                new Merchandise("Keychain", 700, 2, null),
-                new Merchandise("T-Shirt", 900, 3, null),
-                new Merchandise("Action Figure", 1200, 1, null)
+                new Merchandise("Tumbler", 700, 0, Resources.merch_tumbler),
+                new Merchandise("Fan", 900, 0, Resources.merch_fan),
+                new Merchandise("Action Figure", 1200, 0, Resources.merch_actionFigure)
             };
             CustomerType[] customerTypes = customerTypes = new CustomerType[] { CustomerType.MALE, CustomerType.FEMALE, CustomerType.CHILD };
 
@@ -208,6 +239,14 @@ namespace FoodWars.Service
             AvailableIngredients.Add(IngredientCategory.PROTEIN, proteinIngredients, allowedProtein);
             AvailableIngredients.Add(IngredientCategory.VEGETABLES, vegetableIngredients, allowedVegetable);
             AvailableIngredients.Add(IngredientCategory.SIDE_DISHES, sideDishesIngredients, allowedSideDishes);
+
+            // Menghitung jumlah merch
+            int totalMerchCount = customerAmount / 5;
+            for (int i = 0; i < totalMerchCount; i++)
+            {
+                totalMerchCount--;
+                Merch[Randomizer.Generate(3)].Stock++;
+            }
 
             customerQueue = GenerateQueue();
 
@@ -261,11 +300,6 @@ namespace FoodWars.Service
                         }
                     }
                 }
-
-                // Menghitung jumlah customer berdasarkan 
-                int customerAmount;
-                if (Player.Level <= 100) customerAmount = 5 + Player.Level / 5;
-                else customerAmount = 25;
 
                 // Menentukan 80% customer yang akan mengikuti rasio level, dan 20% customer yang akan diacak
                 int randomizedRoleCustomer = (int)(customerAmount * 0.2);
@@ -350,8 +384,8 @@ namespace FoodWars.Service
                 {
                     Customers customer;
                     Image picture = null;
+                    int availableItems = 3;
 
-                    // JANGAN LUPA ISI PICTURE! (Yang ini pake pengecekan, bergantung pada type, dan role)
                     if (chosenRole == 0)
                     {
                         if (customerType == CustomerType.MALE) picture = Resources.folk_male;
@@ -387,8 +421,6 @@ namespace FoodWars.Service
                         else picture = Resources.royalFamily_child;
                         customer = new RoyalFamily(customerType, picture);
                     }
-
-                    int availableItems = 3;
 
                     for (int i = 0; i < itemCount; i++)
                     {
@@ -481,20 +513,20 @@ namespace FoodWars.Service
                             {
                                 int totalMerchStock = 0;
                                 // Cek apakah ada merch yang dapat dijual (semua stok merch != 0), kalau tidak ada, availableItems--, i--, kembali ke awal.
-                                foreach (Merchandise m in merch)
+                                foreach (Merchandise m in Merch)
                                 {
                                     totalMerchStock += m.Stock;
                                 }
 
                                 if (totalMerchStock > 0)
                                 {
-                                    int chosenMerch = Randomizer.Generate(merch.Length);
+                                    int chosenMerch = Randomizer.Generate(Merch.Length);
                                     while (true)
                                     {
-                                        if (merch[chosenMerch].Stock > 0)
+                                        if (Merch[chosenMerch].Stock > 0)
                                         {
-                                            customer.AddOrder(merch[chosenMerch]);
-                                            merch[chosenMerch].Stock--;
+                                            customer.AddOrder(Merch[chosenMerch]);
+                                            Merch[chosenMerch].Stock--;
                                             totalMerchStock--;
                                             break;
                                         }
@@ -502,7 +534,7 @@ namespace FoodWars.Service
                                         {
                                             if (totalMerchStock > 0)
                                             {
-                                                chosenMerch = Randomizer.Generate(merch.Length);
+                                                chosenMerch = Randomizer.Generate(Merch.Length);
                                             }
                                             else
                                             {
@@ -564,11 +596,6 @@ namespace FoodWars.Service
         }
         // ======================================== BELOM ISI PICTURE! ========================================
 
-        public int CustomersLeft()
-        {
-            return CustomerQueue.CustomerLeft();
-        }
-
         // Fungsi untuk mengupdate seluruh customer 
         public void UpdateAllCustomer(int chairIndex)
         {
@@ -593,6 +620,7 @@ namespace FoodWars.Service
 
                     // Hitung makanan yang telah dijual dan tambahkan ke daily income 
                     DailyRevenue += Chairs[chairIndex].CountTotalPrice();
+                    CustomerServed++;
 
                     // Keluarkan customer 
                     Chairs[chairIndex] = null;
@@ -637,46 +665,58 @@ namespace FoodWars.Service
         // Fungsi untuk mengecek apakah pesanan sesuai                              <BELOM DIPANGGIL>
         public bool CheckOrder(int chairIndex)
         {
-            bool orderMatch = false;
+            // Cek jika item yang dipilih adalah merch maka, kurangi stoknya.
+            if (SelectedItem is Merchandise)
+            {
+                foreach (Merchandise m in merch)
+                {
+                    if (SelectedItem.Name == m.Name)
+                    {
+                        m.Stock--;
+                        break;
+                    }
+                }
+            }
+
             foreach (Items order in Chairs[chairIndex].Orders)
             {
-                if (order.GetType() == ChosenItem.GetType())
+                if (order.GetType() == SelectedItem.GetType())
                 {
-                    if (order.Name == ChosenItem.Name)
+                    if (order.Name == SelectedItem.Name)
                     {
                         // Panggil method untuk memasukkan order ke list lain di customer
-                        Chairs[chairIndex].MarkCompleteOrder(ChosenItem);
-                        orderMatch = true;
-                        break;
+                        Chairs[chairIndex].MarkCompleteOrder(SelectedItem);
+                        return true;
                     }
                 }
             }
 
             // Jika orderMatch salah maka, buat message bubble menjadi merah.
             // Jika benar, ubah bg image dari panel agar menjadi centang hijau.
-            return orderMatch;
+            return false;
         }
 
         // Fungsi untuk mengecek jika game sudah selesai (customer habis atau waktu habis)
-        public bool GameIsOver()
+        public bool FinishGame()
         {
             bool queueIsEmpty = CustomerQueue.CustomerLeft() == 0;
             bool chairsAreEmpty = Chairs[0] == null && Chairs[1] == null && Chairs[2] == null;
             bool isClosed = OpenDuration.GetSecond() == 0;
 
-            return ((queueIsEmpty && chairsAreEmpty) || isClosed);
-        }
+            bool gameIsFinish = (queueIsEmpty && chairsAreEmpty) || isClosed;
+            bool isWin = CustomerServed == CustomerQueue.Size;
 
-        // Method untuk 
+            return gameIsFinish && isWin;
+        }
 
         public void AddPlayer(Players player)
         {
-            repo.AddPlayer(player);
+            GameRepo.AddPlayer(player);
         }
 
         public List<Players> GetPlayers()
         {
-            return repo.ListPlayers;
+            return GameRepo.ListPlayers;
         }
         #endregion
     }
