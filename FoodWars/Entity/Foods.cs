@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FoodWars.Values;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 
@@ -77,20 +78,26 @@ namespace FoodWars
         }
 
         // Method yang dipanggil di meja chef, mengganti ingredient dari food yang sedang disiapkan
-        private void SwitchIngredient(Ingredients ingredient) 
+        public void SwitchIngredient(Ingredients ingredient) 
         {
             // Cek dulu apakah ingredient bertipe tersebut ada, jika ada gantikan, jika tidak tambahkan
-
+            bool categoryIsNotPresent = true;
             foreach (Ingredients ing in this.Ingredients)
             {
-                bool ingredientIsNotPresent = boo
                 if (ingredient.Category == ing.Category)
                 {
                     this.Ingredients.Remove(ing);
                     this.Ingredients.Add(ingredient);
                     GenerateName();
+                    categoryIsNotPresent = false;
                     break;
                 }
+            }
+
+            if (Ingredients.Count < 4 && categoryIsNotPresent)
+            {
+                Ingredients.Add(ingredient);
+                GenerateName();
             }
         }
 
@@ -98,9 +105,20 @@ namespace FoodWars
         {
             string name = "";
 
-            name += this.Ingredients[0].Name + " " + this.Ingredients[1].Name + " Bento with " + this.Ingredients[2].Name + " & " + this.Ingredients[3].Name;
+            string rice = "";
+            string protein = "";
+            string veggie = "";
+            string sideDish = "";
 
-            base.Name = name;
+            foreach (Ingredients ingredient in Ingredients)
+            {
+                if (ingredient.Category == IngredientCategory.RICE) rice = ingredient.Name;
+                else if (ingredient.Category == IngredientCategory.PROTEIN) protein = ingredient.Name;
+                else if (ingredient.Category == IngredientCategory.VEGETABLES) veggie = ingredient.Name;
+                else sideDish = ingredient.Name;
+            } 
+
+            base.Name = rice + protein + veggie + sideDish;
         }
         #endregion
     }

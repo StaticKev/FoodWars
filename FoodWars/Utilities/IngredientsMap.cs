@@ -1,6 +1,7 @@
 ﻿using FoodWars.Values;
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace FoodWars.Utilities
 {
@@ -67,12 +68,32 @@ namespace FoodWars.Utilities
             return randomizedIngredient;
         }
 
-        public void ResetAllowedAmount()
+        public Ingredients GetIngredientsOfCategory(IngredientCategory category, int index)
         {
-            for (int i = 0; i < allIngredients.Count; i++)
+            List<Ingredients> listOfCategory = null;
+            for (int i = 0; i < this.category.Count; i++)
             {
-                allowedAmount[i] = 1;
+                if (this.category[i] == category)
+                {
+                    listOfCategory = allIngredients[i];
+                    break;
+                }
             }
+            return listOfCategory[index];
+        }
+
+        public int GetAvailableIngredientOfCategory(IngredientCategory category)
+        {
+            int amount = 0;
+            for (int i = 0; i < this.category.Count; i++)
+            {
+                if (this.category[i] == category)
+                {
+                    amount = allowedAmount[i];
+                    break;
+                }
+            }
+            return amount;
         }
         #endregion
     }

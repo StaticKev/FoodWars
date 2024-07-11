@@ -39,9 +39,9 @@ D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.View.LevelDescriptionUserCon
 D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.View.LevelInGameUserControl.resources
 D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.View.SettingsUserControl.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.LeaderboardUserControl.resources
-D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.LevelDescriptionUserControl.resources
-D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.LevelInGameUserControl.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.SettingsUserControl.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.NewPlayerUserControl.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.InGameUserControl.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.PauseUserControl.resources
+D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.GameWinUserControl.resources
+D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.GameLoseUserControl.resources

@@ -91,6 +91,7 @@ namespace FoodWars
         {
             // Menghitung kembali harga
             base.Price = CountPrice();
+            GenerateName();
 
             // Mengganti image sesuai dengan kombinasi menu
             if (BeverageType == BeverageType.UNASSIGNED)

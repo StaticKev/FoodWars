@@ -108,7 +108,10 @@ namespace FoodWars.View
         #region LEADERBOARD
         private void Button_Leaderboard_Click(object sender, EventArgs e)
         {
-            // Navigate to view
+            LeaderboardUserControl leaderboardUc = new LeaderboardUserControl(BaseForm);
+            BaseForm.mainPanel.Controls.Remove(this);
+            BaseForm.mainPanel.Controls.Add(leaderboardUc);
+            leaderboardUc.Dock = DockStyle.Fill;
         }
 
         private void Button_Leaderboard_MouseEnter(object sender, EventArgs e)
