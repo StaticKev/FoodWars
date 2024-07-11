@@ -76,6 +76,18 @@
     <Compile Include="View\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\GameLoseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\GameLoseUserControl.Designer.cs">
+      <DependentUpon>GameLoseUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\GameWinUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\GameWinUserControl.Designer.cs">
+      <DependentUpon>GameWinUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\InGameUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -87,18 +99,6 @@
     </Compile>
     <Compile Include="View\LeaderboardUserControl.Designer.cs">
       <DependentUpon>LeaderboardUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\LevelDescriptionUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\LevelDescriptionUserControl.Designer.cs">
-      <DependentUpon>LevelDescriptionUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\LevelInGameUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\LevelInGameUserControl.Designer.cs">
-      <DependentUpon>LevelInGameUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MainMenuUserControl.cs">
       <SubType>UserControl</SubType>
@@ -181,17 +181,17 @@
     <EmbeddedResource Include="View\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\GameLoseUserControl.resx">
+      <DependentUpon>GameLoseUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GameWinUserControl.resx">
+      <DependentUpon>GameWinUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\InGameUserControl.resx">
       <DependentUpon>InGameUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LeaderboardUserControl.resx">
       <DependentUpon>LeaderboardUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\LevelDescriptionUserControl.resx">
-      <DependentUpon>LevelDescriptionUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\LevelInGameUserControl.resx">
-      <DependentUpon>LevelInGameUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainMenuUserControl.resx">
       <DependentUpon>MainMenuUserControl.cs</DependentUpon>
@@ -515,6 +515,66 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bg_inGame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prepTable_merch_tumbler.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prepTable_merch_actionFigure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prepTable_merch_fan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prepTable_veggies_pickle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prepTable_veggies_edamame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prepTable_veggies_hibiki.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prepTable_sideDish_nimono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prepTable_sideDish_sunomono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prepTable_sideDish_korokke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prepTable_protein_tofu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prepTable_protein_tonkatsu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prepTable_protein_ebiFurai.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prepTable_bev_water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prepTable_bev_sake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prepTable_bev_ocha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OOP - Asset Object_20240712_010031_0000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Leaderboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GAME LOSE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GAME WIN.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

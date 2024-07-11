@@ -253,6 +253,12 @@
   <data name="folk_male" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folk_male.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="GAME_LOSE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GAME LOSE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GAME_WIN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GAME WIN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="glass_L" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\glass_L.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -264,6 +270,9 @@
   </data>
   <data name="icon_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2062361-200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Leaderboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Leaderboard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="merch_actionFigure" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\merch_actionFigure.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -289,8 +298,56 @@
   <data name="nobleman_male" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\nobleman_male.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="OOP___Asset_Object_20240712_010031_0000" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OOP - Asset Object_20240712_010031_0000.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="plate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prepTable_bev_ocha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepTable_bev_ocha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prepTable_bev_sake" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepTable_bev_sake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prepTable_bev_water" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepTable_bev_water.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prepTable_merch_actionFigure" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepTable_merch_actionFigure.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prepTable_merch_fan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepTable_merch_fan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prepTable_merch_tumbler" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepTable_merch_tumbler.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prepTable_protein_ebiFurai" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepTable_protein_ebiFurai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prepTable_protein_tofu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepTable_protein_tofu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prepTable_protein_tonkatsu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepTable_protein_tonkatsu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prepTable_sideDish_korokke" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepTable_sideDish_korokke.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prepTable_sideDish_nimono" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepTable_sideDish_nimono.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prepTable_sideDish_sunomono" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepTable_sideDish_sunomono.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prepTable_veggies_edamame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepTable_veggies_edamame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prepTable_veggies_hibiki" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepTable_veggies_hibiki.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prepTable_veggies_pickle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepTable_veggies_pickle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="protein_ebi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\protein_ebi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -327,6 +384,9 @@
   </data>
   <data name="samurai_male" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\samurai_male.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="side_korokke" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\side_korokke.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

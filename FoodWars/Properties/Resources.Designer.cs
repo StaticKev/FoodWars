@@ -513,6 +513,26 @@ namespace FoodWars.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GAME_LOSE {
+            get {
+                object obj = ResourceManager.GetObject("GAME_LOSE", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GAME_WIN {
+            get {
+                object obj = ResourceManager.GetObject("GAME_WIN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap glass_L {
             get {
                 object obj = ResourceManager.GetObject("glass_L", resourceCulture);
@@ -546,6 +566,16 @@ namespace FoodWars.Properties {
         internal static System.Drawing.Bitmap icon_default {
             get {
                 object obj = ResourceManager.GetObject("icon_default", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Leaderboard {
+            get {
+                object obj = ResourceManager.GetObject("Leaderboard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -633,9 +663,169 @@ namespace FoodWars.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap OOP___Asset_Object_20240712_010031_0000 {
+            get {
+                object obj = ResourceManager.GetObject("OOP___Asset_Object_20240712_010031_0000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap plate {
             get {
                 object obj = ResourceManager.GetObject("plate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prepTable_bev_ocha {
+            get {
+                object obj = ResourceManager.GetObject("prepTable_bev_ocha", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prepTable_bev_sake {
+            get {
+                object obj = ResourceManager.GetObject("prepTable_bev_sake", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prepTable_bev_water {
+            get {
+                object obj = ResourceManager.GetObject("prepTable_bev_water", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prepTable_merch_actionFigure {
+            get {
+                object obj = ResourceManager.GetObject("prepTable_merch_actionFigure", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prepTable_merch_fan {
+            get {
+                object obj = ResourceManager.GetObject("prepTable_merch_fan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prepTable_merch_tumbler {
+            get {
+                object obj = ResourceManager.GetObject("prepTable_merch_tumbler", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prepTable_protein_ebiFurai {
+            get {
+                object obj = ResourceManager.GetObject("prepTable_protein_ebiFurai", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prepTable_protein_tofu {
+            get {
+                object obj = ResourceManager.GetObject("prepTable_protein_tofu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prepTable_protein_tonkatsu {
+            get {
+                object obj = ResourceManager.GetObject("prepTable_protein_tonkatsu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prepTable_sideDish_korokke {
+            get {
+                object obj = ResourceManager.GetObject("prepTable_sideDish_korokke", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prepTable_sideDish_nimono {
+            get {
+                object obj = ResourceManager.GetObject("prepTable_sideDish_nimono", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prepTable_sideDish_sunomono {
+            get {
+                object obj = ResourceManager.GetObject("prepTable_sideDish_sunomono", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prepTable_veggies_edamame {
+            get {
+                object obj = ResourceManager.GetObject("prepTable_veggies_edamame", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prepTable_veggies_hibiki {
+            get {
+                object obj = ResourceManager.GetObject("prepTable_veggies_hibiki", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prepTable_veggies_pickle {
+            get {
+                object obj = ResourceManager.GetObject("prepTable_veggies_pickle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -756,6 +946,16 @@ namespace FoodWars.Properties {
         internal static System.Drawing.Bitmap samurai_male {
             get {
                 object obj = ResourceManager.GetObject("samurai_male", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Settings {
+            get {
+                object obj = ResourceManager.GetObject("Settings", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

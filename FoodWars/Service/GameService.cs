@@ -21,8 +21,8 @@ namespace FoodWars.Service
         private CustomerQueue customerQueue;
         private Customers[] chairs;
         private int dailyRevenue; // Diinisialisasi saat saat service dibuat. Saat game berakhir, tambahkan pada totalRevenue milik player, kemudian reset menjadi 0.
-        private int customerServed;
         private Time openDuration;
+        private int servedCustomer;
 
         private Time[] chairsPendingInterval;
 
@@ -67,11 +67,6 @@ namespace FoodWars.Service
                 else dailyRevenue = value;
             }
         }
-        public int CustomerServed
-        {
-            get => customerServed;
-            set => customerServed = value;
-        }
         public Time OpenDuration
         {
             get => openDuration;
@@ -96,6 +91,15 @@ namespace FoodWars.Service
             get => availableBeverages;
             private set => availableBeverages = value;
         }
+        private Merchandise[] Merch
+        {
+            get => merch;
+            set
+            {
+                if (value == null) throw new ArgumentException("Value can't be null!");
+                else merch = value;
+            }
+        }
         public Items SelectedItem
         {
             get => selectedItem;
@@ -111,15 +115,6 @@ namespace FoodWars.Service
             get => beveragesBeingPrepared;
             private set => beveragesBeingPrepared = value;
         }
-        private Merchandise[] Merch
-        {
-            get => merch;
-            set
-            {
-                if (value == null) throw new ArgumentException("Value can't be null!");
-                else merch = value;
-            }
-        } 
         #endregion
 
         #region Methods
@@ -146,6 +141,7 @@ namespace FoodWars.Service
             ChairsPendingInterval[0] = new Time(0, 0, 0);
             ChairsPendingInterval[1] = new Time(0, 0, 0);
             ChairsPendingInterval[2] = new Time(0, 0, 0);
+            servedCustomer = 0;
 
             // Menghitung jumlah customer 
             int customerAmount;
@@ -206,7 +202,7 @@ namespace FoodWars.Service
             }
             else
             {
-                int tempLevel = 0;
+                int tempLevel = Player.Level;
                 for (int i = 0; i < 1; i++)
                 {
                     if (tempLevel >= 10)
@@ -249,6 +245,13 @@ namespace FoodWars.Service
 
             CustomerQueue GenerateQueue()
             {
+                Merchandise[] tempMerch= new Merchandise[]
+                {
+                    new Merchandise("Tumbler", 140, Merch[0].Stock, Resources.merch_tumbler),
+                    new Merchandise("Fan", 180, Merch[1].Stock, Resources.merch_fan),
+                    new Merchandise("Action Figure", 240, Merch[2].Stock, Resources.merch_actionFigure)
+                };
+
                 // Menentukan peran apa saja yang diizinkan muncul pada level tertentu
                 List<int> availableRole = new List<int>();
                 if (Player.Level >= 1)
@@ -304,7 +307,7 @@ namespace FoodWars.Service
 
                 // Menentukan rasio dari 80% customer
                 List<int> customerRoleRatio = new List<int>();
-                if (Player.Level > 30)
+                if (Player.Level >= 30)
                 {
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.35));
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.3));
@@ -314,20 +317,20 @@ namespace FoodWars.Service
 
                     if (customerRoleRatio.Sum() < fixedRoleCustomer) customerRoleRatio[0]++;
                 }
-                else if (Player.Level > 20)
+                else if (Player.Level >= 20)
                 {
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.4));
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.3));
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.2));
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.1));
                 }
-                else if (Player.Level > 10)
+                else if (Player.Level >= 10)
                 {
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.5));
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.3));
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.2));
                 }
-                else if (Player.Level > 5)
+                else if (Player.Level >= 5)
                 {
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.7));
                     customerRoleRatio.Add((int)Math.Round(fixedRoleCustomer * 0.3));
@@ -349,6 +352,7 @@ namespace FoodWars.Service
                     while (true)
                     {
                         int randomIndex = Randomizer.Generate(availableRole.Count);
+                        Console.WriteLine(customerRoleRatio.Count);
                         if (customerRoleRatio[randomIndex] > 0)
                         {
                             customerQueue.EnQueue(GenerateRandomCustomer(
@@ -509,20 +513,20 @@ namespace FoodWars.Service
                             {
                                 int totalMerchStock = 0;
                                 // Cek apakah ada merch yang dapat dijual (semua stok merch != 0), kalau tidak ada, availableItems--, i--, kembali ke awal.
-                                foreach (Merchandise m in Merch)
+                                foreach (Merchandise m in tempMerch)
                                 {
                                     totalMerchStock += m.Stock;
                                 }
 
                                 if (totalMerchStock > 0)
                                 {
-                                    int chosenMerch = Randomizer.Generate(Merch.Length);
+                                    int chosenMerch = Randomizer.Generate(tempMerch.Length);
                                     while (true)
                                     {
-                                        if (Merch[chosenMerch].Stock > 0)
+                                        if (tempMerch[chosenMerch].Stock > 0)
                                         {
-                                            customer.AddOrder(Merch[chosenMerch]);
-                                            Merch[chosenMerch].Stock--;
+                                            customer.AddOrder(tempMerch[chosenMerch]);
+                                            tempMerch[chosenMerch].Stock--;
                                             totalMerchStock--;
                                             break;
                                         }
@@ -530,7 +534,7 @@ namespace FoodWars.Service
                                         {
                                             if (totalMerchStock > 0)
                                             {
-                                                chosenMerch = Randomizer.Generate(Merch.Length);
+                                                chosenMerch = Randomizer.Generate(tempMerch.Length);
                                             }
                                             else
                                             {
@@ -614,7 +618,7 @@ namespace FoodWars.Service
 
                     // Hitung makanan yang telah dijual dan tambahkan ke daily income 
                     DailyRevenue += Chairs[chairIndex].CountTotalPrice();
-                    CustomerServed++;
+                    servedCustomer++;
 
                     // Keluarkan customer 
                     Chairs[chairIndex] = null;
@@ -698,10 +702,13 @@ namespace FoodWars.Service
             {
                 if (order.GetType() == SelectedItem.GetType())
                 {
+                    Console.WriteLine(order.Name + " | " + SelectedItem.Name);
                     if (order.Name == SelectedItem.Name)
                     {
                         // Panggil method untuk memasukkan order ke list lain di customer
-                        Chairs[chairIndex].MarkCompleteOrder(SelectedItem);
+                        Chairs[chairIndex].MarkCompleteOrder(order);
+                        if (SelectedItem is Foods) FoodsBeingPrepared = null;
+                        else if (SelectedItem is Beverages) BeveragesBeingPrepared = null;
                         return true;
                     }
                 }
@@ -720,10 +727,8 @@ namespace FoodWars.Service
             bool chairsAreEmpty = Chairs[0] == null && Chairs[1] == null && Chairs[2] == null;
             bool isClosed = OpenDuration.GetSecond() == 0;
 
-            bool gameIsFinish = (queueIsEmpty && chairsAreEmpty) || isClosed;
-            bool isWin = CustomerServed == CustomerQueue.Size;
+            return (queueIsEmpty && chairsAreEmpty) || isClosed;
 
-            return gameIsFinish && isWin;
         }
 
         public void AddPlayer(Players player)
@@ -734,6 +739,20 @@ namespace FoodWars.Service
         public List<Players> GetPlayers()
         {
             return GameRepo.ListPlayers;
+        }
+
+        public void UpdatePlayerData()
+        {
+            Player.TotalIncome += dailyRevenue;
+            Player.Level++;
+            if (Player.BestIncome < dailyRevenue) Player.BestIncome = dailyRevenue;
+            if (Player.BestTime.GetSecond() > OpenDuration.GetSecond() || Player.BestTime.GetSecond() == 0) Player.BestTime = OpenDuration;
+            repo.UpdatePlayer(Player);
+        }
+
+        public bool AllCustomerServed()
+        {
+            return !(CustomerQueue.Size > servedCustomer);
         }
         #endregion
     }

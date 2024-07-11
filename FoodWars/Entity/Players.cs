@@ -77,14 +77,7 @@ namespace FoodWars
             set
             {
                 if (value == null) throw new ArgumentException("No time specified!");
-                else if (bestTime != null)
-                {
-                    if (value.IsLonger(this.bestTime))
-                    {
-                        throw new ArgumentException("New best time can't be longer than the previous one!");
-                    }
-                }
-                else this.bestTime = value;
+                this.bestTime = value;
             }
         }
         public Image Picture
