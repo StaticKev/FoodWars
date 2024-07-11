@@ -1,4 +1,5 @@
 ﻿using FoodWars.Properties;
+using FoodWars.Values;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -52,11 +53,9 @@ namespace FoodWars.View
             // serta memberi jeda antar datangnya customer sesuai aturan yang ada. 
             for (int i = 0; i < BaseForm.Game.Chairs.Length; i++) BaseForm.Game.UpdateAllCustomer(i);
 
-            // Memanggil fungsi untuk mengupdate tampilan ruang
             if (BaseForm.Game.OpenDuration.GetSecond() > 0)
             {
                 Console.WriteLine("<" + BaseForm.Game.OpenDuration.DurationToString() + ">");
-                UpdateWaitingRoom(); // INI HARUS DIPANGGIL TIAP 1/10 detik
             }
 
             if (BaseForm.Game.FinishGame())
@@ -74,16 +73,26 @@ namespace FoodWars.View
             }
         }
 
+        private void UITimer_Tick(object sender, EventArgs e)
+        {
+            // Mengupdate tampilan setiap 1/10 detik 
+            UpdateWaitingRoom(); 
+        }
+
         private void UpdateWaitingRoom()
         {
+            // Mengupdate label selected item berdasarkan item yang dipilih customer
+            if (BaseForm.Game.SelectedItem is Foods) label_selectedItem.Text = "Food";
+            else if (BaseForm.Game.SelectedItem is Beverages) label_selectedItem.Text = "Beverage";
+            else if (BaseForm.Game.SelectedItem is Merchandise) label_selectedItem.Text = "Merchandise";
+            else label_selectedItem.Text = "-"; 
+
             Customers[] waitingCustomers = BaseForm.Game.Chairs;
             // Mengupdate tampilan ruang tunggu berdasarkan array of customers (sementara di console)
             for (int i = 0; i < waitingCustomers.Length; i++)
             {
                 if (waitingCustomers[i] != null)
                 {
-
-                    Console.WriteLine(waitingCustomers[i].Orders[0].Name + " | " + waitingCustomers[i].Orders[1].Name + " | " + waitingCustomers[i].Orders[2].Name);
 
                     if (i == 0)
                     {
@@ -95,11 +104,27 @@ namespace FoodWars.View
                         {
                             if (waitingCustomers[i].Orders[0] is Foods) 
                             {
-                                /*itemBase_1A.BackgroundImage = ;
-                                rice_1A.BackgroundImage = ;
-                                protein_1A.BackgroundImage = ;
-                                veggie_1A.BackgroundImage = ;
-                                sideDish_1A.BackgroundImage = ;*/
+                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[0];
+                                itemBase_1A.BackgroundImage = foodToDisplay.Picture;
+                                foreach (Ingredients ing in foodToDisplay.Ingredients)
+                                {
+                                    if (ing.Category == IngredientCategory.RICE)
+                                    {
+                                        rice_1A.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.PROTEIN)
+                                    {
+                                        sideDish_1A.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.VEGETABLES)
+                                    {
+                                        protein_1A.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.SIDE_DISHES)
+                                    {
+                                        veggie_1A.BackgroundImage = ing.Picture;
+                                    }
+                                }
                             } 
                             else
                             {
@@ -110,11 +135,27 @@ namespace FoodWars.View
                         {
                             if (waitingCustomers[i].Orders[1] is Foods)
                             {
-                                /*itemBase_1B.BackgroundImage = ;
-                                rice_1B.BackgroundImage = ;
-                                protein_1B.BackgroundImage = ;
-                                veggie_1B.BackgroundImage = ;
-                                sideDish_1B.BackgroundImage = ;*/
+                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[1];
+                                itemBase_1B.BackgroundImage = foodToDisplay.Picture;
+                                foreach (Ingredients ing in foodToDisplay.Ingredients)
+                                {
+                                    if (ing.Category == IngredientCategory.RICE)
+                                    {
+                                        rice_1B.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.PROTEIN)
+                                    {
+                                        sideDish_1B.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.VEGETABLES)
+                                    {
+                                        protein_1B.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.SIDE_DISHES)
+                                    {
+                                        veggie_1B.BackgroundImage = ing.Picture;
+                                    }
+                                }
                             }
                             else
                             {
@@ -125,11 +166,27 @@ namespace FoodWars.View
                         {
                             if (waitingCustomers[i].Orders[2] is Foods)
                             {
-                                /*itemBase_1C.BackgroundImage = ;
-                                rice_1C.BackgroundImage = ;
-                                protein_1C.BackgroundImage = ;
-                                veggie_1C.BackgroundImage = ;
-                                sideDish_1C.BackgroundImage = ;*/
+                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[2];
+                                itemBase_1C.BackgroundImage = foodToDisplay.Picture;
+                                foreach (Ingredients ing in foodToDisplay.Ingredients)
+                                {
+                                    if (ing.Category == IngredientCategory.RICE)
+                                    {
+                                        rice_1C.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.PROTEIN)
+                                    {
+                                        sideDish_1C.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.VEGETABLES)
+                                    {
+                                        protein_1C.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.SIDE_DISHES)
+                                    {
+                                        veggie_1C.BackgroundImage = ing.Picture;
+                                    }
+                                }
                             }
                             else
                             {
@@ -147,11 +204,27 @@ namespace FoodWars.View
                         {
                             if (waitingCustomers[i].Orders[0] is Foods)
                             {
-                                /*itemBase_2A.BackgroundImage = ;
-                                rice_2A.BackgroundImage = ;
-                                protein_2A.BackgroundImage = ;
-                                veggie_2A.BackgroundImage = ;
-                                sideDish_2A.BackgroundImage = ;*/
+                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[0];
+                                itemBase_2A.BackgroundImage = foodToDisplay.Picture;
+                                foreach (Ingredients ing in foodToDisplay.Ingredients)
+                                {
+                                    if (ing.Category == IngredientCategory.RICE)
+                                    {
+                                        rice_2A.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.PROTEIN)
+                                    {
+                                        sideDish_2A.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.VEGETABLES)
+                                    {
+                                        protein_2A.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.SIDE_DISHES)
+                                    {
+                                        veggie_2A.BackgroundImage = ing.Picture;
+                                    }
+                                }
                             }
                             else
                             {
@@ -162,11 +235,27 @@ namespace FoodWars.View
                         {
                             if (waitingCustomers[i].Orders[1] is Foods)
                             {
-                                /*itemBase_2B.BackgroundImage = ;
-                                rice_2B.BackgroundImage = ;
-                                protein_2B.BackgroundImage = ;
-                                veggie_2B.BackgroundImage = ;
-                                sideDish_2B.BackgroundImage = ;*/
+                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[1];
+                                itemBase_2B.BackgroundImage = foodToDisplay.Picture;
+                                foreach (Ingredients ing in foodToDisplay.Ingredients)
+                                {
+                                    if (ing.Category == IngredientCategory.RICE)
+                                    {
+                                        rice_2B.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.PROTEIN)
+                                    {
+                                        sideDish_2B.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.VEGETABLES)
+                                    {
+                                        protein_2B.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.SIDE_DISHES)
+                                    {
+                                        veggie_2B.BackgroundImage = ing.Picture;
+                                    }
+                                }
                             }
                             else
                             {
@@ -178,11 +267,27 @@ namespace FoodWars.View
                             itemBase_2C.Show();
                             if (waitingCustomers[i].Orders[2] is Foods)
                             {
-                                /*itemBase_2C.BackgroundImage = ;
-                                rice_2C.BackgroundImage = ;
-                                protein_2C.BackgroundImage = ;
-                                veggie_2C.BackgroundImage = ;
-                                sideDish_2C.BackgroundImage = ;*/
+                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[2];
+                                itemBase_2C.BackgroundImage = foodToDisplay.Picture;
+                                foreach (Ingredients ing in foodToDisplay.Ingredients)
+                                {
+                                    if (ing.Category == IngredientCategory.RICE)
+                                    {
+                                        rice_2C.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.PROTEIN)
+                                    {
+                                        sideDish_2C.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.VEGETABLES)
+                                    {
+                                        protein_2C.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.SIDE_DISHES)
+                                    {
+                                        veggie_2C.BackgroundImage = ing.Picture;
+                                    }
+                                }
                             }
                             else
                             {
@@ -200,11 +305,27 @@ namespace FoodWars.View
                         {
                             if (waitingCustomers[i].Orders[0] is Foods)
                             {
-                                /*itemBase_3A.BackgroundImage = ;
-                                rice_3A.BackgroundImage = ;
-                                protein_3A.BackgroundImage = ;
-                                veggie_3A.BackgroundImage = ;
-                                sideDish_3A.BackgroundImage = ;*/
+                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[0];
+                                itemBase_3A.BackgroundImage = foodToDisplay.Picture;
+                                foreach (Ingredients ing in foodToDisplay.Ingredients)
+                                {
+                                    if (ing.Category == IngredientCategory.RICE)
+                                    {
+                                        rice_3A.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.PROTEIN)
+                                    {
+                                        sideDish_3A.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.VEGETABLES)
+                                    {
+                                        protein_3A.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.SIDE_DISHES)
+                                    {
+                                        veggie_3A.BackgroundImage = ing.Picture;
+                                    }
+                                }
                             }
                             else
                             {
@@ -215,11 +336,27 @@ namespace FoodWars.View
                         {
                             if (waitingCustomers[i].Orders[1] is Foods)
                             {
-                                /*itemBase_3B.BackgroundImage = ;
-                                rice_3B.BackgroundImage = ;
-                                protein_3B.BackgroundImage = ;
-                                veggie_3B.BackgroundImage = ;
-                                sideDish_3B.BackgroundImage = ;*/
+                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[1];
+                                itemBase_3B.BackgroundImage = foodToDisplay.Picture;
+                                foreach (Ingredients ing in foodToDisplay.Ingredients)
+                                {
+                                    if (ing.Category == IngredientCategory.RICE)
+                                    {
+                                        rice_3B.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.PROTEIN)
+                                    {
+                                        sideDish_3B.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.VEGETABLES)
+                                    {
+                                        protein_3B.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.SIDE_DISHES)
+                                    {
+                                        veggie_3B.BackgroundImage = ing.Picture;
+                                    }
+                                }
                             }
                             else
                             {
@@ -230,11 +367,27 @@ namespace FoodWars.View
                         {
                             if (waitingCustomers[i].Orders[2] is Foods)
                             {
-                                /*itemBase_3C.BackgroundImage = ;
-                                rice_3C.BackgroundImage = ;
-                                protein_3C.BackgroundImage = ;
-                                veggie_3C.BackgroundImage = ;
-                                sideDish_3C.BackgroundImage = ;*/
+                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[2];
+                                itemBase_3C.BackgroundImage = foodToDisplay.Picture;
+                                foreach (Ingredients ing in foodToDisplay.Ingredients)
+                                {
+                                    if (ing.Category == IngredientCategory.RICE)
+                                    {
+                                        rice_3C.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.PROTEIN)
+                                    {
+                                        sideDish_3C.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.VEGETABLES)
+                                    {
+                                        protein_3C.BackgroundImage = ing.Picture;
+                                    }
+                                    else if (ing.Category == IngredientCategory.SIDE_DISHES)
+                                    {
+                                        veggie_3C.BackgroundImage = ing.Picture;
+                                    }
+                                }
                             }
                             else
                             {
@@ -307,18 +460,16 @@ namespace FoodWars.View
                     }
                 }
             }
-            Console.WriteLine("");
         }
 
         private void PictBox_cust1_Click(object sender, EventArgs e)
         {
-            if (BaseForm.Game.Chairs[0] != null)
+            if (BaseForm.Game.Chairs[0] != null && BaseForm.Game.SelectedItem != null)
             {
                 if (BaseForm.Game.CheckOrder(0))
                 {
                     // Jangan tampilkan item di message bubble (diupdate saat fungsi update waiting room dipanggil)
                     // Bunyikan SFX 
-                    // Kosongkan item yang dipilih
                 }
                 else
                 {
@@ -326,12 +477,14 @@ namespace FoodWars.View
                     // Bunyikan SFX 
                     // Kosongkan item yang dipilih
                 }
+                // Mengosongkan item setelah dipilih
+                BaseForm.Game.SelectedItem = null;
             }
         }
 
         private void PictBox_cust2_Click(object sender, EventArgs e)
         {
-            if (BaseForm.Game.Chairs[1] != null)
+            if (BaseForm.Game.Chairs[1] != null && BaseForm.Game.SelectedItem != null)
             {
                 if (BaseForm.Game.CheckOrder(1))
                 {
@@ -341,14 +494,15 @@ namespace FoodWars.View
                 {
 
                 }
+                BaseForm.Game.SelectedItem = null;
             }
         }
 
         private void PictBox_cust3_Click(object sender, EventArgs e)
         {
-            if (BaseForm.Game.Chairs[2] != null)
+            if (BaseForm.Game.Chairs[2] != null && BaseForm.Game.SelectedItem != null)
             {
-                if (BaseForm.Game.CheckOrder(1))
+                if (BaseForm.Game.CheckOrder(2))
                 {
 
                 }
@@ -356,6 +510,7 @@ namespace FoodWars.View
                 {
 
                 }
+                BaseForm.Game.SelectedItem = null;
             }
         }
 
@@ -378,6 +533,185 @@ namespace FoodWars.View
             BaseForm.mainPanel.Controls.Remove(this);
             pauseUc.Dock = DockStyle.Fill;
         }
+
+        private void pictBox_plate_Click(object sender, EventArgs e)
+        {
+            if (BaseForm.Game.FoodsBeingPrepared == null)
+            {
+                BaseForm.Game.CreateNewFood();
+            }
+        }
+
+        private void pictBox_rice3_Click(object sender, EventArgs e)
+        {
+            if (BaseForm.Game.FoodsBeingPrepared != null)
+            {
+                BaseForm.Game.FoodsBeingPrepared.
+            }
+        }
+
+        private void pictBox_rice2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictBox_rice1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictBox_protein3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictBox_protein2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictBox_protein1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictBox_veggies3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictBox_veggies2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictBox_veggies1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictBox_sideDish3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictBox_sideDish2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictBox_sideDish1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictBox_ocha_main_Click(object sender, EventArgs e)
+        {
+            if (BaseForm.Game.BeveragesBeingPrepared != null)
+            {
+                BaseForm.Game.BeveragesBeingPrepared.SwitchVariety(BeverageType.OCHA);
+            }
+        }
+
+        private void pictBox_sake_main_Click(object sender, EventArgs e)
+        {
+            if (BaseForm.Game.BeveragesBeingPrepared != null)
+            {
+                BaseForm.Game.BeveragesBeingPrepared.SwitchVariety(BeverageType.SAKE);
+            }
+        }
+
+        private void pictBox_water_main_Click(object sender, EventArgs e)
+        {
+            if (BaseForm.Game.BeveragesBeingPrepared != null)
+            {
+                BaseForm.Game.BeveragesBeingPrepared.SwitchVariety(BeverageType.WATER);
+            }
+        }
+
+        private void pictBox_ice_Click(object sender, EventArgs e)
+        {
+            if (BaseForm.Game.BeveragesBeingPrepared != null)
+            {
+                BaseForm.Game.BeveragesBeingPrepared.SwitchVariety(!BaseForm.Game.BeveragesBeingPrepared.IsCold);
+            }
+        }
+
+        private void pictBox_glass_S_Click(object sender, EventArgs e)
+        {
+            if (BaseForm.Game.BeveragesBeingPrepared == null)
+            {
+                BaseForm.Game.CreateNewBeverage(GlassSize.SMALL);
+            } 
+            else
+            {
+                BaseForm.Game.BeveragesBeingPrepared.SwitchVariety(GlassSize.SMALL);
+            }
+        }
+
+        private void pictBox_glass_M_Click(object sender, EventArgs e)
+        {
+            if (BaseForm.Game.BeveragesBeingPrepared == null)
+            {
+                BaseForm.Game.CreateNewBeverage(GlassSize.MEDIUM);
+            }
+            else
+            {
+                BaseForm.Game.BeveragesBeingPrepared.SwitchVariety(GlassSize.MEDIUM);
+            }
+        }
+
+        private void pictBox_glass_L_Click(object sender, EventArgs e)
+        {
+            if (BaseForm.Game.BeveragesBeingPrepared == null)
+            {
+                BaseForm.Game.CreateNewBeverage(GlassSize.LARGE);
+            }
+            else
+            {
+                BaseForm.Game.BeveragesBeingPrepared.SwitchVariety(GlassSize.LARGE);
+            }
+        }
+
+        private void food_main_Click(object sender, EventArgs e)
+        {
+            Foods selectedFood = BaseForm.Game.FoodsBeingPrepared;
+            if (selectedFood.Ingredients.Count == 4)
+            {
+                BaseForm.Game.SelectedItem = selectedFood;
+                label_selectedItem.Text = "Food";
+            }
+        }
+
+        private void bev_main_Click(object sender, EventArgs e)
+        {
+            Beverages selectedBeverage = BaseForm.Game.BeveragesBeingPrepared;
+            if (selectedBeverage.BeverageType != BeverageType.UNASSIGNED)
+            {
+                BaseForm.Game.SelectedItem = selectedBeverage;
+                label_selectedItem.Text = "Beverage";
+            }
+        }
+
+        private void pictBox_merch1_Click(object sender, EventArgs e)
+        {
+            if (BaseForm.Game.SelectMerch(0)) label_selectedItem.Text = "Merchandise";
+        }
+
+        private void pictBox_merch2_Click(object sender, EventArgs e)
+        {
+            if (BaseForm.Game.SelectMerch(1)) label_selectedItem.Text = "Merchandise";
+        }
+
+        private void pictBox_merch3_Click(object sender, EventArgs e)
+        {
+            if (BaseForm.Game.SelectMerch(2)) label_selectedItem.Text = "Merchandise";
+        }
+
         #endregion
+        private void sideDish_main_Paint(object sender, PaintEventArgs e)
+        {
+            // JANGAN DIISI
+        }
     }
 }

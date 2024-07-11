@@ -289,6 +289,27 @@
   <data name="nobleman_male" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\nobleman_male.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="plate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="protein_ebi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\protein_ebi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="protein_tofu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\protein_tofu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="protein_tonkatsu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\protein_tonkatsu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rice_brown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rice_brown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rice_corn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rice_corn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rice_regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rice_regular.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="royalFamily_child" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\royalFamily_child.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -306,5 +327,23 @@
   </data>
   <data name="samurai_male" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\samurai_male.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="side_korokke" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\side_korokke.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="side_nimono" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\side_nimono.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="side_sunomono" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\side_sunomono.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="veggie_edamame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\veggie_edamame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="veggie_hibiki" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\veggie_hibiki.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="veggie_pickle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\veggie_pickle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
