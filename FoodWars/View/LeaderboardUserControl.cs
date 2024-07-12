@@ -1,4 +1,5 @@
 ﻿using FoodWars.Properties;
+using FoodWars.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,11 @@ namespace FoodWars.View
 {
     public partial class LeaderboardUserControl : UserControl
     {
+
         #region Data Members
         private BaseForm baseForm;
         private List<Players> listRankPlayers;
-        private int pageIndex;
+        private int pageIndex = 0;
         #endregion
 
         #region Constructors
@@ -69,10 +71,13 @@ namespace FoodWars.View
         #region EXIT
         private void Button_Exit_MouseEnter(object sender, EventArgs e)
         {
+
+            pictBox_ButtonExit.Image = Resources.button_exit_stroke;
         }
 
         private void Button_Exit_MouseLeave(object sender, EventArgs e)
         {
+            pictBox_ButtonExit.Image = Resources.button_exit;
         }
 
         private void pictBox_ButtonExit_Click(object sender, EventArgs e)
@@ -91,7 +96,7 @@ namespace FoodWars.View
         {
             listRankPlayers = new List<Players>();
             //Mengcopy list players dari service menuju list di user control
-            foreach (Players p in baseForm.Game.GetPlayers())
+            foreach (Players p in BaseForm.Game.GetPlayers())
             {
                 this.listRankPlayers.Add(p);
             }
@@ -152,6 +157,13 @@ namespace FoodWars.View
                 labelLevel2.Text = listRankPlayers[i + 1].Level.ToString();
                 labelIncome2.Text = listRankPlayers[i + 1].TotalIncome.ToString();
             }
+            else
+            {
+                labelRank2.Text = (i + 2).ToString();
+                labelName2.Text = "Empty";
+                labelLevel2.Text = "Empty";
+                labelIncome2.Text = "Empty";
+            }
             //Label 3
             if ((i + 2) < listRankPlayers.Count)
             {
@@ -159,6 +171,13 @@ namespace FoodWars.View
                 labelName3.Text = listRankPlayers[i + 2].Name;
                 labelLevel3.Text = listRankPlayers[i + 2].Level.ToString();
                 labelIncome3.Text = listRankPlayers[i + 2].TotalIncome.ToString();
+            }
+            else
+            {
+                labelRank3.Text = (i + 3).ToString();
+                labelName3.Text = "Empty";
+                labelLevel3.Text = "Empty";
+                labelIncome3.Text = "Empty";
             }
             //Label 4
             if ((i + 3) < listRankPlayers.Count)
@@ -168,6 +187,13 @@ namespace FoodWars.View
                 labelLevel4.Text = listRankPlayers[i + 3].Level.ToString();
                 labelIncome4.Text = listRankPlayers[i + 3].TotalIncome.ToString();
             }
+            else
+            {
+                labelRank4.Text = (i + 4).ToString();
+                labelName4.Text = "Empty";
+                labelLevel4.Text = "Empty";
+                labelIncome4.Text = "Empty";
+            }
             //Label 5
             if ((i + 4) < listRankPlayers.Count)
             {
@@ -176,14 +202,36 @@ namespace FoodWars.View
                 labelLevel5.Text = listRankPlayers[i + 4].Level.ToString();
                 labelIncome5.Text = listRankPlayers[i + 4].TotalIncome.ToString();
             }
-            if (pageIndex == 0)
+            else
             {
-
-                pageIndex = 1;
+                labelRank5.Text = (i + 5).ToString();
+                labelName5.Text = "Empty";
+                labelLevel5.Text = "Empty";
+                labelIncome5.Text = "Empty";
             }
-            labelIndex.Text = pageIndex + " / " + Math.Ceiling((double)listRankPlayers.Count / 5);
+            labelIndex.Text = (pageIndex + 1) + " / " + Math.Ceiling((double)listRankPlayers.Count / 5);
+
+
 
         }
+
+
+/*        private void GenerateRandomCustomer()
+        {
+            Players player;
+            for (int i = 0; i < 10; i++)
+            {
+                player = new Players("Test Player num " + i, Properties.Resources.icon_default);
+                player.Level = Randomizer.Generate(1, 100);
+                player.TotalIncome = Randomizer.Generate(1, 1000);
+                BaseForm.Game.GetPlayers().Add(player);
+            }
+
+
+
+        }*/
         #endregion
+
+
     }
 }

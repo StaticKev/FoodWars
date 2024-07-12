@@ -241,6 +241,12 @@
   <data name="button_switchPlayer_stroke" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_switchPlayer_stroke.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Checkbox_Check_True" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Checkbox_Check_True.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Chekcbox_Checked_False" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chekcbox_Checked_False.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="element_playerInfo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PlayerInfo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -358,6 +364,9 @@
   <data name="protein_tonkatsu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\protein_tonkatsu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="RestaurantAudio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RestaurantAudio.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="rice_brown" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rice_brown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -405,5 +414,8 @@
   </data>
   <data name="veggie_pickle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\veggie_pickle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_Uyuu_Restaurant__Genshin_Impact_Inazuma_OST_BGM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\[Uyuu Restaurant] Genshin Impact Inazuma OST BGM.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

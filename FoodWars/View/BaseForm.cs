@@ -1,6 +1,9 @@
-﻿using FoodWars.Service;
+﻿using FoodWars.Properties;
+using FoodWars.Service;
 using FoodWars.Utilities;
 using System;
+using System.Drawing.Text;
+using System.Media;
 using System.Windows.Forms;
 
 namespace FoodWars.View
@@ -10,7 +13,7 @@ namespace FoodWars.View
         #region DataMembers
         private GameService game;
         private GameConfig gameConfig;
-        // Tambahkan BGM
+        private SoundPlayer bgm;
         #endregion
 
         #region Constructors
@@ -19,8 +22,8 @@ namespace FoodWars.View
             InitializeComponent();
             this.Game = game;
             this.GameConfig = gameConfig;
-
-            // Nyalakan BGM
+            bgm = new SoundPlayer(Resources.RestaurantAudio);
+            if (GameConfig.BgmOn) bgm.Play();
         }
         #endregion
 
@@ -34,7 +37,7 @@ namespace FoodWars.View
                 else this.game = value;
             }
         }
-        private GameConfig GameConfig
+        public GameConfig GameConfig
         {
             get => this.gameConfig;
             set
@@ -42,6 +45,11 @@ namespace FoodWars.View
                 if (value == null) throw new NullReferenceException("No config found!");
                 else this.gameConfig = value;
             }
+        }
+        public SoundPlayer Bgm
+        {
+            get => bgm;
+            private set => bgm = value;
         }
         #endregion
 

@@ -117,4 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="labelCopyright.Text" xml:space="preserve">
+    <value>The game Food Wars, created by Joshua Nehemia Subagyo, Kevin Nataniel Sutopo, and Evan Daniel Tandiawan, is copyright © 2024. All rights reserved. 
+This copyright protects the original concept, design, rules, mechanics, storyline, artwork, music, sound effects, and source code of the Food Wars game. 
+Fair use for criticism, commentary, or parody remains unrestricted. Creating derivative works based on Food Wars requires express permission from the copyright holders.
+For inquiries regarding use of Food Wars content, please contact s160423034@student.ubaya.ac.id .</value>
+  </data>
 </root>
