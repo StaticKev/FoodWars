@@ -28,7 +28,6 @@ D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormNewP
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormSavePlayer.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.BaseForm.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.MainMenuUserControl.resources
-D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.UserControl_std.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.SwitchPlayerUserControl.resources
 D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.View.BaseForm.resources
 D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.View.MainMenuUserControl.resources

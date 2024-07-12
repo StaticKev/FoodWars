@@ -130,12 +130,6 @@
     <Compile Include="View\SwitchPlayerUserControl.Designer.cs">
       <DependentUpon>SwitchPlayerUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UserControl_std.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\UserControl_std.Designer.cs">
-      <DependentUpon>UserControl_std.cs</DependentUpon>
-    </Compile>
     <Compile Include="View_Prototype\FormInGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,9 +201,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\SwitchPlayerUserControl.resx">
       <DependentUpon>SwitchPlayerUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\UserControl_std.resx">
-      <DependentUpon>UserControl_std.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View_Prototype\FormInGame.resx">
       <DependentUpon>FormInGame.cs</DependentUpon>
@@ -575,6 +566,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\GAME WIN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\[Uyuu Restaurant] Genshin Impact Inazuma OST BGM.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RestaurantAudio.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chekcbox_Checked_False1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chekcbox_Checked_False.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checkbox_Check_True.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

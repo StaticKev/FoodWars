@@ -128,6 +128,11 @@ namespace FoodWars.View
         private void Button_Settings_MouseClick(object sender, EventArgs e)
         {
             // Navigate to view
+            SettingsUserControl settingsUc = new SettingsUserControl(BaseForm);
+
+            BaseForm.mainPanel.Controls.Remove(this);
+            BaseForm.mainPanel.Controls.Add(settingsUc);
+            settingsUc.Dock = DockStyle.Fill;
         }
 
         private void Button_Settings_MouseEnter(object sender, EventArgs e)

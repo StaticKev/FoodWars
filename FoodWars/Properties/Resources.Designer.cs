@@ -61,6 +61,16 @@ namespace FoodWars.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _Uyuu_Restaurant__Genshin_Impact_Inazuma_OST_BGM {
+            get {
+                object obj = ResourceManager.GetObject("_Uyuu_Restaurant__Genshin_Impact_Inazuma_OST_BGM", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Bev_ocha_L {
@@ -473,6 +483,26 @@ namespace FoodWars.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Checkbox_Check_True {
+            get {
+                object obj = ResourceManager.GetObject("Checkbox_Check_True", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Chekcbox_Checked_False {
+            get {
+                object obj = ResourceManager.GetObject("Chekcbox_Checked_False", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap element_playerInfo {
             get {
                 object obj = ResourceManager.GetObject("element_playerInfo", resourceCulture);
@@ -857,6 +887,15 @@ namespace FoodWars.Properties {
             get {
                 object obj = ResourceManager.GetObject("protein_tonkatsu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream RestaurantAudio {
+            get {
+                return ResourceManager.GetStream("RestaurantAudio", resourceCulture);
             }
         }
         

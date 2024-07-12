@@ -33,7 +33,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_newPlayer = new System.Windows.Forms.Button();
             this.button_backToMainMenu = new System.Windows.Forms.Button();
-            this.button_achievements = new System.Windows.Forms.Button();
             this.label_bestTime = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label_bestIncome = new System.Windows.Forms.Label();
@@ -65,7 +64,6 @@
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.button_newPlayer);
             this.groupBox1.Controls.Add(this.button_backToMainMenu);
-            this.groupBox1.Controls.Add(this.button_achievements);
             this.groupBox1.Controls.Add(this.label_bestTime);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label_bestIncome);
@@ -83,13 +81,14 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Available Players";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button_newPlayer
             // 
             this.button_newPlayer.Font = new System.Drawing.Font("Samurai Blast", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_newPlayer.Location = new System.Drawing.Point(181, 251);
+            this.button_newPlayer.Location = new System.Drawing.Point(181, 235);
             this.button_newPlayer.Name = "button_newPlayer";
-            this.button_newPlayer.Size = new System.Drawing.Size(143, 30);
+            this.button_newPlayer.Size = new System.Drawing.Size(143, 46);
             this.button_newPlayer.TabIndex = 10;
             this.button_newPlayer.Text = "New Player";
             this.button_newPlayer.UseVisualStyleBackColor = true;
@@ -98,28 +97,19 @@
             // button_backToMainMenu
             // 
             this.button_backToMainMenu.Font = new System.Drawing.Font("Samurai Blast", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_backToMainMenu.Location = new System.Drawing.Point(29, 251);
+            this.button_backToMainMenu.Location = new System.Drawing.Point(29, 235);
             this.button_backToMainMenu.Name = "button_backToMainMenu";
-            this.button_backToMainMenu.Size = new System.Drawing.Size(146, 30);
+            this.button_backToMainMenu.Size = new System.Drawing.Size(146, 46);
             this.button_backToMainMenu.TabIndex = 9;
             this.button_backToMainMenu.Text = "Back";
             this.button_backToMainMenu.UseVisualStyleBackColor = true;
             this.button_backToMainMenu.Click += new System.EventHandler(this.Button_backToMainMenu_Click);
             // 
-            // button_achievements
-            // 
-            this.button_achievements.Location = new System.Drawing.Point(29, 202);
-            this.button_achievements.Name = "button_achievements";
-            this.button_achievements.Size = new System.Drawing.Size(295, 43);
-            this.button_achievements.TabIndex = 4;
-            this.button_achievements.Text = "Achievements";
-            this.button_achievements.UseVisualStyleBackColor = true;
-            // 
             // label_bestTime
             // 
             this.label_bestTime.AutoSize = true;
             this.label_bestTime.Font = new System.Drawing.Font("Samurai Blast", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_bestTime.Location = new System.Drawing.Point(138, 171);
+            this.label_bestTime.Location = new System.Drawing.Point(138, 191);
             this.label_bestTime.Name = "label_bestTime";
             this.label_bestTime.Size = new System.Drawing.Size(16, 16);
             this.label_bestTime.TabIndex = 8;
@@ -130,7 +120,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Samurai Blast", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(26, 171);
+            this.label5.Location = new System.Drawing.Point(26, 191);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(113, 16);
             this.label5.TabIndex = 7;
@@ -140,7 +130,7 @@
             // 
             this.label_bestIncome.AutoSize = true;
             this.label_bestIncome.Font = new System.Drawing.Font("Samurai Blast", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_bestIncome.Location = new System.Drawing.Point(163, 140);
+            this.label_bestIncome.Location = new System.Drawing.Point(163, 155);
             this.label_bestIncome.Name = "label_bestIncome";
             this.label_bestIncome.Size = new System.Drawing.Size(16, 16);
             this.label_bestIncome.TabIndex = 6;
@@ -151,7 +141,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Samurai Blast", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(26, 140);
+            this.label3.Location = new System.Drawing.Point(26, 155);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(139, 16);
             this.label3.TabIndex = 5;
@@ -161,7 +151,7 @@
             // 
             this.label_totalIncome.AutoSize = true;
             this.label_totalIncome.Font = new System.Drawing.Font("Samurai Blast", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_totalIncome.Location = new System.Drawing.Point(178, 109);
+            this.label_totalIncome.Location = new System.Drawing.Point(178, 119);
             this.label_totalIncome.Name = "label_totalIncome";
             this.label_totalIncome.Size = new System.Drawing.Size(16, 16);
             this.label_totalIncome.TabIndex = 5;
@@ -171,7 +161,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Samurai Blast", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(26, 109);
+            this.label4.Location = new System.Drawing.Point(26, 119);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(153, 16);
             this.label4.TabIndex = 4;
@@ -181,7 +171,7 @@
             // 
             this.label_level.AutoSize = true;
             this.label_level.Font = new System.Drawing.Font("Samurai Blast", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_level.Location = new System.Drawing.Point(188, 81);
+            this.label_level.Location = new System.Drawing.Point(188, 86);
             this.label_level.Name = "label_level";
             this.label_level.Size = new System.Drawing.Size(16, 16);
             this.label_level.TabIndex = 3;
@@ -191,7 +181,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Samurai Blast", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 78);
+            this.label2.Location = new System.Drawing.Point(26, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(157, 16);
             this.label2.TabIndex = 2;
@@ -261,7 +251,6 @@
         private System.Windows.Forms.Label label_bestIncome;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button_backToMainMenu;
-        private System.Windows.Forms.Button button_achievements;
         private System.Windows.Forms.Label label_bestTime;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button_newPlayer;
