@@ -18,6 +18,13 @@ namespace FoodWars
             this.Minute = minute;
             this.Second = second;
         }
+
+        public Time(int second)
+        {
+            this.Hour = second / 3600;
+            this.Minute = second % 3600 / 60;
+            this.Second = second % 60;
+        }
         #endregion
         
         #region Properties

@@ -103,8 +103,6 @@ namespace FoodWars
 
         private void GenerateName()
         {
-            string name = "";
-
             string rice = "";
             string protein = "";
             string veggie = "";

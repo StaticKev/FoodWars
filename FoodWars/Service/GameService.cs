@@ -145,7 +145,7 @@ namespace FoodWars.Service
 
             // Menghitung jumlah customer 
             int customerAmount;
-            if (Player.Level <= 100) customerAmount = 5 + Player.Level / 5;
+            if (Player.Level <= 100) customerAmount = 3 + Player.Level / 5;
             else customerAmount = 25;
 
             // =================================== JANGAN LUPA ISI PICTURE! ===================================
@@ -158,8 +158,8 @@ namespace FoodWars.Service
             List<Ingredients> proteinIngredients = new List<Ingredients>
             {
                 new Ingredients("Tonkatsu", 300, IngredientCategory.PROTEIN, Resources.protein_tonkatsu),
-                new Ingredients("Tofu", 150, IngredientCategory.PROTEIN, Resources.protein_tofu),
-                new Ingredients("Ebi Furai", 250, IngredientCategory.PROTEIN, Resources.protein_ebi)
+                new Ingredients("Tofu", 150, IngredientCategory.PROTEIN, Resources.protein_tonkatsu),
+                new Ingredients("Ebi Furai", 250, IngredientCategory.PROTEIN, Resources.protein_tonkatsu)
             };
             List<Ingredients> vegetableIngredients = vegetableIngredients = new List<Ingredients>
             {
@@ -580,9 +580,6 @@ namespace FoodWars.Service
 
                         if (smallestElement == 0) timeline[smallestElementIndex] += totalServingDuration[i] + 11;
                         else timeline[smallestElementIndex] += totalServingDuration[i] + 3;
-
-                        Console.WriteLine();
-                        foreach (int inti in timeline) Console.Write(inti + ", ");
                     }
 
                     foreach (int max in timeline)

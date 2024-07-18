@@ -582,5 +582,8 @@
   <ItemGroup>
     <None Include="Resources\Checkbox_Check_True.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Yova.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
