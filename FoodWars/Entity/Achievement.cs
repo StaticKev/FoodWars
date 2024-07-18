@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FoodWars.Entity
 {
@@ -78,7 +76,7 @@ namespace FoodWars.Entity
         }
         #endregion
         #region METHOD
-        //INT CATEGORY !!!!
+        // INT CATEGORY !!!!
         //Level = 0; Total Income = 1; Total Successs Customer = 2;
         //Mwmbuat Achievement
         public void CreateAchievement(int category, int input)

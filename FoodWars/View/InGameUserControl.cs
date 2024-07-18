@@ -10,6 +10,7 @@ namespace FoodWars.View
     {
         #region Data Members
         private BaseForm baseForm;
+        private int[] incorrectMsgBubbleDuration;
         #endregion
 
         #region Constructors
@@ -17,6 +18,7 @@ namespace FoodWars.View
         {
             InitializeComponent();
             this.BaseForm = baseForm;
+            this.incorrectMsgBubbleDuration = new int[3];
         }
         #endregion
 
@@ -49,12 +51,36 @@ namespace FoodWars.View
             BaseForm.Game.OpenDuration.Add(-1);
             label_timeLeft.Text = BaseForm.Game.OpenDuration.DurationToString();
 
-            // Mengupdate customer yang muncul 
-            UpdateWaitingRoom();
+            // Simpan jika ada perubahan pelanggan atau msg bubble
+            Customers[] previousChairsCondition = new Customers[3];
+            for (int i = 0; i < 3; i++) previousChairsCondition[i] = BaseForm.Game.Chairs[i];
+            int[] previousIncorrectMsgBubbleDuration = new int[3];
+            for (int i = 0; i < 3; i++) previousIncorrectMsgBubbleDuration[i] = incorrectMsgBubbleDuration[i];
 
             // Memanggil fungsi untuk mengupdate waktu tunggu seluruh customer, mengeluarkan customer yang durasinya habis,
             // serta memberi jeda antar datangnya customer sesuai aturan yang ada. 
             for (int i = 0; i < BaseForm.Game.Chairs.Length; i++) BaseForm.Game.UpdateAllCustomer(i);
+
+            // Mengupdate durasi berubahnya message bubble
+            if (incorrectMsgBubbleDuration[0] > 0) incorrectMsgBubbleDuration[0]--;
+            if (incorrectMsgBubbleDuration[1] > 0) incorrectMsgBubbleDuration[1]--;
+            if (incorrectMsgBubbleDuration[2] > 0) incorrectMsgBubbleDuration[2]--;
+
+            // Mengupdate customer yang muncul 
+            for (int i = 0; i < 3; i++)
+            {
+                if (
+                    (previousChairsCondition[i] == null) != (BaseForm.Game.Chairs[i] == null) ||
+                    (previousIncorrectMsgBubbleDuration[i] != 0) != (incorrectMsgBubbleDuration[i] != 0)
+                    )
+                {
+                    UpdateWaitingRoom();
+                    break;
+                }
+            }
+
+            // Mengupdate durasi dari tiap customer
+            UpdateCustomerDurationLabel();
 
             if (BaseForm.Game.FinishGame())
             {
@@ -132,8 +158,10 @@ namespace FoodWars.View
                         protein_1C.BackgroundImage = null;
                         veggie_1C.BackgroundImage = null;
                         sideDish_1C.BackgroundImage = null;
+                        if (incorrectMsgBubbleDuration[i] == 0) msg_bubble1.BackgroundImage = Resources.msg_bubble;
+                        else msg_bubble1.BackgroundImage = Resources.msg_bubble_incorrect;
                         msg_bubble1.Show();
-                        timerLabel_c1.Text = customerWaiting[i].WaitingDuration.GetSecond().ToString();
+                        // timerLabel_c1.Text = customerWaiting[i].WaitingDuration.GetSecond().ToString();
                         pictBox_cust1.BackgroundImage = customerWaiting[i].Picture;
                         pictBox_cust1.Show();
                         if (customerWaiting[i].Orders.Count >= 1)
@@ -247,8 +275,10 @@ namespace FoodWars.View
                         protein_2C.BackgroundImage = null;
                         veggie_2C.BackgroundImage = null;
                         sideDish_2C.BackgroundImage = null;
+                        if (incorrectMsgBubbleDuration[i] == 0) msg_bubble2.BackgroundImage = Resources.msg_bubble;
+                        else msg_bubble2.BackgroundImage = Resources.msg_bubble_incorrect;
                         msg_bubble2.Show();
-                        timerLabel_c2.Text = customerWaiting[i].WaitingDuration.GetSecond().ToString();
+                        // timerLabel_c2.Text = customerWaiting[i].WaitingDuration.GetSecond().ToString();
                         pictBox_cust2.BackgroundImage = customerWaiting[i].Picture;
                         pictBox_cust2.Show();
                         if (customerWaiting[i].Orders.Count >= 1)
@@ -363,8 +393,10 @@ namespace FoodWars.View
                         protein_3C.BackgroundImage = null;
                         veggie_3C.BackgroundImage = null;
                         sideDish_3C.BackgroundImage = null;
+                        if (incorrectMsgBubbleDuration[i] == 0) msg_bubble3.BackgroundImage = Resources.msg_bubble;
+                        else msg_bubble3.BackgroundImage = Resources.msg_bubble_incorrect;
                         msg_bubble3.Show();
-                        timerLabel_c3.Text = customerWaiting[i].WaitingDuration.GetSecond().ToString();
+                        // timerLabel_c3.Text = customerWaiting[i].WaitingDuration.GetSecond().ToString();
                         pictBox_cust3.BackgroundImage = customerWaiting[i].Picture;
                         pictBox_cust3.Show();
                         if (customerWaiting[i].Orders.Count >= 1)
@@ -526,12 +558,23 @@ namespace FoodWars.View
                     }
                 }
             }
+        }
 
+        private void UpdateSelectedItemLabel()
+        {
             // Mengupdate label selected item berdasarkan item yang dipilih player
             if (BaseForm.Game.SelectedItem is Foods) label_selectedItem.Text = "Food";
             else if (BaseForm.Game.SelectedItem is Beverages) label_selectedItem.Text = "Beverage";
             else if (BaseForm.Game.SelectedItem is Merchandise) label_selectedItem.Text = "Merchandise";
             else label_selectedItem.Text = "-";
+        }
+
+        private void UpdateCustomerDurationLabel()
+        {
+            Customers[] customerWaiting = BaseForm.Game.Chairs;
+            if (customerWaiting[0] != null) timerLabel_c1.Text = customerWaiting[0].WaitingDuration.GetSecond().ToString();
+            if (customerWaiting[1] != null) timerLabel_c2.Text = customerWaiting[1].WaitingDuration.GetSecond().ToString();
+            if (customerWaiting[2] != null) timerLabel_c3.Text = customerWaiting[2].WaitingDuration.GetSecond().ToString();
         }
 
         private void UpdatePrepTable()
@@ -587,31 +630,25 @@ namespace FoodWars.View
                 if (BaseForm.Game.CheckOrder(0))
                 {
                     // Pesanan yang diberikan BENAR
-                    // Jangan tampilkan item di message bubble (panggil method UpdateWaitingRoom di sini!)
+
+                    if (BaseForm.Game.SelectedItem is Foods) BaseForm.Game.FoodsBeingPrepared = null;
+                    else if (BaseForm.Game.SelectedItem is Beverages) BaseForm.Game.BeveragesBeingPrepared = null;
                     UpdateWaitingRoom();
+                    UpdatePrepTable();
 
                     // Bunyikan SFX 
-
-                    // LAKUKAN HAL YANG SAMA UNTUK CUSTOMER 2 DAN 3!
                 }
                 else
                 {
                     // Pesanan yang diberikan SALAH
 
-                    // Buat message bubble menjadi merah selama 1 detik (Gausah bikin fungsi, cukup tambahin
-                    // pengecekan di method UpdateWaitingRoom)
-                    // Beri interval untuk message bubble: Interval disimpan dalam array, karena tiap pelanggan
-                    // memiliki msg bubble nya sendiri. Interval message bubble dan UI diupdate setiap Timer_Tick.
-                    // Array disimpan di View, karena tidak ada hubungannya dengan logika permainan, tetapi logika 
-                    // tampilan. Jika interval = 0 message bubble harus putih, jika interval diatas 0, message box
-                    // harus merah. Di sini cukup update interval aja. 
+                    incorrectMsgBubbleDuration[0] = 1;
                     UpdateWaitingRoom();
 
                     // Bunyikan SFX 
-
-                    // LAKUKAN HAL YANG SAMA UNTUK CUSTOMER 2 DAN 3!
                 }
                 BaseForm.Game.SelectedItem = null; // Mengosongkan item setelah dipilih
+                UpdateSelectedItemLabel();
             }
         }
 
@@ -621,13 +658,23 @@ namespace FoodWars.View
             {
                 if (BaseForm.Game.CheckOrder(1))
                 {
-
+                    Console.WriteLine(BaseForm.Game.SelectedItem);
+                    if (BaseForm.Game.SelectedItem is Foods)
+                    {
+                        BaseForm.Game.FoodsBeingPrepared = null;
+                        Console.WriteLine("CALLED!");
+                    }
+                    else if (BaseForm.Game.SelectedItem is Beverages) BaseForm.Game.BeveragesBeingPrepared = null;
+                    UpdateWaitingRoom();
+                    UpdatePrepTable();
                 }
                 else
                 {
-
+                    incorrectMsgBubbleDuration[1] = 1;
+                    UpdateWaitingRoom();
                 }
                 BaseForm.Game.SelectedItem = null;
+                UpdateSelectedItemLabel();
             }
         }
 
@@ -637,13 +684,18 @@ namespace FoodWars.View
             {
                 if (BaseForm.Game.CheckOrder(2))
                 {
-
+                    if (BaseForm.Game.SelectedItem is Foods) BaseForm.Game.FoodsBeingPrepared = null;
+                    else if (BaseForm.Game.SelectedItem is Beverages) BaseForm.Game.BeveragesBeingPrepared = null;
+                    UpdateWaitingRoom();
+                    UpdatePrepTable();
                 }
                 else
                 {
-
+                    incorrectMsgBubbleDuration[2] = 1;
+                    UpdateWaitingRoom();
                 }
                 BaseForm.Game.SelectedItem = null;
+                UpdateSelectedItemLabel();
             }
         }
 
@@ -889,22 +941,28 @@ namespace FoodWars.View
         private void food_main_Click(object sender, EventArgs e)
         {
             Foods selectedFood = BaseForm.Game.FoodsBeingPrepared;
-            if (selectedFood.Ingredients.Count == 4)
+            if (selectedFood != null)
             {
-                BaseForm.Game.SelectedItem = selectedFood;
-                label_selectedItem.Text = "Food";
-                UpdateWaitingRoom();
+                if (selectedFood.Ingredients.Count == 4)
+                {
+                    BaseForm.Game.SelectedItem = selectedFood;
+                    label_selectedItem.Text = "Food";
+                    UpdateWaitingRoom();
+                }
             }
         }
 
         private void bev_main_Click(object sender, EventArgs e)
         {
             Beverages selectedBeverage = BaseForm.Game.BeveragesBeingPrepared;
-            if (selectedBeverage.BeverageType != BeverageType.UNASSIGNED)
+            if (selectedBeverage != null)
             {
-                BaseForm.Game.SelectedItem = selectedBeverage;
-                label_selectedItem.Text = "Beverage";
-                UpdateWaitingRoom();
+                if (selectedBeverage.BeverageType != BeverageType.UNASSIGNED)
+                {
+                    BaseForm.Game.SelectedItem = selectedBeverage;
+                    label_selectedItem.Text = "Beverage";
+                    UpdateWaitingRoom();
+                }
             }
         }
 

@@ -91,14 +91,21 @@ namespace FoodWars.View
             }
             else
             {
-                // Buat player baru
-                Players newPlayer = new Players(textBox_Name.Text, pictBox_Image.BackgroundImage);
-                // Panggil method AddPlayer di service
-                BaseForm.Game.AddPlayer(newPlayer);
-                MessageBox.Show("Successfully added a new player!");
+                try
+                {
+                    // Buat player baru
+                    Players newPlayer = new Players(textBox_Name.Text, pictBox_Image.BackgroundImage);
+                    // Panggil method AddPlayer di service
+                    BaseForm.Game.AddPlayer(newPlayer);
+                    MessageBox.Show("Successfully added a new player!");
 
-                textBox_Name.Text = "";
-                pictBox_Image.BackgroundImage = Resources.button_plus;
+                    textBox_Name.Text = "";
+                    pictBox_Image.BackgroundImage = Resources.button_plus;
+                } 
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
         #endregion
