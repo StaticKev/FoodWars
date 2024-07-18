@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Achievement.cs" />
     <Compile Include="Entity\Beverages.cs" />
     <Compile Include="Entity\Customers.cs" />
     <Compile Include="Entity\CustomerSubtype\BusinessMan.cs" />
