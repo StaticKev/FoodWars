@@ -60,9 +60,8 @@ namespace FoodWars
             get => picture;
             private set
             {
-                // Test Purpose
-/*                if (value == null) throw new ArgumentException("No image specified!");
-                else */this.picture = value;
+                if (value == null) throw new ArgumentException("No image specified!");
+                else this.picture = value;
             }
         }
         public Time WaitingDuration

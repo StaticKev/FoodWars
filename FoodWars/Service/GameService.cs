@@ -108,12 +108,12 @@ namespace FoodWars.Service
         public Foods FoodsBeingPrepared
         {
             get => foodBeingPrepared;
-            private set => foodBeingPrepared = value;
+            set => foodBeingPrepared = value;
         }
         public Beverages BeveragesBeingPrepared
         {
             get => beveragesBeingPrepared;
-            private set => beveragesBeingPrepared = value;
+            set => beveragesBeingPrepared = value;
         }
         #endregion
 
@@ -158,8 +158,8 @@ namespace FoodWars.Service
             List<Ingredients> proteinIngredients = new List<Ingredients>
             {
                 new Ingredients("Tonkatsu", 300, IngredientCategory.PROTEIN, Resources.protein_tonkatsu),
-                new Ingredients("Tofu", 150, IngredientCategory.PROTEIN, Resources.protein_tonkatsu),
-                new Ingredients("Ebi Furai", 250, IngredientCategory.PROTEIN, Resources.protein_tonkatsu)
+                new Ingredients("Tofu", 150, IngredientCategory.PROTEIN, Resources.protein_tofu),
+                new Ingredients("Ebi Furai", 250, IngredientCategory.PROTEIN, Resources.protein_ebi)
             };
             List<Ingredients> vegetableIngredients = vegetableIngredients = new List<Ingredients>
             {
@@ -567,6 +567,7 @@ namespace FoodWars.Service
 
                     for (int i = 0; i < totalServingDuration.Count; i++)
                     {
+                        // Mencari indeks dengan durasi terpendek
                         int smallestElement = int.MaxValue;
                         int smallestElementIndex = 0;
                         for (int j = 0; j < timeline.Length; j++)
@@ -578,14 +579,19 @@ namespace FoodWars.Service
                             }
                         }
 
-                        if (smallestElement == 0) timeline[smallestElementIndex] += totalServingDuration[i] + 11;
+                        if (smallestElement == 0)
+                        {
+                            timeline[smallestElementIndex] += totalServingDuration[i] + smallestElementIndex * (11 - smallestElementIndex + 1);
+                        }
                         else timeline[smallestElementIndex] += totalServingDuration[i] + 3;
                     }
 
                     foreach (int max in timeline)
                     {
+                        Console.Write(max + ", ");
                         if (max > maximumServingDuration) maximumServingDuration = max;
                     }
+                    Console.WriteLine(maximumServingDuration);
 
                     return maximumServingDuration;
                 }
@@ -631,21 +637,6 @@ namespace FoodWars.Service
             if (Chairs[chairIndex] == null && ChairsPendingInterval[chairIndex].GetSecond() == 0 && CustomerQueue.CustomerLeft() > 0)
             {
                 Chairs[chairIndex] = CustomerQueue.DeQueue(); // Tugaskan customer pada kursi kosong (dari depan)
-                if (CustomerQueue.CustomerLeft() == 0)
-                {
-                    if (OpenDuration.GetSecond() > Chairs[chairIndex].WaitingDuration.GetSecond() + 1)
-                    {
-                        // Tambahkan durasi tunggu customer terakhir
-                        Chairs[chairIndex].WaitingDuration.Add(-Chairs[chairIndex].WaitingDuration.GetSecond());
-                        Chairs[chairIndex].WaitingDuration.Add(OpenDuration.GetSecond() - 1);
-                    }
-                    else
-                    {
-                        // Tambahkan open duration 
-                        OpenDuration.Add(-OpenDuration.GetSecond());
-                        OpenDuration.Add(Chairs[chairIndex].WaitingDuration.GetSecond() + 1);
-                    }
-                }
 
                 if (CustomerQueue.Size - CustomerQueue.CustomerLeft() < 4)
                 {
@@ -712,7 +703,6 @@ namespace FoodWars.Service
             }
 
             // Jika orderMatch salah maka, buat message bubble menjadi merah, dan hapus dari selected item.
-            // Jika benar, ubah bg image dari panel agar menjadi centang hijau.
             SelectedItem = null;
             return false;
         }
