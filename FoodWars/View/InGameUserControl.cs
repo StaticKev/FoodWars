@@ -2,8 +2,6 @@
 using FoodWars.Utilities;
 using FoodWars.Values;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace FoodWars.View
@@ -47,26 +45,24 @@ namespace FoodWars.View
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            
             // Mengupdate waktu bermain dan sisa customer pada user control 
             BaseForm.Game.OpenDuration.Add(-1);
             label_timeLeft.Text = BaseForm.Game.OpenDuration.DurationToString();
+
+            // Mengupdate customer yang muncul 
+            UpdateWaitingRoom();
 
             // Memanggil fungsi untuk mengupdate waktu tunggu seluruh customer, mengeluarkan customer yang durasinya habis,
             // serta memberi jeda antar datangnya customer sesuai aturan yang ada. 
             for (int i = 0; i < BaseForm.Game.Chairs.Length; i++) BaseForm.Game.UpdateAllCustomer(i);
 
-            if (BaseForm.Game.OpenDuration.GetSecond() > 0)
-            {
-                Console.WriteLine("<" + BaseForm.Game.OpenDuration.DurationToString() + ">");
-            }
-
             if (BaseForm.Game.FinishGame())
             {
                 if (BaseForm.Game.AllCustomerServed())
                 {
+                    // MENANG
+                    // Bunyikan SFX
                     timer.Stop();
-                    updateUITimer.Stop();
                     GameWinUserControl gameWinUc = new GameWinUserControl(BaseForm);
                     BaseForm.mainPanel.Controls.Add(gameWinUc);
                     BaseForm.mainPanel.Controls.Remove(this);
@@ -74,8 +70,9 @@ namespace FoodWars.View
                 }
                 else
                 {
+                    // KALAH
+                    // Bunyikan SFX
                     timer.Stop();
-                    updateUITimer.Stop();
                     GameLoseUserControl gameLoseUc = new GameLoseUserControl(BaseForm);
                     BaseForm.mainPanel.Controls.Add(gameLoseUc);
                     BaseForm.mainPanel.Controls.Remove(this);
@@ -83,13 +80,6 @@ namespace FoodWars.View
                 }
 
             }
-        }
-
-        private void UITimer_Tick(object sender, EventArgs e)
-        {
-            // Mengupdate tampilan setiap 1/10 detik 
-            UpdateWaitingRoom();
-            UpdatePrepTable();
         }
 
         private void HideIngredients()
@@ -119,17 +109,11 @@ namespace FoodWars.View
             // Mengupdate income
             label_income.Text = BaseForm.Game.DailyRevenue.ToString();
 
-            // Mengupdate label selected item berdasarkan item yang dipilih customer
-            if (BaseForm.Game.SelectedItem is Foods) label_selectedItem.Text = "Food";
-            else if (BaseForm.Game.SelectedItem is Beverages) label_selectedItem.Text = "Beverage";
-            else if (BaseForm.Game.SelectedItem is Merchandise) label_selectedItem.Text = "Merchandise";
-            else label_selectedItem.Text = "-";
-
-            Customers[] waitingCustomers = BaseForm.Game.Chairs;
-            // Mengupdate tampilan ruang tunggu berdasarkan array of customers (sementara di console)
-            for (int i = 0; i < waitingCustomers.Length; i++)
+            Customers[] customerWaiting = BaseForm.Game.Chairs;
+            // Mengupdate tampilan ruang tunggu berdasarkan array of customers
+            for (int i = 0; i < customerWaiting.Length; i++)
             {
-                if (waitingCustomers[i] != null)
+                if (customerWaiting[i] != null)
                 {
                     if (i == 0)
                     {
@@ -149,14 +133,14 @@ namespace FoodWars.View
                         veggie_1C.BackgroundImage = null;
                         sideDish_1C.BackgroundImage = null;
                         msg_bubble1.Show();
-                        timerLabel_c1.Text = waitingCustomers[i].WaitingDuration.GetSecond().ToString();
-                        pictBox_cust1.BackgroundImage = waitingCustomers[i].Picture;
+                        timerLabel_c1.Text = customerWaiting[i].WaitingDuration.GetSecond().ToString();
+                        pictBox_cust1.BackgroundImage = customerWaiting[i].Picture;
                         pictBox_cust1.Show();
-                        if (waitingCustomers[i].Orders.Count >= 1)
+                        if (customerWaiting[i].Orders.Count >= 1)
                         {
-                            if (waitingCustomers[i].Orders[0] is Foods) 
+                            if (customerWaiting[i].Orders[0] is Foods)
                             {
-                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[0];
+                                Foods foodToDisplay = (Foods)customerWaiting[i].Orders[0];
                                 itemBase_1A.BackgroundImage = foodToDisplay.Picture;
                                 foreach (Ingredients ing in foodToDisplay.Ingredients)
                                 {
@@ -177,17 +161,17 @@ namespace FoodWars.View
                                         veggie_1A.BackgroundImage = ing.Picture;
                                     }
                                 }
-                            } 
+                            }
                             else
                             {
-                                itemBase_1A.BackgroundImage = waitingCustomers[i].Orders[0].Picture;
+                                itemBase_1A.BackgroundImage = customerWaiting[i].Orders[0].Picture;
                             }
                         }
-                        if (waitingCustomers[i].Orders.Count >= 2)
+                        if (customerWaiting[i].Orders.Count >= 2)
                         {
-                            if (waitingCustomers[i].Orders[1] is Foods)
+                            if (customerWaiting[i].Orders[1] is Foods)
                             {
-                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[1];
+                                Foods foodToDisplay = (Foods)customerWaiting[i].Orders[1];
                                 itemBase_1B.BackgroundImage = foodToDisplay.Picture;
                                 foreach (Ingredients ing in foodToDisplay.Ingredients)
                                 {
@@ -211,14 +195,14 @@ namespace FoodWars.View
                             }
                             else
                             {
-                                itemBase_1B.BackgroundImage = waitingCustomers[i].Orders[1].Picture;
+                                itemBase_1B.BackgroundImage = customerWaiting[i].Orders[1].Picture;
                             }
                         }
-                        if (waitingCustomers[i].Orders.Count == 3)
+                        if (customerWaiting[i].Orders.Count == 3)
                         {
-                            if (waitingCustomers[i].Orders[2] is Foods)
+                            if (customerWaiting[i].Orders[2] is Foods)
                             {
-                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[2];
+                                Foods foodToDisplay = (Foods)customerWaiting[i].Orders[2];
                                 itemBase_1C.BackgroundImage = foodToDisplay.Picture;
                                 foreach (Ingredients ing in foodToDisplay.Ingredients)
                                 {
@@ -242,7 +226,7 @@ namespace FoodWars.View
                             }
                             else
                             {
-                                itemBase_1C.BackgroundImage = waitingCustomers[i].Orders[2].Picture;
+                                itemBase_1C.BackgroundImage = customerWaiting[i].Orders[2].Picture;
                             }
                         }
                     }
@@ -264,14 +248,14 @@ namespace FoodWars.View
                         veggie_2C.BackgroundImage = null;
                         sideDish_2C.BackgroundImage = null;
                         msg_bubble2.Show();
-                        timerLabel_c2.Text = waitingCustomers[i].WaitingDuration.GetSecond().ToString();
-                        pictBox_cust2.BackgroundImage = waitingCustomers[i].Picture;
+                        timerLabel_c2.Text = customerWaiting[i].WaitingDuration.GetSecond().ToString();
+                        pictBox_cust2.BackgroundImage = customerWaiting[i].Picture;
                         pictBox_cust2.Show();
-                        if (waitingCustomers[i].Orders.Count >= 1)
+                        if (customerWaiting[i].Orders.Count >= 1)
                         {
-                            if (waitingCustomers[i].Orders[0] is Foods)
+                            if (customerWaiting[i].Orders[0] is Foods)
                             {
-                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[0];
+                                Foods foodToDisplay = (Foods)customerWaiting[i].Orders[0];
                                 itemBase_2A.BackgroundImage = foodToDisplay.Picture;
                                 foreach (Ingredients ing in foodToDisplay.Ingredients)
                                 {
@@ -295,14 +279,14 @@ namespace FoodWars.View
                             }
                             else
                             {
-                                itemBase_2A.BackgroundImage = waitingCustomers[i].Orders[0].Picture;
+                                itemBase_2A.BackgroundImage = customerWaiting[i].Orders[0].Picture;
                             }
                         }
-                        if (waitingCustomers[i].Orders.Count >= 2)
+                        if (customerWaiting[i].Orders.Count >= 2)
                         {
-                            if (waitingCustomers[i].Orders[1] is Foods)
+                            if (customerWaiting[i].Orders[1] is Foods)
                             {
-                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[1];
+                                Foods foodToDisplay = (Foods)customerWaiting[i].Orders[1];
                                 itemBase_2B.BackgroundImage = foodToDisplay.Picture;
                                 foreach (Ingredients ing in foodToDisplay.Ingredients)
                                 {
@@ -326,15 +310,15 @@ namespace FoodWars.View
                             }
                             else
                             {
-                                itemBase_2B.BackgroundImage = waitingCustomers[i].Orders[1].Picture;
+                                itemBase_2B.BackgroundImage = customerWaiting[i].Orders[1].Picture;
                             }
                         }
-                        if (waitingCustomers[i].Orders.Count == 3)
+                        if (customerWaiting[i].Orders.Count == 3)
                         {
                             itemBase_2C.Show();
-                            if (waitingCustomers[i].Orders[2] is Foods)
+                            if (customerWaiting[i].Orders[2] is Foods)
                             {
-                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[2];
+                                Foods foodToDisplay = (Foods)customerWaiting[i].Orders[2];
                                 itemBase_2C.BackgroundImage = foodToDisplay.Picture;
                                 foreach (Ingredients ing in foodToDisplay.Ingredients)
                                 {
@@ -358,7 +342,7 @@ namespace FoodWars.View
                             }
                             else
                             {
-                                itemBase_2C.BackgroundImage = waitingCustomers[i].Orders[2].Picture;
+                                itemBase_2C.BackgroundImage = customerWaiting[i].Orders[2].Picture;
                             }
                         }
                     }
@@ -380,14 +364,14 @@ namespace FoodWars.View
                         veggie_3C.BackgroundImage = null;
                         sideDish_3C.BackgroundImage = null;
                         msg_bubble3.Show();
-                        timerLabel_c3.Text = waitingCustomers[i].WaitingDuration.GetSecond().ToString();
-                        pictBox_cust3.BackgroundImage = waitingCustomers[i].Picture;
+                        timerLabel_c3.Text = customerWaiting[i].WaitingDuration.GetSecond().ToString();
+                        pictBox_cust3.BackgroundImage = customerWaiting[i].Picture;
                         pictBox_cust3.Show();
-                        if (waitingCustomers[i].Orders.Count >= 1)
+                        if (customerWaiting[i].Orders.Count >= 1)
                         {
-                            if (waitingCustomers[i].Orders[0] is Foods)
+                            if (customerWaiting[i].Orders[0] is Foods)
                             {
-                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[0];
+                                Foods foodToDisplay = (Foods)customerWaiting[i].Orders[0];
                                 itemBase_3A.BackgroundImage = foodToDisplay.Picture;
                                 foreach (Ingredients ing in foodToDisplay.Ingredients)
                                 {
@@ -411,14 +395,14 @@ namespace FoodWars.View
                             }
                             else
                             {
-                                itemBase_3A.BackgroundImage = waitingCustomers[i].Orders[0].Picture;
+                                itemBase_3A.BackgroundImage = customerWaiting[i].Orders[0].Picture;
                             }
                         }
-                        if (waitingCustomers[i].Orders.Count >= 2)
+                        if (customerWaiting[i].Orders.Count >= 2)
                         {
-                            if (waitingCustomers[i].Orders[1] is Foods)
+                            if (customerWaiting[i].Orders[1] is Foods)
                             {
-                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[1];
+                                Foods foodToDisplay = (Foods)customerWaiting[i].Orders[1];
                                 itemBase_3B.BackgroundImage = foodToDisplay.Picture;
                                 foreach (Ingredients ing in foodToDisplay.Ingredients)
                                 {
@@ -442,14 +426,14 @@ namespace FoodWars.View
                             }
                             else
                             {
-                                itemBase_3B.BackgroundImage = waitingCustomers[i].Orders[1].Picture;
+                                itemBase_3B.BackgroundImage = customerWaiting[i].Orders[1].Picture;
                             }
                         }
-                        if (waitingCustomers[i].Orders.Count == 3)
+                        if (customerWaiting[i].Orders.Count == 3)
                         {
-                            if (waitingCustomers[i].Orders[2] is Foods)
+                            if (customerWaiting[i].Orders[2] is Foods)
                             {
-                                Foods foodToDisplay = (Foods)waitingCustomers[i].Orders[2];
+                                Foods foodToDisplay = (Foods)customerWaiting[i].Orders[2];
                                 itemBase_3C.BackgroundImage = foodToDisplay.Picture;
                                 foreach (Ingredients ing in foodToDisplay.Ingredients)
                                 {
@@ -473,7 +457,7 @@ namespace FoodWars.View
                             }
                             else
                             {
-                                itemBase_3C.BackgroundImage = waitingCustomers[i].Orders[2].Picture;
+                                itemBase_3C.BackgroundImage = customerWaiting[i].Orders[2].Picture;
                             }
                         }
                     }
@@ -484,19 +468,70 @@ namespace FoodWars.View
                     {
                         msg_bubble1.Hide();
                         pictBox_cust1.Hide();
+                        itemBase_1A.BackgroundImage = null;
+                        rice_1A.BackgroundImage = null;
+                        protein_1A.BackgroundImage = null;
+                        veggie_1A.BackgroundImage = null;
+                        sideDish_1A.BackgroundImage = null;
+                        itemBase_1B.BackgroundImage = null;
+                        rice_1B.BackgroundImage = null;
+                        protein_1B.BackgroundImage = null;
+                        veggie_1B.BackgroundImage = null;
+                        sideDish_1B.BackgroundImage = null;
+                        itemBase_1C.BackgroundImage = null;
+                        rice_1C.BackgroundImage = null;
+                        protein_1C.BackgroundImage = null;
+                        veggie_1C.BackgroundImage = null;
+                        sideDish_1C.BackgroundImage = null;
                     }
                     else if (i == 1)
                     {
                         msg_bubble2.Hide();
                         pictBox_cust2.Hide();
+                        itemBase_2A.BackgroundImage = null;
+                        rice_2A.BackgroundImage = null;
+                        protein_2A.BackgroundImage = null;
+                        veggie_2A.BackgroundImage = null;
+                        sideDish_2A.BackgroundImage = null;
+                        itemBase_2B.BackgroundImage = null;
+                        rice_2B.BackgroundImage = null;
+                        protein_2B.BackgroundImage = null;
+                        veggie_2B.BackgroundImage = null;
+                        sideDish_2B.BackgroundImage = null;
+                        itemBase_2C.BackgroundImage = null;
+                        rice_2C.BackgroundImage = null;
+                        protein_2C.BackgroundImage = null;
+                        veggie_2C.BackgroundImage = null;
+                        sideDish_2C.BackgroundImage = null;
                     }
                     else
                     {
                         msg_bubble3.Hide();
                         pictBox_cust3.Hide();
+                        itemBase_3B.BackgroundImage = null;
+                        rice_3B.BackgroundImage = null;
+                        protein_3B.BackgroundImage = null;
+                        veggie_3B.BackgroundImage = null;
+                        sideDish_3B.BackgroundImage = null;
+                        itemBase_3A.BackgroundImage = null;
+                        rice_3A.BackgroundImage = null;
+                        protein_3A.BackgroundImage = null;
+                        veggie_3A.BackgroundImage = null;
+                        sideDish_3A.BackgroundImage = null;
+                        itemBase_3C.BackgroundImage = null;
+                        rice_3C.BackgroundImage = null;
+                        protein_3C.BackgroundImage = null;
+                        veggie_3C.BackgroundImage = null;
+                        sideDish_3C.BackgroundImage = null;
                     }
                 }
             }
+
+            // Mengupdate label selected item berdasarkan item yang dipilih player
+            if (BaseForm.Game.SelectedItem is Foods) label_selectedItem.Text = "Food";
+            else if (BaseForm.Game.SelectedItem is Beverages) label_selectedItem.Text = "Beverage";
+            else if (BaseForm.Game.SelectedItem is Merchandise) label_selectedItem.Text = "Merchandise";
+            else label_selectedItem.Text = "-";
         }
 
         private void UpdatePrepTable()
@@ -544,23 +579,39 @@ namespace FoodWars.View
             }
         }
 
+       
         private void PictBox_cust1_Click(object sender, EventArgs e)
         {
             if (BaseForm.Game.Chairs[0] != null && BaseForm.Game.SelectedItem != null)
             {
                 if (BaseForm.Game.CheckOrder(0))
                 {
-                    // Jangan tampilkan item di message bubble (diupdate saat fungsi update waiting room dipanggil)
+                    // Pesanan yang diberikan BENAR
+                    // Jangan tampilkan item di message bubble (panggil method UpdateWaitingRoom di sini!)
+                    UpdateWaitingRoom();
+
                     // Bunyikan SFX 
+
+                    // LAKUKAN HAL YANG SAMA UNTUK CUSTOMER 2 DAN 3!
                 }
                 else
                 {
-                    // Buat message bubble menjadi merah selama 1 detik 
+                    // Pesanan yang diberikan SALAH
+
+                    // Buat message bubble menjadi merah selama 1 detik (Gausah bikin fungsi, cukup tambahin
+                    // pengecekan di method UpdateWaitingRoom)
+                    // Beri interval untuk message bubble: Interval disimpan dalam array, karena tiap pelanggan
+                    // memiliki msg bubble nya sendiri. Interval message bubble dan UI diupdate setiap Timer_Tick.
+                    // Array disimpan di View, karena tidak ada hubungannya dengan logika permainan, tetapi logika 
+                    // tampilan. Jika interval = 0 message bubble harus putih, jika interval diatas 0, message box
+                    // harus merah. Di sini cukup update interval aja. 
+                    UpdateWaitingRoom();
+
                     // Bunyikan SFX 
-                    // Kosongkan item yang dipilih
+
+                    // LAKUKAN HAL YANG SAMA UNTUK CUSTOMER 2 DAN 3!
                 }
-                // Mengosongkan item setelah dipilih
-                BaseForm.Game.SelectedItem = null;
+                BaseForm.Game.SelectedItem = null; // Mengosongkan item setelah dipilih
             }
         }
 
@@ -621,6 +672,7 @@ namespace FoodWars.View
             if (BaseForm.Game.FoodsBeingPrepared == null)
             {
                 BaseForm.Game.CreateNewFood();
+                UpdatePrepTable();
             }
         }
 
@@ -631,6 +683,7 @@ namespace FoodWars.View
                 BaseForm.Game.FoodsBeingPrepared.SwitchIngredient(
                     BaseForm.Game.AvailableIngredients.GetIngredientsOfCategory(IngredientCategory.RICE, 2)
                 );
+                UpdatePrepTable();
             }
         }
 
@@ -641,6 +694,7 @@ namespace FoodWars.View
                 BaseForm.Game.FoodsBeingPrepared.SwitchIngredient(
                     BaseForm.Game.AvailableIngredients.GetIngredientsOfCategory(IngredientCategory.RICE, 1)
                 );
+                UpdatePrepTable();
             }
         }
 
@@ -651,6 +705,7 @@ namespace FoodWars.View
                 BaseForm.Game.FoodsBeingPrepared.SwitchIngredient(
                     BaseForm.Game.AvailableIngredients.GetIngredientsOfCategory(IngredientCategory.RICE, 0)
                 );
+                UpdatePrepTable();
             }
         }
 
@@ -661,6 +716,7 @@ namespace FoodWars.View
                 BaseForm.Game.FoodsBeingPrepared.SwitchIngredient(
                     BaseForm.Game.AvailableIngredients.GetIngredientsOfCategory(IngredientCategory.PROTEIN, 2)
                 );
+                UpdatePrepTable();
             }
         }
 
@@ -671,6 +727,7 @@ namespace FoodWars.View
                 BaseForm.Game.FoodsBeingPrepared.SwitchIngredient(
                     BaseForm.Game.AvailableIngredients.GetIngredientsOfCategory(IngredientCategory.PROTEIN, 1)
                 );
+                UpdatePrepTable();
             }
         }
 
@@ -681,6 +738,7 @@ namespace FoodWars.View
                 BaseForm.Game.FoodsBeingPrepared.SwitchIngredient(
                     BaseForm.Game.AvailableIngredients.GetIngredientsOfCategory(IngredientCategory.PROTEIN, 0)
                 );
+                UpdatePrepTable();
             }
         }
 
@@ -691,6 +749,7 @@ namespace FoodWars.View
                 BaseForm.Game.FoodsBeingPrepared.SwitchIngredient(
                     BaseForm.Game.AvailableIngredients.GetIngredientsOfCategory(IngredientCategory.VEGETABLES, 2)
                 );
+                UpdatePrepTable();
             }
         }
 
@@ -701,6 +760,7 @@ namespace FoodWars.View
                 BaseForm.Game.FoodsBeingPrepared.SwitchIngredient(
                     BaseForm.Game.AvailableIngredients.GetIngredientsOfCategory(IngredientCategory.VEGETABLES, 1)
                 );
+                UpdatePrepTable();
             }
         }
 
@@ -711,6 +771,7 @@ namespace FoodWars.View
                 BaseForm.Game.FoodsBeingPrepared.SwitchIngredient(
                     BaseForm.Game.AvailableIngredients.GetIngredientsOfCategory(IngredientCategory.VEGETABLES, 0)
                 );
+                UpdatePrepTable();
             }
         }
 
@@ -721,6 +782,7 @@ namespace FoodWars.View
                 BaseForm.Game.FoodsBeingPrepared.SwitchIngredient(
                     BaseForm.Game.AvailableIngredients.GetIngredientsOfCategory(IngredientCategory.SIDE_DISHES, 2)
                 );
+                UpdatePrepTable();
             }
         }
 
@@ -731,6 +793,7 @@ namespace FoodWars.View
                 BaseForm.Game.FoodsBeingPrepared.SwitchIngredient(
                     BaseForm.Game.AvailableIngredients.GetIngredientsOfCategory(IngredientCategory.SIDE_DISHES, 1)
                 );
+                UpdatePrepTable();
             }
         }
 
@@ -741,6 +804,7 @@ namespace FoodWars.View
                 BaseForm.Game.FoodsBeingPrepared.SwitchIngredient(
                     BaseForm.Game.AvailableIngredients.GetIngredientsOfCategory(IngredientCategory.SIDE_DISHES, 0)
                 );
+                UpdatePrepTable();
             }
         }
 
@@ -750,6 +814,7 @@ namespace FoodWars.View
             {
                 BaseForm.Game.BeveragesBeingPrepared.SwitchVariety(BeverageType.OCHA);
             }
+            UpdatePrepTable();
         }
 
         private void pictBox_sake_main_Click(object sender, EventArgs e)
@@ -758,6 +823,7 @@ namespace FoodWars.View
             {
                 BaseForm.Game.BeveragesBeingPrepared.SwitchVariety(BeverageType.SAKE);
             }
+            UpdatePrepTable();
         }
 
         private void pictBox_water_main_Click(object sender, EventArgs e)
@@ -766,6 +832,7 @@ namespace FoodWars.View
             {
                 BaseForm.Game.BeveragesBeingPrepared.SwitchVariety(BeverageType.WATER);
             }
+            UpdatePrepTable();
         }
 
         private void pictBox_ice_Click(object sender, EventArgs e)
@@ -774,6 +841,7 @@ namespace FoodWars.View
             {
                 BaseForm.Game.BeveragesBeingPrepared.SwitchVariety(!BaseForm.Game.BeveragesBeingPrepared.IsCold);
             }
+            UpdatePrepTable();
         }
 
         private void pictBox_glass_S_Click(object sender, EventArgs e)
@@ -781,10 +849,12 @@ namespace FoodWars.View
             if (BaseForm.Game.BeveragesBeingPrepared == null)
             {
                 BaseForm.Game.CreateNewBeverage(GlassSize.SMALL);
+                UpdatePrepTable();
             } 
             else
             {
                 BaseForm.Game.BeveragesBeingPrepared.SwitchVariety(GlassSize.SMALL);
+                UpdatePrepTable();
             }
         }
 
@@ -793,10 +863,12 @@ namespace FoodWars.View
             if (BaseForm.Game.BeveragesBeingPrepared == null)
             {
                 BaseForm.Game.CreateNewBeverage(GlassSize.MEDIUM);
+                UpdatePrepTable();
             }
             else
             {
                 BaseForm.Game.BeveragesBeingPrepared.SwitchVariety(GlassSize.MEDIUM);
+                UpdatePrepTable();
             }
         }
 
@@ -805,21 +877,23 @@ namespace FoodWars.View
             if (BaseForm.Game.BeveragesBeingPrepared == null)
             {
                 BaseForm.Game.CreateNewBeverage(GlassSize.LARGE);
+                UpdatePrepTable();
             }
             else
             {
                 BaseForm.Game.BeveragesBeingPrepared.SwitchVariety(GlassSize.LARGE);
+                UpdatePrepTable();
             }
         }
 
         private void food_main_Click(object sender, EventArgs e)
         {
             Foods selectedFood = BaseForm.Game.FoodsBeingPrepared;
-            Console.WriteLine(selectedFood.Ingredients.Count == 4);
             if (selectedFood.Ingredients.Count == 4)
             {
                 BaseForm.Game.SelectedItem = selectedFood;
                 label_selectedItem.Text = "Food";
+                UpdateWaitingRoom();
             }
         }
 
@@ -830,22 +904,26 @@ namespace FoodWars.View
             {
                 BaseForm.Game.SelectedItem = selectedBeverage;
                 label_selectedItem.Text = "Beverage";
+                UpdateWaitingRoom();
             }
         }
 
         private void pictBox_merch1_Click(object sender, EventArgs e)
         {
             if (BaseForm.Game.SelectMerch(0)) label_selectedItem.Text = "Merchandise";
+            UpdateWaitingRoom();
         }
 
         private void pictBox_merch2_Click(object sender, EventArgs e)
         {
             if (BaseForm.Game.SelectMerch(1)) label_selectedItem.Text = "Merchandise";
+            UpdateWaitingRoom();
         }
 
         private void pictBox_merch3_Click(object sender, EventArgs e)
         {
             if (BaseForm.Game.SelectMerch(2)) label_selectedItem.Text = "Merchandise";
+            UpdateWaitingRoom();
         }
 
         #endregion

@@ -43,7 +43,6 @@ namespace FoodWars.View
             this.label_timeLeft = new System.Windows.Forms.Label();
             this.pictBox_buttonPause = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.updateUITimer = new System.Windows.Forms.Timer(this.components);
             this.pictBox_cust1 = new System.Windows.Forms.PictureBox();
             this.pictBox_cust2 = new System.Windows.Forms.PictureBox();
             this.pictBox_cust3 = new System.Windows.Forms.PictureBox();
@@ -328,12 +327,6 @@ namespace FoodWars.View
             this.timer.Enabled = true;
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.Timer_Tick);
-            // 
-            // updateUITimer
-            // 
-            this.updateUITimer.Enabled = true;
-            this.updateUITimer.Interval = 500;
-            this.updateUITimer.Tick += new System.EventHandler(this.UITimer_Tick);
             // 
             // pictBox_cust1
             // 
@@ -1315,7 +1308,6 @@ namespace FoodWars.View
         #endregion
         private int baseInterval;
         public System.Windows.Forms.Timer timer;
-        public System.Windows.Forms.Timer updateUITimer;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;

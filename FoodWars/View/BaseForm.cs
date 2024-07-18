@@ -2,7 +2,6 @@
 using FoodWars.Service;
 using FoodWars.Utilities;
 using System;
-using System.Drawing.Text;
 using System.Media;
 using System.Windows.Forms;
 

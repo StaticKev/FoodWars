@@ -30,11 +30,11 @@ namespace FoodWars.Entity.CustomerRole
 
         public override void SetTimer()
         {
-            int totalSec = 30;
+            int totalSec = 50;
 
             totalSec += base.Orders.Count * 10;
 
-            base.WaitingDuration = new Time(0, 0, totalSec);
+            base.WaitingDuration = new Time(totalSec);
         }
     }
 }
