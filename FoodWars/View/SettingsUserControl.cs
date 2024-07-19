@@ -33,16 +33,26 @@ namespace FoodWars.View
 
         private void SettingsUserControl_Load(object sender, EventArgs e)
         {
-            if (this.BaseForm.GameConfig.BgmOn == true)
+            if (this.BaseForm.GameConfig.BgmOn)
             {
-                checkBox_BGM.Image = Properties.Resources.Checkbox_Check_True;
 
+                checkBox_BGM.Image = Resources.Checkbox_Check_True;
+            
             }
             else
             {
 
                 checkBox_BGM.Image = Resources.Chekcbox_Checked_False;
 
+            }
+
+            if (this.baseForm.GameConfig.SfxOn)
+            {
+                checkBox_SFX.Image = Resources.Checkbox_Check_True;
+            }
+            else
+            {
+                checkBox_SFX.Image = Resources.Chekcbox_Checked_False;
             }
         }
 
@@ -52,12 +62,25 @@ namespace FoodWars.View
             if (BaseForm.GameConfig.BgmOn)
             {
                 checkBox_BGM.Image = Resources.Checkbox_Check_True;
-                BaseForm.Bgm.Play();
+                BaseForm.Bgm.PlayLooping();
             }
             else
             {
                 checkBox_BGM.Image = Resources.Chekcbox_Checked_False;
                 BaseForm.Bgm.Stop();
+            }
+        }
+
+        private void checkBox_SFX_Click(object sender, EventArgs e)
+        {
+            BaseForm.GameConfig.UpdateSfxStatus(!BaseForm.GameConfig.SfxOn);
+            if (BaseForm.GameConfig.SfxOn)
+            {
+                checkBox_SFX.Image = Resources.Checkbox_Check_True;
+            }
+            else
+            {
+                checkBox_SFX.Image = Resources.Chekcbox_Checked_False;
             }
         }
 

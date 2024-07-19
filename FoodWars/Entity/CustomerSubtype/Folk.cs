@@ -9,6 +9,7 @@ namespace FoodWars.Entity.CustomerRole
         public Folk(CustomerType customerType, Image picture) : base(customerType, picture)
         {
             GenerateName();
+            base.BaseWaitingDuration = 45;
         }
 
         public override int CountTotalPrice()
@@ -26,15 +27,6 @@ namespace FoodWars.Entity.CustomerRole
         public override void GenerateName()
         {
             base.Name = base.Type.ToString() + " Folk";
-        }
-
-        public override void SetTimer()
-        {
-            int totalSec = 50;
-
-            totalSec += base.Orders.Count * 10;
-
-            base.WaitingDuration = new Time(totalSec);
         }
     }
 }

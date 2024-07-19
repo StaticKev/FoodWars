@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FoodWars.View
@@ -40,9 +33,16 @@ namespace FoodWars.View
         {
             MainMenuUserControl mainMenuUc = new MainMenuUserControl(BaseForm);
 
+            BaseForm.Game.ResetGameState();
+
             BaseForm.mainPanel.Controls.Add(mainMenuUc);
             BaseForm.mainPanel.Controls.Remove(this);
             mainMenuUc.Dock = DockStyle.Fill;
+        }
+
+        private void GameLoseUserControl_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

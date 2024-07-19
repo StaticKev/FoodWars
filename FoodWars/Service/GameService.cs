@@ -714,7 +714,7 @@ namespace FoodWars.Service
             bool chairsAreEmpty = Chairs[0] == null && Chairs[1] == null && Chairs[2] == null;
             bool isClosed = OpenDuration.GetSecond() == 0;
 
-            return (queueIsEmpty && chairsAreEmpty) || isClosed;
+            return (queueIsEmpty && chairsAreEmpty) || isClosed; ;
 
         }
 

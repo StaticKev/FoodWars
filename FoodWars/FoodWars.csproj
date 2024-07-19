@@ -131,36 +131,6 @@
     <Compile Include="View\SwitchPlayerUserControl.Designer.cs">
       <DependentUpon>SwitchPlayerUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="View_Prototype\FormInGame.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View_Prototype\FormInGame.Designer.cs">
-      <DependentUpon>FormInGame.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View_Prototype\FormLevelDescription.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View_Prototype\FormLevelDescription.Designer.cs">
-      <DependentUpon>FormLevelDescription.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View_Prototype\FormLoadPlayer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View_Prototype\FormLoadPlayer.Designer.cs">
-      <DependentUpon>FormLoadPlayer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View_Prototype\FormNewPlayer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View_Prototype\FormNewPlayer.Designer.cs">
-      <DependentUpon>FormNewPlayer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View_Prototype\FormSavePlayer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View_Prototype\FormSavePlayer.Designer.cs">
-      <DependentUpon>FormSavePlayer.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -202,21 +172,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\SwitchPlayerUserControl.resx">
       <DependentUpon>SwitchPlayerUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View_Prototype\FormInGame.resx">
-      <DependentUpon>FormInGame.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View_Prototype\FormLevelDescription.resx">
-      <DependentUpon>FormLevelDescription.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View_Prototype\FormLoadPlayer.resx">
-      <DependentUpon>FormLoadPlayer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View_Prototype\FormNewPlayer.resx">
-      <DependentUpon>FormNewPlayer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View_Prototype\FormSavePlayer.resx">
-      <DependentUpon>FormSavePlayer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Entity\ClassDiagram.cd" />
     <None Include="Properties\Settings.settings">
@@ -585,6 +540,32 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Yova.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sfx_buttonClick.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sfx_buttonHover.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sfx_buttonClick.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sfx_buttonHover.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

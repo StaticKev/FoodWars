@@ -283,6 +283,16 @@ namespace FoodWars.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bg_pause {
+            get {
+                object obj = ResourceManager.GetObject("bg_pause", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bg_SwitchPlayer {
             get {
                 object obj = ResourceManager.GetObject("bg_SwitchPlayer", resourceCulture);
@@ -1000,6 +1010,44 @@ namespace FoodWars.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] sfx_buttonClick {
+            get {
+                object obj = ResourceManager.GetObject("sfx_buttonClick", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream sfx_buttonClick1 {
+            get {
+                return ResourceManager.GetStream("sfx_buttonClick1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] sfx_buttonHover {
+            get {
+                object obj = ResourceManager.GetObject("sfx_buttonHover", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream sfx_buttonHover1 {
+            get {
+                return ResourceManager.GetStream("sfx_buttonHover1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap side_korokke {
@@ -1056,15 +1104,6 @@ namespace FoodWars.Properties {
             get {
                 object obj = ResourceManager.GetObject("veggie_pickle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Yova {
-            get {
-                return ResourceManager.GetStream("Yova", resourceCulture);
             }
         }
     }

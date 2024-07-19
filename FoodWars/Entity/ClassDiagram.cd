@@ -6,7 +6,7 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAUQgAAhAIAAAAAAAAAAAAQAAAAFAAAABQAAgAAEBAA=</HashCode>
+      <HashCode>AAGQgAAhgIAAAAAAAIAAAAQAAQAFAAIAAQAAgAgABCA=</HashCode>
       <FileName>Entity\Customers.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -17,7 +17,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="FoodWars.Ingredients">
-    <Position X="7.5" Y="10" Width="1.5" />
+    <Position X="7.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABgAAAAYAAAAAAAAAAAAQAAAAEAAAAAAAIAAAACAA=</HashCode>
       <FileName>Entity\Ingredients.cs</FileName>
@@ -36,7 +36,7 @@
   <Class Name="FoodWars.Foods">
     <Position X="7.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAAIgAAIAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAQAAAAAAAAIgAAIAAAACAAAIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\Foods.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -54,7 +54,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAQgAAAAAAAggAAAIAAAAAAAAAhAAAAIAAAAAAAAAA=</HashCode>
+      <HashCode>AEAYgAAAAAAAgoAAAIAAAAAAAAAhAAAAIAAAAAAAAAA=</HashCode>
       <FileName>Entity\Beverages.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -72,14 +72,14 @@
   <Class Name="FoodWars.Time">
     <Position X="12.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAoAAAAIAAAAAACIAAAAiAAAAAAA=</HashCode>
+      <HashCode>AAIAACAAAAAAAAAAAgAAAAIBAAAAACIAAAAiAAAAIAA=</HashCode>
       <FileName>Entity\Time.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FoodWars.Players">
     <Position X="14.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIgABACIAAQAgAABAAAAQAAAAEIAAAACAAAAAACAA=</HashCode>
+      <HashCode>AAAIgAAACIAAAAgAABAAAAQAAAEEIAABACAAAAAACAA=</HashCode>
       <FileName>Entity\Players.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -97,14 +97,14 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAABAA=</HashCode>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Entity\CustomerSubtype\Folk.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FoodWars.Entity.CustomerSubtype.BusinessMan">
     <Position X="1.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAABAA=</HashCode>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Entity\CustomerSubtype\BusinessMan.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -119,7 +119,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAABAA=</HashCode>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Entity\CustomerSubtype\Samurai.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -134,7 +134,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAABAA=</HashCode>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Entity\CustomerSubtype\Nobleman.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -149,14 +149,14 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAABAA=</HashCode>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Entity\CustomerSubtype\RoyalFamily.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="FoodWars.Values.BeverageType">
-    <Position X="9.75" Y="10.75" Width="1.5" />
+    <Position X="9.75" Y="11.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAAgAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <HashCode>AAAAAgAAAAgAAAAAAAAAAAAABAAAAAAAAACAAAAAAAA=</HashCode>
       <FileName>Values\BeverageType.cs</FileName>
     </TypeIdentifier>
   </Enum>
@@ -175,7 +175,7 @@
     </TypeIdentifier>
   </Enum>
   <Enum Name="FoodWars.Values.IngredientCategory">
-    <Position X="5.25" Y="11.25" Width="1.5" />
+    <Position X="5.25" Y="11.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAQAAAAAAAAAAIAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Values\IngredientCategory.cs</FileName>

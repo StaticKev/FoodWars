@@ -8,6 +8,7 @@ namespace FoodWars.Entity.CustomerSubtype
         public BusinessMan(CustomerType customerType, Image picture) : base(customerType, picture)
         {
             GenerateName();
+            base.BaseWaitingDuration = 40;
         }
 
         public override int CountTotalPrice()
@@ -29,15 +30,6 @@ namespace FoodWars.Entity.CustomerSubtype
             if (base.Type.Equals(CustomerType.MALE)) base.Name = "Business Man";
             else if (base.Type.Equals(CustomerType.FEMALE)) base.Name = "Business Woman";
             else base.Name = "Young Entrepreneur";
-        }
-
-        public override void SetTimer()
-        {
-            int totalSec = 45;
-
-            totalSec += base.Orders.Count * 10;
-
-            base.WaitingDuration = new Time(totalSec);
         }
     }
 }

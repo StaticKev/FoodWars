@@ -13,6 +13,7 @@ namespace FoodWars.View
         private GameService game;
         private GameConfig gameConfig;
         private SoundPlayer bgm;
+        private SoundPlayer sfx;
         #endregion
 
         #region Constructors
@@ -22,7 +23,7 @@ namespace FoodWars.View
             this.Game = game;
             this.GameConfig = gameConfig;
             bgm = new SoundPlayer(Resources.RestaurantAudio);
-            if (GameConfig.BgmOn) bgm.Play();
+            if (GameConfig.BgmOn) Bgm.PlayLooping();
         }
         #endregion
 
@@ -50,7 +51,21 @@ namespace FoodWars.View
             get => bgm;
             private set => bgm = value;
         }
+
+        private SoundPlayer Sfx
+        {
+            get => sfx;
+            set => sfx = value;
+        }
         #endregion
+
+        public void PlaySfx(SoundPlayer audio)
+        {
+/*            if (GameConfig.SfxOn)
+            {
+                audio.Play();
+            }*/
+        }
 
         private void BaseForm_Load(object sender, EventArgs e)
         {

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 
 namespace FoodWars
 {
@@ -14,6 +15,7 @@ namespace FoodWars
         private List<Items> completedOrders;
         private Image picture;
         private Time waitingDuration;
+        private int baseWaitingDuration;
         #endregion
 
         #region Constructors
@@ -73,6 +75,15 @@ namespace FoodWars
                 else this.waitingDuration = value;
             }
         }
+        protected int BaseWaitingDuration
+        {
+            get => baseWaitingDuration;
+            set
+            {
+                if (value <= 0) throw new ArgumentException("Base waiting duration must be greater than zero!");
+                else this.baseWaitingDuration = value;
+            }
+        }
         #endregion
 
         #region Methods
@@ -82,7 +93,19 @@ namespace FoodWars
             if (Orders.Count < 3) Orders.Add(item);
             else throw new ArgumentException("Maximum number of orders reached!");
         }
-        public abstract void SetTimer();
+        public void SetTimer()
+        {
+            int totalSec = BaseWaitingDuration;
+
+            foreach(Items item in Orders)
+            {
+                if (item is Foods) totalSec += 15;
+                else if (item is Beverages) totalSec += 10;
+                else totalSec += 7;
+            }
+
+            WaitingDuration = new Time(totalSec);
+        }
         public void MarkCompleteOrder(Items order)
         {
             Orders.Remove(order);

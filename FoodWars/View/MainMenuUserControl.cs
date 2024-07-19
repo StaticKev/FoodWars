@@ -1,6 +1,7 @@
 ﻿using FoodWars.Properties;
 using FoodWars.Service;
 using System;
+using System.Media;
 using System.Windows.Forms;
 
 namespace FoodWars.View
@@ -52,8 +53,9 @@ namespace FoodWars.View
         {
             if (BaseForm.Game.Player != null)
             {
-                InGameUserControl inGameUc = new InGameUserControl(BaseForm);
+                BaseForm.PlaySfx(new SoundPlayer(Resources.sfx_buttonClick1));
 
+                InGameUserControl inGameUc = new InGameUserControl(BaseForm);
                 BaseForm.mainPanel.Controls.Add(inGameUc);
                 BaseForm.mainPanel.Controls.Remove(this);
                 inGameUc.Dock = DockStyle.Fill;
@@ -68,6 +70,7 @@ namespace FoodWars.View
             }
             else
             {
+                BaseForm.PlaySfx(new SoundPlayer(Resources.sfx_buttonHover1));
                 pictBox_ButtonStart.Image = Resources.button_start_stroke;
             }
         }
@@ -87,8 +90,9 @@ namespace FoodWars.View
         #region SWITCH PLAYER
         private void Button_SwitchPlayer_Click(object sender, EventArgs e)
         {
-            SwitchPlayerUserControl switchPlayerUc = new SwitchPlayerUserControl(BaseForm);
+            BaseForm.PlaySfx(new SoundPlayer(Resources.sfx_buttonClick1));
 
+            SwitchPlayerUserControl switchPlayerUc = new SwitchPlayerUserControl(BaseForm);
             BaseForm.mainPanel.Controls.Remove(this);
             BaseForm.mainPanel.Controls.Add(switchPlayerUc);
             switchPlayerUc.Dock = DockStyle.Fill;
@@ -97,6 +101,7 @@ namespace FoodWars.View
 
         private void Button_SwitchPlayer_MouseEnter(object sender, EventArgs e)
         {
+            BaseForm.PlaySfx(new SoundPlayer(Resources.sfx_buttonHover1));
             pictBox_ButtonSwitchPlayer.Image = Resources.button_switchPlayer_stroke;
         }
 
@@ -108,6 +113,8 @@ namespace FoodWars.View
         #region LEADERBOARD
         private void Button_Leaderboard_Click(object sender, EventArgs e)
         {
+            BaseForm.PlaySfx(new SoundPlayer(Resources.sfx_buttonClick1));
+
             LeaderboardUserControl leaderboardUc = new LeaderboardUserControl(BaseForm);
             BaseForm.mainPanel.Controls.Remove(this);
             BaseForm.mainPanel.Controls.Add(leaderboardUc);
@@ -116,6 +123,7 @@ namespace FoodWars.View
 
         private void Button_Leaderboard_MouseEnter(object sender, EventArgs e)
         {
+            BaseForm.PlaySfx(new SoundPlayer(Resources.sfx_buttonHover1));
             pictBox_Leaderboard.Image = Resources.button_leaderboard_stroke;
         }
 
@@ -127,7 +135,8 @@ namespace FoodWars.View
         #region SETTINGS
         private void Button_Settings_MouseClick(object sender, EventArgs e)
         {
-            // Navigate to view
+            BaseForm.PlaySfx(new SoundPlayer(Resources.sfx_buttonClick1));
+
             SettingsUserControl settingsUc = new SettingsUserControl(BaseForm);
 
             BaseForm.mainPanel.Controls.Remove(this);
@@ -137,6 +146,7 @@ namespace FoodWars.View
 
         private void Button_Settings_MouseEnter(object sender, EventArgs e)
         {
+            BaseForm.PlaySfx(new SoundPlayer(Resources.sfx_buttonHover1));
             pictBox_ButtonSettings.Image = Resources.button_settings_stroke;
         }
 
@@ -148,11 +158,13 @@ namespace FoodWars.View
         #region EXIT BUTTON
         private void Button_Exit_MouseClick(object sender, EventArgs e)
         {
+            BaseForm.PlaySfx(new SoundPlayer(Resources.sfx_buttonClick1));
             Application.Exit();
         }
 
         private void Button_Exit_MouseEnter(object sender, EventArgs e)
         {
+            BaseForm.PlaySfx(new SoundPlayer(Resources.sfx_buttonHover1));
             pictBox_ButtonExit.Image = Resources.button_exit_stroke;
         }
 

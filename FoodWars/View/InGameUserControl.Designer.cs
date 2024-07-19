@@ -991,7 +991,7 @@ namespace FoodWars.View
             this.pictBox_merch1.BackColor = System.Drawing.Color.Transparent;
             this.pictBox_merch1.BackgroundImage = global::FoodWars.Properties.Resources.prepTable_merch_tumbler;
             this.pictBox_merch1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictBox_merch1.Location = new System.Drawing.Point(391, 307);
+            this.pictBox_merch1.Location = new System.Drawing.Point(358, 313);
             this.pictBox_merch1.Name = "pictBox_merch1";
             this.pictBox_merch1.Size = new System.Drawing.Size(50, 50);
             this.pictBox_merch1.TabIndex = 27;
@@ -1003,7 +1003,7 @@ namespace FoodWars.View
             this.pictBox_merch2.BackColor = System.Drawing.Color.Transparent;
             this.pictBox_merch2.BackgroundImage = global::FoodWars.Properties.Resources.prepTable_merch_fan;
             this.pictBox_merch2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictBox_merch2.Location = new System.Drawing.Point(447, 307);
+            this.pictBox_merch2.Location = new System.Drawing.Point(414, 313);
             this.pictBox_merch2.Name = "pictBox_merch2";
             this.pictBox_merch2.Size = new System.Drawing.Size(50, 50);
             this.pictBox_merch2.TabIndex = 28;
@@ -1015,7 +1015,7 @@ namespace FoodWars.View
             this.pictBox_merch3.BackColor = System.Drawing.Color.Transparent;
             this.pictBox_merch3.BackgroundImage = global::FoodWars.Properties.Resources.prepTable_merch_actionFigure;
             this.pictBox_merch3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictBox_merch3.Location = new System.Drawing.Point(503, 307);
+            this.pictBox_merch3.Location = new System.Drawing.Point(470, 313);
             this.pictBox_merch3.Name = "pictBox_merch3";
             this.pictBox_merch3.Size = new System.Drawing.Size(50, 50);
             this.pictBox_merch3.TabIndex = 29;
@@ -1027,7 +1027,7 @@ namespace FoodWars.View
             this.pictBox_glass_M.BackColor = System.Drawing.Color.Transparent;
             this.pictBox_glass_M.BackgroundImage = global::FoodWars.Properties.Resources.glass_M;
             this.pictBox_glass_M.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictBox_glass_M.Location = new System.Drawing.Point(603, 367);
+            this.pictBox_glass_M.Location = new System.Drawing.Point(200, 316);
             this.pictBox_glass_M.Name = "pictBox_glass_M";
             this.pictBox_glass_M.Size = new System.Drawing.Size(50, 50);
             this.pictBox_glass_M.TabIndex = 30;
@@ -1039,7 +1039,7 @@ namespace FoodWars.View
             this.pictBox_glass_S.BackColor = System.Drawing.Color.Transparent;
             this.pictBox_glass_S.BackgroundImage = global::FoodWars.Properties.Resources.glass_S;
             this.pictBox_glass_S.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictBox_glass_S.Location = new System.Drawing.Point(587, 309);
+            this.pictBox_glass_S.Location = new System.Drawing.Point(144, 316);
             this.pictBox_glass_S.Name = "pictBox_glass_S";
             this.pictBox_glass_S.Size = new System.Drawing.Size(50, 50);
             this.pictBox_glass_S.TabIndex = 31;
@@ -1050,8 +1050,8 @@ namespace FoodWars.View
             // 
             this.pictBox_glass_L.BackColor = System.Drawing.Color.Transparent;
             this.pictBox_glass_L.BackgroundImage = global::FoodWars.Properties.Resources.glass_L;
-            this.pictBox_glass_L.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictBox_glass_L.Location = new System.Drawing.Point(292, 367);
+            this.pictBox_glass_L.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictBox_glass_L.Location = new System.Drawing.Point(256, 316);
             this.pictBox_glass_L.Name = "pictBox_glass_L";
             this.pictBox_glass_L.Size = new System.Drawing.Size(50, 50);
             this.pictBox_glass_L.TabIndex = 32;
@@ -1063,7 +1063,7 @@ namespace FoodWars.View
             this.pictBox_ice.BackColor = System.Drawing.Color.Transparent;
             this.pictBox_ice.BackgroundImage = global::FoodWars.Properties.Resources.OOP___Asset_Object_20240712_010031_0000;
             this.pictBox_ice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictBox_ice.Location = new System.Drawing.Point(307, 309);
+            this.pictBox_ice.Location = new System.Drawing.Point(294, 372);
             this.pictBox_ice.Name = "pictBox_ice";
             this.pictBox_ice.Size = new System.Drawing.Size(50, 50);
             this.pictBox_ice.TabIndex = 33;
@@ -1137,7 +1137,7 @@ namespace FoodWars.View
             this.pictBox_plate.BackColor = System.Drawing.Color.Transparent;
             this.pictBox_plate.BackgroundImage = global::FoodWars.Properties.Resources.plate;
             this.pictBox_plate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictBox_plate.Location = new System.Drawing.Point(175, 301);
+            this.pictBox_plate.Location = new System.Drawing.Point(536, 312);
             this.pictBox_plate.Name = "pictBox_plate";
             this.pictBox_plate.Size = new System.Drawing.Size(102, 70);
             this.pictBox_plate.TabIndex = 36;

@@ -181,6 +181,9 @@
   <data name="bg_newPlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NewPlayerUserControl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bg_pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg_pause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bg_SwitchPlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SwitchPlayerUserControl_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -397,6 +400,18 @@
   <data name="Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="sfx_buttonClick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sfx_buttonClick.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="sfx_buttonClick1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sfx_buttonClick.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="sfx_buttonHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sfx_buttonHover.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="sfx_buttonHover1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sfx_buttonHover.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="side_korokke" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\side_korokke.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -414,9 +429,6 @@
   </data>
   <data name="veggie_pickle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\veggie_pickle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Yova" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Yova.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="_Uyuu_Restaurant__Genshin_Impact_Inazuma_OST_BGM" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\[Uyuu Restaurant] Genshin Impact Inazuma OST BGM.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

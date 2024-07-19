@@ -21,11 +21,6 @@ D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.csproj.GenerateResource.cach
 D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.csproj.CoreCompileInputs.cache
 D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.exe
 D:\FoodWarsOOP\FoodWars\FoodWars\obj\Debug\FoodWars.pdb
-D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormInGame.resources
-D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormLevelDescription.resources
-D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormLoadPlayer.resources
-D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormNewPlayer.resources
-D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.FormSavePlayer.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.BaseForm.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.MainMenuUserControl.resources
 D:\KEVIN\Programming\Projects\FoodWars\FoodWars\obj\Debug\FoodWars.View.SwitchPlayerUserControl.resources
